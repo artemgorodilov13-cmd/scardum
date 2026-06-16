@@ -56,7 +56,6 @@
     	       border-radius: 7px;
 	} 
         
-        /* Стиль самой карточки */
         .game-card {
             background: #1f2833;
             border: 1px solid #45f3ff;
@@ -70,7 +69,6 @@
             box-shadow: 0 4px 10px rgba(0,0,0,0.3);
         }
         
-        /* Магия свечения и увеличения при наведении курсора */
         .game-card:hover {
             transform: translateY(-5px);
             border-color: #66fcf1;
@@ -113,9 +111,9 @@
         a { text-decoration: none; }
 
 	.header-top {
-    	     position: fixed;
-    	     top: 20px;
-    	     right: 20px;
+    	     position: absolute;
+    	     top: 10px;
+    	     right: 10px;
 	     z-index: 999;
 	}
 
@@ -147,6 +145,61 @@
     		color: #1a1a1a !important;
     		text-shadow: none !important;
 	}
+
+        .search-container {
+            margin: 20px 0;
+            width: 100%;
+            max-width: 400px;
+            display: inline-block;
+        }
+        #game-search {
+            width: 100%;
+            padding: 12px 20px;
+            background: #1f2833;
+            border: 1px solid #45f3ff;
+            border-radius: 25px;
+            color: #fff;
+            font-size: 1rem;
+            outline: none;
+            box-sizing: border-box;
+            transition: all 0.3s ease;
+        }
+        
+        @media max-width: 480px {
+            body {
+                padding-top: 80px;
+            }
+            .header-top {
+                right: 50%;
+                transform: translateX(50%);
+            }
+            h1 {
+                font-size: 2.6rem !important;
+                letter-spacing: 3px;
+                margin-top: 25px;
+            }
+        }
+
+	const searchInput = document.getElementById('game-search');
+	if (searchInput) {
+    	    searchInput.addEventListener('input', () => {
+                const filter = searchInput.value.toLowerCase();
+        	const cards = document.querySelectorAll('.game-card');
+
+        	cards.forEach(card => {
+            	    const titleElement = card.querySelector('h3');
+            	    if (titleElement) {
+                	const title = titleElement.innerText.toLowerCase();
+                
+                	if (title.includes(filter)) {
+                    	    card.style.setProperty('display', 'block', 'important'); 
+                	} else {
+                    	    card.style.setProperty('display', 'none', 'important');
+                	}
+            	     }
+                });
+           });
+       }
     </style>
 </head>
 <body>
@@ -159,7 +212,11 @@
     </div>
     <div class="container">
         <h1>SCARDUM</h1>
-        <p>Честный гейминг для слабых и средних ПК.</p>
+        <p>Карточки, которые хочется читать снова и снова.</p>
+
+	<div class="search-container">
+	    <input type="text" id="game-search" placeholder="Поиск...">
+	</div>
         
         <!-- Сетка с карточками игр -->
         <div class="games-grid">
