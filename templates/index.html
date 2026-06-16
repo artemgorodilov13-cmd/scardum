@@ -180,26 +180,30 @@
             }
         }
 
-	const searchInput = document.getElementById('game-search');
-	if (searchInput) {
-    	    searchInput.addEventListener('input', () => {
-                const filter = searchInput.value.toLowerCase();
-        	const cards = document.querySelectorAll('.game-card');
-
-        	cards.forEach(card => {
-            	    const titleElement = card.querySelector('h3');
-            	    if (titleElement) {
-                	const title = titleElement.innerText.toLowerCase();
-                
-                	if (title.includes(filter)) {
-                    	    card.style.setProperty('display', 'block', 'important'); 
-                	} else {
-                    	    card.style.setProperty('display', 'none', 'important');
-                	}
-            	     }
-                });
-           });
-       }
+		const searchInput = document.getElementById('game-search');
+		if (searchInput) {
+		    searchInput.addEventListener('input', () => {
+		        const filter = searchInput.value.toLowerCase().trim();
+		        const cards = document.querySelectorAll('.game-card');
+		
+		        cards.forEach(card => {
+		            const titleElement = card.querySelector('h3');
+		            const title = titleElement ? titleElement.innerText.toLowerCase() : card.innerText.toLowerCase();
+		            
+		            if (title.includes(filter)) {
+		                card.style.setProperty('visibility', 'visible', 'important');
+		                card.style.setProperty('opacity', '1', 'important');
+		                card.style.setProperty('position', 'relative', 'important');
+		                card.style.setProperty('pointer-events', 'auto', 'important');
+		            } else {
+		                card.style.setProperty('visibility', 'hidden', 'important');
+		                card.style.setProperty('opacity', '0', 'important');
+		                card.style.setProperty('position', 'absolute', 'important');
+		                card.style.setProperty('pointer-events', 'none', 'important');
+		            }
+		        });
+		    });
+		}
     </style>
 </head>
 <body>
