@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elder Scrolls: Arena — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Elder Scrolls: Arena</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> RPG / Dungeon Crawler</div>
+            <div class="info-item"><span>Дата релиза:</span> 25 марта 1994 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 80/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Тодд Говард тогда еще ходил в школу, но безумие уже начиналось. Императора Уриэля Септима VII предал его же придворный маг Джагар Тарн. Маг запер императора в другом измерении, принял его облик и захватил трон. Вы — безымянный заключенный, которому во сне является дух погибшей волшебницы и говорит: «Спасай Тамриэль, надо собрать восемь кусков Посоха Хаоса». И вас выпускают в стартовую канализацию. На этом сюжет всё. Дальше начинается чистый хардкор: вы открываете карту, а она размером с реальную Великобританию. Города, деревни, подземелья генерируются прямо на ходу. И во всем этом пиксельном великолепии вам нужно выжить.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/skyrimarena_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Тут просто смех сквозь слезы.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel 80386 с частотой 25 МГц.</li>
+            <li><strong>Оперативная память:</strong> 4 МБ.</li>
+            <li><strong>Видеокарта:</strong> VGA-совместимая.</li>
+	    <li><strong>Вес:</strong> 15 МБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p>Поскольку игра работает через эмулятор DOSBox и вообще не знает о существовании видеокарт (весь рендер идет через процессор), результаты у всех карт будут абсолютно одинаковыми. Видеокарты в этой игре просто отдыхают, пока процессор отдувается за двоих.</p>
+	    <p>GTX 1660 / 1660 Super - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS. Карта задействует примерно... 0.000001% своей мощности. Память GDDR6 пытается понять, зачем её создали, если игра занимает 20 мегабайт в оперативке.</p>
+	    <p>GTX 1060 (6 ГБ) - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS. Твои 6 гигабайт видеопамяти могли бы вместить в себя 240 копий этой игры одновременно, но Arena гордо использует ровно 0 мегабайт.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS. Здесь 4 ГБ памяти — это бесконечный избыток. Никаких фризов, ведь текстур высокого разрешения тут не существовало в природе.</p>
+	    <p>GTX 1060 (3 ГБ) - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS. Карта выдает те же безумные тысячи кадров. Урезанный чип никак не мешает тебе страдать в стартовой канализации.</p>
+	    <p>GTX 1050 Ti - С ограничением DOSBox: 30 FPS. Без ограничений (Cycles = Max): 10 000+ FPS. Народная любимица снова чувствует себя топовым флагманом, который без труда укладывает на лопатки игру из прошлого века.</p>
+	    <p>GTX 750 Ti - С ограничением DOSBox: 30 FPS.Без ограничений (Cycles = Max): 10 000+ FPS. Даже этот старый ветеран мощнее, чем суперкомпьютеры NASA в 1994 году.</p>
+	</div>
+
+	<p>В такое старое и пиксельное мессиво я, к сожаление, (или к счастью) не играл.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Говорить об оптимизации игры 1994 года в 2026 году — это особый вид постиронии. Прямого порта на Windows нет, поэтому игра запускается через эмулятор DOSBox.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Только ради культурного шока и галочки. Если ты хочешь увидеть, откуда выросли Скайрим и Морровинд — запусти на полчаса. Но играть в это на полном серьезе в 2026 году смогут только самые суровые выживальщики, которые не боятся управления мытьем посуды и графики, где стена от врага отличается только цветом трех пикселей.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> The Elder Scrolls: Arena на современных ПК — это как запустить тетрис на суперкомпьютере NASA. Производительность будет бесконечной, но геймплей из 1994 года проверит твою нервную систему на прочность.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

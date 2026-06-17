@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>{{ game.title }} — Обзор SCARDUM</title>
+    <!-- Сюда можешь бахнуть общие стили для всех обзоров, если хочешь -->
+</head>
+<body>
+
+    {% include 'game/' + game.slug + '.html' %}
+
+</body>
+</html>
