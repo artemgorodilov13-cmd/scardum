@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Factorio: Space Age — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Factorio: Space Age</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span>  Симулятор строительства и управления</div>
+            <div class="info-item"><span>Дата релиза:</span> 21 октября 2024 года</div>
+            <div class="info-item"><span>Издатель:</span> Wube Software</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 90/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Это масштабное дополнение, которое превращает вашу любимую симуляцию «прощай, личная жизнь» в межпланетный кошмар перфекциониста. Разработчики решили, что одной планеты для страданий мало, и теперь заставляют строить заводы в космосе и на других небесных телах. Четыре новые планеты и каждая со своим уникальным геморроем. На Вулканусе вы варите железо прямо из лавы, на Фульгоре ловите молнии жопой... точнее, громоотводами, а на Глебе выращиваете споры, которые тупо гниют на конвейерах, если их сразу не переработать. В общем весело тут.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/factorio2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Здесь требования выросли, но не особо сильно, поэтому можно расслабить булки.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Quad core 3GHz+.</li>
+            <li><strong>Оперативная память:</strong> 8 ГБ.</li>
+            <li><strong>Видеокарта:</strong>  1 ГБ VRAM (уровня GTX 260).</li>
+	    <li><strong>Вес:</strong> 8 ГБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - из-за 2 ГБ придётся ставить текстуры на низкие, а FPS будет <strong>40–45</strong>.</p>
+	    <p>GTX 1050 Ti - <strong>55–60 FPS</strong>официальный фаворит. 4 ГБ хватает на высокие текстуры, но мегабаза заставит снизить сжатие спрайтов</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong>. Мощнее, чем 1050 Ti, но из-за 3 ГБ памяти ловит фризы, когда открываешь карту всей галактики.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong>. Легенда жива. Памяти хватает с головой, все планеты отрисовываются плавно, если проц вывозит.</p>											
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong>. Вообще без проблем. На Full HD можно выкрутить всё на максимум и кайфовать от взрывов астероидов.</p>
+	    <p>AMD Radeon RX 570 и RX 580 с 4 ГБ - <strong>55–60 FPS</strong>. Держится бодряком, идет вровень с 1050 Ti. В мегабазах может слегка проседать из-за отрисовки тысяч дронов.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>. Идеальный бюджетный вариант. 8 ГБ пережёвывают любые масштабные заводы и HD-текстуры.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>В общем, оптимизация в игре — это чистая магия чешских программистов. Игра работает даже на микроволновках, но с оговоркой: Factorio упирается не в видеокарту, а в процессор (однопоток) и скорость оперативной памяти. Т.е., если твоя мегабаза начнет лагать и выдавать 40 UPS (UPS в Factorio — это, к слову, самый главный показатель, на который молится любой игрок. Это обновления игрового движка в секунду) вместо 60 — вини свой старый Ryzen или Intel, а не видяху. В Space Age разработчики переписали кучу кода, так что многоуровневые рельсы и логистика работают шустрее, чем должны. Вообще, за оптимизацию — 10 конвейеров из 10.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Конечно, стоит, если тебе не дороги твоя работа, личная жизнь и здоровый сон. К 2026 году Space Age обросла тонной модов, комьюнити вылизало все гайды до блеска, а разработчики поправили мелкие баги. Это не просто DLC, это вообще Factorio 2.0 по цене дополнения. Если ты любишь ментальный садомазохизм и логические задачки — альтернатив на рынке до сих пор просто нет.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Factorio: Space Age — шедевр для тех, кто готов автоматизировать даже собственную жизнь. Игра отлично идет на старых картах, не требуя от тебя покупки дорогущей RTX. Фабрика должна развиваться...</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

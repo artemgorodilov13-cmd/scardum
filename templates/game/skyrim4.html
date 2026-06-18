@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elder Scrolls IV: Oblivion — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Elder Scrolls IV: Oblivion</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span>  RPG / Open World</div>
+            <div class="info-item"><span>Дата релиза:</span> 20 марта 2006 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 94/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Императора Уриэля Септима (да, бедолагу опять ущемляют) убивают тайные культисты прямо у вас на глазах в самом начале игры. Но перед смертью он успевает отдать вам Амулет Королей и говорит: «Найди моего внебрачного сына Мартина (которого озвучил Шон Бин), он колымит священником в Кватче». Вы вылезаете из канализации, а вокруг вовсю открываются Врата Обливиона — порталы в местный филиал ада, откуда лезут дремора и скампы. Ваша задача — закрыть эти чертовы врата, найти Мартина, зажечь Драконьи огни и спасти Тамриэль. Но вместо этого вы, скорее всего, пойдете проходить шикарные квесты Темного Братства и Гильдии Воров, которые здесь получились в сто раз круче основного сюжета.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/skyrim4_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>На релизе Oblivion заставлял видеокарты дымиться из-за невероятной дальности прорисовки и шейдерного освещения.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium 4 с частотой 3 ГГц.</li>
+            <li><strong>Оперативная память:</strong> 1 ГБ.</li>
+            <li><strong>Видеокарта:</strong> С поддержкой DirectX 9.0c и 128 МБ памяти.</li>
+	    <li><strong>Вес:</strong> 4.6 ГБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - FPS в чистом поле: <strong>55–65 FPS</strong>. FPS в замесах: <strong>45–50 FPS</strong>. Если на экране начнется жесткое месиво с магией, фреймрейт может немного просесть, но если скинуть настройки теней на средние, будут железные 60 кадров везде.</p>
+	    <p>GTX 1050 Ti - FPS в чистом поле: <strong>75–90 FPS</strong>. Народная любимица без труда выдает больше 60 кадров на ультра-настройках. FPS в замесах: <strong>60–70 FPS</strong>. Картинка четкая и плавная, проходить Врата Обливиона можно с полным комфортом.</p>
+	    <p>GTX 1060 (3 ГБ) - FPS в чистом поле: <strong>105–125 FPS</strong>. Никаких просадок или фризов, игра летит на максималках. FPS в замесах: <strong>90–105 FPS</strong>.</p>
+	    <p>GTX 1060 (6 ГБ) - FPS в чистом поле: <strong>110–130 FPS</strong>. Прекрасный полет. 6 гигабайт видеопамяти здесь простаивают, игра занимает от силы 600–800 МБ. FPS в замесах: <strong>95–110 FPS</strong>. Картинка плавная, как масло.</p>											
+	    <p>GTX 1660 / 1660 Super - FPS в чистом поле: <strong>120–150+ FPS</strong>.FPS в густом лесу/замесах: Стабильные <strong>120 FPS</strong>. Ограничение будет скорее в сам движок игры, который не умеет выдавать больше кадров адекватно.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - FPS в чистом поле: <strong>95–115 FPS</strong>. FPS в замесах: <strong>85–95 FPS</strong>. Разницы с 8-гигабайтной версией нет никакой, ведь текстуры оригинальной игры весят так мало, что легко помещаются в буфер даже старых карт.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - FPS в чистом поле: <strong>100–120 FPS</strong>. Фирменная шейдерная трава Обливиона перемалывается чипом Polaris без каких-либо фризов. FPS в замесах: <strong>90–100 FPS</strong>. Стабильно, как режим в Имперской тюрьме.</p>
+	</div>
+
+	<p>К сожалению, в этот шедевр я не играл.</p>
+
+	<h3>Оптимизация</h3>
+	<p>32 бита и вечная боль от модов в оригинале (чистая игра): к 2026 году чистый Обливион оптимизирован «само по себе». Игра без проблем выдает огромный FPS на любой современной затычке. Но есть нюанс: движок игры — старый, 32-битный. Это значит, что игра физически не умеет использовать больше 2-3 ГБ оперативной памяти, сколько бы у тебя её ни было. Стоит тебе установить пару сотен модов на 4К-текстуры, как движок моментально захлебнется и вылетит с ошибкой Out of Memory. Чтобы этого не происходило, на сайте обязательно нужно посоветовать фанатские утилиты 4GB Patch и Oblivion Reloaded.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, если тебя не пугают специфические лица персонажей. Квесты в Обливионе — это, пожалуй, лучшее, что делала Bethesda в своей истории. Квест с картиной, детектив в доме с гостями, безумные задания Шеогората на Дрожащих Островах — Скайрим в этом плане нервно курит в сторонке. Если поставить пару фиксов на стабильность, игра подарит кучу эмоций.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Игра, которая считается эталоном всех RPG, до сих пор играбельна если помучиться с фиксами.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

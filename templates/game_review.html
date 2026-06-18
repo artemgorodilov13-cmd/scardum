@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ game.title }} — Обзор SCARDUM</title>
+        <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10 !important; 
+            color: #c5c6c7 !important; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { 
+            max-width: 700px; 
+            width: 100%; 
+            background: #1f2833 !important; 
+            border: 1px solid #1e3a45 !important;
+            border-radius: 12px; 
+            padding: 30px; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important; 
+            box-sizing: border-box;
+        }
+        h1 { color: #66fcf1 !important; margin-top: 0; border-bottom: 2px solid #45f3ff !important; padding-bottom: 10px; }
+        h3 { color: #66fcf1 !important; }
+        
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10 !important; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff !important; font-weight: bold; }
+        
+        .fps-box { 
+            background: #141d26 !important; 
+            border-left: 5px solid #3b82f6 !important; 
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important; 
+            font-size: 1.1rem; 
+        }
+        
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1 !important; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+        .game-screenshot-box {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            border: 1px solid #1e3a45 !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4) !important;
+            box-sizing: border-box;
+        }
+        .game-img { width: 100%; height: auto; display: block; border-radius: 7px; }
+        .rating-highlight { color: #66fcf1 !important; font-weight: bold; text-shadow: 0 0 5px rgba(102, 252, 241, 0.5) !important; }
+
+
+        body.light-theme {
+            background: #f4f7f6 !important;
+            color: #2d3748 !important;
+        }
+        body.light-theme .container {
+            background: #ffffff !important;
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important;
+            color: #2d3748 !important;
+        }
+        body.light-theme h1 {
+            color: #0f766e !important;
+            border-bottom-color: #e2e8f0 !important;
+        }
+        body.light-theme h3 {
+            color: #1a202c !important;
+        }
+        body.light-theme .info-grid {
+            background: #f8fafc !important;
+            border: 1px solid #e2e8f0 !important;
+        }
+        body.light-theme .info-item,
+        body.light-theme .info-item div {
+            color: #2d3748 !important;
+        }
+        body.light-theme .info-item span {
+            color: #0d9488 !important;
+        }
+        body.light-theme .game-screenshot-box {
+            border-color: #cbd5e1 !important;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important;
+        }
+        body.light-theme .fps-box {
+            background: #f0f4f8 !important;
+            border-left-color: #3b82f6 !important;
+        }
+        body.light-theme .fps-box *,
+        body.light-theme .fps-title {
+            color: #1e3a8a !important;
+        }
+        body.light-theme .back-btn {
+            color: #0d9488 !important;
+        }
+        body.light-theme .rating-highlight {
+            color: #0d9488 !important;
+            text-shadow: none !important;
+        }
+        body.light-theme li, 
+        body.light-theme li strong {
+            color: #2d3748 !important;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- 
+       Вместо обычного include мы используем встроенный рендеринг шаблона,
+       а мощный CSS выше пробивает все внутренние стили файлов!
+    -->
+    {% include 'game/' + game.slug + '.html' %}
+
+    <script>
+        // Проверяем тему в памяти браузера
+        if (localStorage.getItem('scardum-theme') === 'light') {
+            document.body.classList.add('light-theme');
+        }
+    </script>
+</body>
+</html>
