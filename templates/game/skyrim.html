@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elder Scrolls V: Skyrim — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Elder Scrolls V: Skyrim</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> RPG / Фэнтези / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 11 ноября 2011 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 94/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Легендарный и всеми любимый Скайрим. Мы играем за Довакина — драконорождённого, единственного, кто может остановить предводителя драконов Алдуина пожирателя мира. Сюжет здесь эпичный, но главная фишка игры — это полная свобода. Ты выходишь из первой пещеры и можешь сразу забить на спасение мира: пойти ловить бабочек, стать главой гильдии воров, учиться магии в Коллегии или просто грабить караваны. Этот мир затягивает на сотни часов. Каждый уважающий себя геймер должен попробовать эту игру.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/skyrim_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Требование тут детские, пойдет на слабом ПК на легке.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Любой 2-ядерный калькулятор из прошлого десятилетия.</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ</li>
+            <li><strong>Видеокарта:</strong> Любая старая затычка вроде GT 730 или встроенная графика. Игра пойдёт вообще на всём, что имеет экран.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p>GTX 750 TI на высоких настройках графики выдаст мертвые <strong>60 FPS</strong>, хотя в особо нагруженных местах (например, в густом лесу или крупных городах) частота кадров может проседать до <strong>45-50 FPS</strong>. Играть будет вполне комфортно.</p>
+	    <p>Если тебе нужна максимально плавная картинка или ты планируешь ставить моды, то разрешение оставь нативные 1080p для твоего монитора. Сглаживание выставь 4x MSAA (этого достаточно, чтобы убрать лесенки без нагрузки на 2 ГБ видеопамяти). Тени и траву выставь на средние настройки, ибо жрут ресрсов они прилично. В Скайриме дальность прорисовки травы и качество теней сильнее всего нагружают процессор и видеопамять, так что рекомендую их снизить.</p>
+
+	</div>
+
+	<h3>Тест автора</h3>
+	<ul>
+            <li><strong>Процессор:</strong> Xeon E5 2630 v2</li>
+            <li><strong>Оперативная память:</strong> 16 ГБ</li>
+            <li><strong>Видеокарта:</strong> GTX 1060 3GB Armor OC Edition</li>
+	    <li><strong>Настройки:</strong> Ультра</li>
+	    <li><strong>Разрешение:</strong> 1920x1080</li>
+        </ul>	
+
+	<p>Как и ожидалось, игра выдает стабильные <strong>60 FPS</strong>, независимо от того где ты находишся. Если поставить 2K текстуры, то видеопамять начнет быстрее забиваться, соответственно игра может немного лагать. </p>
+
+	<h3>Оптимизация</h3>
+	<p>Слышь, купи Скайрим! Игра — шедевр, но количество багов здесь породило миллионы мемов. Будь готов к тому, что твоя лошадь будет ходить по вертикальным скалам вопреки законам физики. Великаны одним ударом отправят тебя в открытый космос, а квестовые персонажи могут просто уйти под текстуры и не вернуться. Но самое опасное — это моды. Стоит тебе поставить один мод на красивую траву, как ты очнёшься через неделю с 300 установленными модификациями и полностью сломанной игрой</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Однозначно стоит играть, так как благодаря масштабным модам и полной свободе действий игра остается непревзойденной песочницей. Это идеальный выбор, если ты ценишь дух приключений, атмосферу темного фэнтези и возможность отыгрывать любую роль</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Игра, ставшая эпохой даже несмотря на кривые анимации, поистинне "умный" искусственный интеллект и баги, в этот заснеженный мир хочется возвращаться снова и снова.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

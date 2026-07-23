@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elder Scrolls II: Daggerfall — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Elder Scrolls II: Daggerfall</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span>  RPG / Open World</div>
+            <div class="info-item"><span>Дата релиза:</span> 31 августа 1996 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 62/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Тодд Говард уже в деле, держитесь за стулья. Император Уриэль Септим VII снова шлет нас на амбразуры. На этот раз он просит приехать в провинцию Даггерфол и сделать два дела: упокоить дух покойного короля Лизандуса, который по ночам пугает местных жителей криками «МЕСТЬ!», и найти секретное письмо императора к местной шпионке. Вы плывете туда на корабле, попадаете в жуткий шторм, корабль разбивается, и вы оказываетесь в стартовой пещере, забитой крысами, летучими мышами и скелетами. А когда вы из нее выбираетесь... перед вами открывается мир огромный мир пикселей.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/skyrim2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Требования? А в те времена точно были такие слова?</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel 80486DX2 с частотой 66 МГц.</li>
+            <li><strong>Оперативная память:</strong> 8 МБ.</li>
+            <li><strong>Видеокарта:</strong> VGA с поддержкой 256 цветов.</li>
+	    <li><strong>Вес:</strong> 50 МБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p>Тут у нас два пути. Оригинальная игра 1996 года работает через DOSBox (как и первая часть свитков). Но к 2026 году все нормальные люди играют в Daggerfall Unity — фанатский перенос игры на современный движок Unity. И вот там видокарта наконец-то проснется.</p>
+	    <p>GTX 750 Ti - В оригинале (DOSBox): 4 000+ FPS. Точно так же, как и на GTX 1660 Super. Полное равенство перед древним кодом. В Daggerfall Unity (на средних настройках): <strong>60–75 FPS</strong>.</p>
+	    <p>GTX 1050 Ti - В оригинале (DOSBox): 4 000+ FPS. Стабильный космос. В Daggerfall Unity: <strong>90–110 FPS</strong>. Народная любимица без проблем выдает триста процентов от стандартной герцовки монитора. Играть одно удовольствие.</p>
+	    <p>GTX 1060 (3 ГБ) - В оригинале (DOSBox): 5 000+ FPS. В Daggerfall Unity: <strong>140–160 FPS</strong>. Урезанный чип вообще никак не мешает тебе наслаждаться стабильными кадрами. Игра идет идеально плавно.</p>
+	    <p>GTX 1060 (6 ГБ) - В оригинале (DOSBox): 5 000+ FPS. Чистая скука для видеокарты. В Daggerfall Unity: <strong>160–180 FPS</strong>. Полная доминация Паскаля над игрой из прошлого века. 6 ГБ памяти с огромным запасом хватает для любых фанатских HD-текстур.</p>											
+	    <p>GTX 1660 / 1660 Super - В оригинале (DOSBox, Cycles = Max): 5 000+ FPS. В Daggerfall Unity (на ультрах в 1080p): <strong>200+ FPS</strong>. На современном движке игра летает, картинка плавная, дальность прорисовки улетает в бесконечность.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - В оригинале (DOSBox): 5 000+ FPS. В Daggerfall Unity: <strong>130–150 FPS</strong>. 4 гигабайта памяти здесь — это все еще огромный избыток для игры 1996 года, даже на новом движке. Плавность идеальная.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - В оригинале (DOSBox): 5 000+ FPS. В Daggerfall Unity: <strong>150–170 FPS</strong>. Отличный результат, огромный буфер памяти на 8 ГБ позволяет накатить сверху хоть 4К-моды на лица стражников.</p>
+	</div>
+
+	<p>Игра в целом хорошая, особенно ремастер, но в неё я тоже не играл.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Если бы мы оценивали оптимизацию оригинальной версии 1996 года, то оценка была бы отрицательной. Игра не зря получила свое культовое прозвище «Баггерфол». Персонажи постоянно проваливались сквозь пол в бездну, квестовые предметы не спавнились, а сохранения ломались сами по себе. Но если говорить про ремастер, то вот здесь оптимизация просто царская. Энтузиасты полностью перенесли игру на движок Unity, переписав весь код с нуля. Они исправили 99% древних багов с провалами под текстуры, добавили сглаживание, поддержку современных процессоров и видеокарт. Игра идеально распределяет нагрузку по потокам, а видеокарта наконец-то понимает, за что её кормят электричеством. Даже с модами на дальность прорисовки и красивый свет фреймрейт держится стабильно, как скала.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Только в версии Daggerfall Unity. Оригинальный DOS-вариант сегодня — это изощренная пытка для сильных духом. А вот версия на Unity — это шикарная и огромная ретро-RPG. Тут есть механики, которых до сих пор нет в Скайриме (например, можно взять кредит в банке, купить корабль или стать полноценным каноничным оборотнем).</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Без модов эта игра задушит тебя багами быстрее, чем ты пройдешь первый квест, но с правильным движком Unity любая видеокарта из нашего списка превратит это путешествие в чистое удовольствие.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

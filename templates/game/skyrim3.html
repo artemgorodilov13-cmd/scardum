@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Elder Scrolls III: Morrowind — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>The Elder Scrolls III: Morrowind</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span>  RPG / Open World</div>
+            <div class="info-item"><span>Дата релиза:</span> 1 мая 2002 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 89/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Всё начинается по классике: вас, безымянного зека, привозят на корабле в болотную деревню Сейда Нин. Вам выдают пачку документов, 87 септимов и отправляют к какому-то старому наркоману по имени Кай Косадес в Балмору. По ходу дела выясняется, что вы — Нереварин, реинкарнация древнего героя, и ваша задача — победить безумного бога Дагот Ура, который засел внутри вулкана и строит гигантского робота, чтобы прогнать всех чужеземцев. Но до того как вы доберетесь до вулкана, вы потратите 50 часов реального времени, просто пытаясь найти дорогу по текстовым указаниям в дневнике в духе: «Иди на север до кривой коряги, заверни на восток у тухлого краба и ищи незаметную пещеру за тридцать третьим булыжником».</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/skyrim3_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Тогда 256 мегабайт были роскошью...</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium III или AMD Athlon с частотой 500 МГц.</li>
+            <li><strong>Оперативная память:</strong> 256 МБ.</li>
+            <li><strong>Видеокарта:</strong> С поддержкой DirectX 8.1 и 32 МБ видеопамяти.</li>
+	    <li><strong>Вес:</strong> 1 ГБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - В оригинале: <strong>35–40 FPS</strong>. Почти как на GTX 1660, потому что обе карты ждут, пока одно ядро процессора переварит скрипты. В OpenMW (на средних настройках): <strong>55–65 FPS</strong>. Наш ветеран выдает стабильные, комфортные 60 кадров. Старая классика на старой видяхе чувствует себя отлично.</p>
+	    <p>GTX 1050 Ti - В оригинале: <strong>35–45 FPS</strong> в тяжелых локациях. В OpenMW: <strong>75–90 FPS</strong>. Народная любимица без проблем перешагивает порог в 60 кадров на современном движке.</p>
+	    <p>GTX 1060 (3 ГБ) - В оригинале: <strong>40–55 FPS</strong>. Урезанный чип выдает те же цифры, что и старшая модель, упираясь в процессор. В OpenMW: <strong>120–145 FPS</strong>. Твоя личная карточка показывает шикарную производительность. Игра летит без единого фриза.</p>
+	    <p>GTX 1060 (6 ГБ) - В оригинале: <strong>40–55 FPS</strong>. Видеокарта загружена на 5%, но движок игры не дает выжать больше. В OpenMW: <strong>130–160 FPS</strong>. Идеально плавная картинка. 6 гигабайт памяти позволяют накатить любые фанатские текстурные паки, и память даже наполовину не заполнится.</p>											
+	    <p>GTX 1660 / 1660 Super - В оригинале: <strong>45–60 FPS</strong> (с просадками в городах из-за упора в одно ядро CPU). В OpenMW (на ультрах): <strong>150–200+ FPS</strong>. Карта легко переваривает всю геометрию острова.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - В оригинале: <strong>40–50 FPS</strong>. Никаких отличий от 8-гигабайтной версии. В OpenMW: <strong>110–130 FPS</strong>. Разницы в кадрах почти нет, 4 ГБ видеопамяти для Morrowind (даже с модами) — это по-прежнему огромный избыток.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - В оригинале: <strong>40–50 FPS</strong>. Старый движок не очень любит карты AMD. В OpenMW: <strong>120–150 FPS</strong>. Полноценный полет. Огромный буфер на 8 ГБ отдыхает, игра работает стабильно, как часы.</p>
+	</div>
+
+	<p>А вот в этот шедевр я играл, и он очень понравился, несмотря на старину игры, сюжет мне очень зашел, но сам факт того, что я не проснулся даже во время шторма немного пугает.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Вот тут, кроется главная ирония. Оригинальный движок игры (Gamebryo) оптимизирован так плохо, что он физически не умеет работать больше чем с одним ядром процессора. Поэтому, когда ты прибегаешь в крупный город (например, в Балмору), оригинальная игра начинает жестко просаживать FPS даже на мощных ПК, потому что твой процессор нагружен всего на 15%, а игра все равно лагает. Но к 2026 году сообщество полностью переписало игру на новый, современный движок с открытым исходным кодом — OpenMW. Он поддерживает многопоточность, современный DirectX 11 / OpenGL и задействует видеокарту на полную мощность. На OpenMW игра не просто летает, она позволяет выставить огромную дальность прорисовки, и FPS при этом не падает ниже плинтуса.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Определенно да. Если ты сможешь пережить боевую систему, завязанную на бросках невидимых кубиков (когда урон зависит от твоей выносливости и навыка оружия), Morrowind подарит тебе такой уровень погружения, которого нет ни в Скайриме, ни в Обливионе. Здесь нет маркеров на карте, фаст-тревел только на гигантских блохах (Силт Страйдерах) и лодках, а мир по-настоящему чужой и загадочный.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Это идеальный пример того, как игра упирается не в твою видеокарту, а в древний код.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>

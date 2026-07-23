@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обзор SCARDUM</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10 !important; 
+            color: #c5c6c7 !important; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+            box-sizing: border-box;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+        .container { 
+            max-width: 700px; 
+            width: 100%; 
+            background: #1f2833 !important; 
+            border: 1px solid #1e3a45 !important;
+            border-radius: 12px; 
+            padding: 30px; 
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.5) !important; 
+            box-sizing: border-box;
+            margin-top: 40px;
+            transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        h1 { color: #66fcf1 !important; margin-top: 0; border-bottom: 2px solid #45f3ff !important; padding-bottom: 10px; transition: color 0.3s ease, border-color 0.3s ease; }
+        h3 { color: #66fcf1 !important; transition: color 0.3s ease; }
+        
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10 !important; padding: 15px; border-radius: 8px; transition: background 0.3s ease; }
+        .info-item span { color: #45f3ff !important; font-weight: bold; transition: color 0.3s ease; }
+        
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1 !important; text-decoration: none; font-weight: bold; transition: color 0.3s ease; }
+        .back-btn:hover { text-decoration: underline; }
+
+        .game-screenshot-box {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            border: 1px solid #1e3a45 !important;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.4) !important;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+        .game-img { width: 100%; height: auto; display: block; border-radius: 7px; }
+        .rating-highlight { color: #66fcf1 !important; font-weight: bold; text-shadow: 0 0 5px rgba(102, 252, 241, 0.5) !important; transition: color 0.3s ease, text-shadow 0.3s ease; }
+
+        /* ==========================================================================
+           СВЕТЛАЯ ТЕМА
+           ========================================================================== */
+        body.light-theme { background: #f4f7f6 !important; color: #2d3748 !important; }
+        body.light-theme .container { background: #ffffff !important; border-color: #cbd5e1 !important; box-shadow: 0 10px 25px rgba(0, 0, 0, 0.05) !important; color: #2d3748 !important; }
+        body.light-theme h1 { color: #0f766e !important; border-bottom-color: #e2e8f0 !important; }
+        body.light-theme h3 { color: #1a202c !important; }
+        body.light-theme .info-grid { background: #f8fafc !important; border: 1px solid #e2e8f0 !important; }
+        body.light-theme .info-item, body.light-theme .info-item div { color: #2d3748 !important; }
+        body.light-theme .info-item span { color: #0d9488 !important; }
+        body.light-theme .game-screenshot-box { border-color: #cbd5e1 !important; box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05) !important; }
+        body.light-theme .back-btn { color: #0d9488 !important; }
+        body.light-theme .rating-highlight { color: #0d9488 !important; text-shadow: none !important; }
+
+        /* ==========================================================================
+           ПРАЗДНИЧНАЯ ТЕМА
+           ========================================================================== */
+        body.birthday-theme { background: #0a0616 !important; color: #e2def2 !important; }
+        body.birthday-theme .container { background: #150f2b !important; border-color: #2f1d4f !important; box-shadow: 0 0 25px rgba(255, 0, 127, 0.25) !important; color: #e2def2 !important; }
+        body.birthday-theme h1 { color: #ff007f !important; border-bottom-color: #ff007f !important; }
+        body.birthday-theme h3 { color: #ff007f !important; }
+        body.birthday-theme .info-grid { background: #0a0616 !important; }
+        body.birthday-theme .info-item, body.birthday-theme .info-item div { color: #e2def2 !important; }
+        body.birthday-theme .info-item span { color: #ff007f !important; }
+        body.birthday-theme .game-screenshot-box { border-color: #ff007f !important; box-shadow: 0 0 15px rgba(255, 0, 127, 0.3) !important; }
+        body.birthday-theme .back-btn { color: #ff007f !important; }
+        body.birthday-theme .rating-highlight { color: #ff007f !important; text-shadow: 0 0 8px rgba(255, 0, 127, 0.6) !important; }
+
+        /* Стили для контейнера переключателя */
+        .triple-toggle-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: #1f2833;
+            padding: 6px 12px;
+            border: 1px solid #1e3a45;
+            border-radius: 20px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.4);
+            transition: background 0.3s ease, border-color 0.3s ease;
+        }
+        body.light-theme .triple-toggle-container { background: #ffffff; border-color: #cbd5e1; }
+        body.birthday-theme .triple-toggle-container { background: #150f2b; border-color: #2f1d4f; box-shadow: 0 4px 10px rgba(255, 0, 127, 0.2); }
+        
+        .toggle-label { font-size: 0.85rem; font-weight: bold; color: #66fcf1; font-family: monospace; transition: color 0.3s ease; }
+        body.light-theme .toggle-label { color: #0f766e; }
+        body.birthday-theme .toggle-label { color: #ff007f; }
+
+        .triple-switch { position: relative; display: flex; width: 72px; height: 24px; background-color: #222; border-radius: 12px; padding: 2px; box-sizing: border-box; cursor: pointer; border: 1px solid #444; }
+        .triple-switch input { opacity: 0; width: 0; height: 0; position: absolute; }
+        .triple-switch::before { content: ""; position: absolute; top: 2px; left: 2px; width: 18px; height: 18px; background-color: #ffffff; border-radius: 50%; transition: all 0.25s cubic-bezier(0.25, 0.8, 0.25, 1); z-index: 2; }
+        
+        #position-dark:checked ~ .triple-switch::before { transform: translateX(0px); background-color: #66fcf1; box-shadow: 0 0 8px rgba(102, 252, 241, 0.6); }
+        #position-light:checked ~ .triple-switch::before { transform: translateX(24px); background-color: #ff9800; box-shadow: 0 0 8px rgba(255, 152, 0, 0.6); }
+        #position-birthday:checked ~ .triple-switch::before { transform: translateX(48px); background-color: #ff007f; box-shadow: 0 0 10px rgba(255, 0, 127, 0.8); }
+        
+        .switch-zone { flex: 1; z-index: 3; height: 100%; }
+        
+        @media (max-width: 768px) {
+            body { padding-top: 80px; }
+            .triple-toggle-container { left: 50%; transform: translateX(-50%); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Переключатель тем -->
+    <div class="triple-toggle-container">
+        <span class="toggle-label" id="theme-status">DARK</span>
+    
+        <input type="radio" name="theme-pos" id="position-dark" checked>
+        <input type="radio" name="theme-pos" id="position-light">
+        <input type="radio" name="theme-pos" id="position-birthday">
+ 
+        <div class="triple-switch">
+            <label for="position-dark" class="switch-zone" onclick="setTheme('dark-theme', 'DARK')"></label>
+            <label for="position-light" class="switch-zone" onclick="setTheme('light-theme', 'LIGHT')"></label>
+            <label for="position-birthday" class="switch-zone" onclick="setTheme('birthday-theme', 'BIRTHDAY')"></label>
+        </div>
+    </div>
+
+    <!-- Скрипт переключения и сохранения состояния -->
+    <script>
+        function setTheme(themeName, labelText) {
+            document.body.classList.remove('light-theme', 'birthday-theme', 'dark-theme');
+            if (themeName !== 'dark-theme') {
+                document.body.classList.add(themeName);
+            }
+            document.getElementById('theme-status').innerText = labelText;
+            localStorage.setItem('scardum-current-theme', themeName);
+        }
+
+        document.addEventListener("DOMContentLoaded", () => {
+            const savedTheme = localStorage.getItem('scardum-current-theme') || 'dark-theme';
+            if (savedTheme === 'light-theme') {
+                document.getElementById('position-light').checked = true;
+                setTheme('light-theme', 'LIGHT');
+            } else if (savedTheme === 'birthday-theme') {
+                document.getElementById('position-birthday').checked = true;
+                setTheme('birthday-theme', 'BIRTHDAY');
+            } else {
+                document.getElementById('position-dark').checked = true;
+                setTheme('dark-theme', 'DARK');
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dark Souls II — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Dark Souls II</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Action / RPG / Soulslike</div>
+            <div class="info-item"><span>Дата релиза:</span> 11 марта 2014 года</div>
+            <div class="info-item"><span>Издатель:</span> FromSoftware</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 91/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>В этой части наш японский Жак Фреско не учавстовал, но от этого легче не стало. Сюжет Dark Souls 2 стартует с того, что персонаж знатно приуныл, схватил проклятие нежити и начал медленно терять память. Чтобы окончательно не превратиться в безмозглый сухофрукт, он прыгает в гигантский водоворот-портал. Логика железная: если прыгнуть в бездну, хуже точно не станет (спойлер: станет).</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/ds2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p></p>
+        <ul>
+            <li><strong>Процессор:</strong> AMD Phenom II X2 или Intel Core i3. Подойдет любой кремниевый кирпич, способный выдержать твой крик ярости.</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ. Из них 2 ГБ игра заберет под текстуры, а остальные 2 ГБ — под хранение счетчика твоих смертей.</li>
+            <li><strong>Видеокарта:</strong> NVIDIA GeForce GTX 465 или ATI Radeon HD 6870. Если твоя карта умеет выводить картинку без дыма, ты в игре.</li>
+	    <li><strong>Вес:</strong> 15 ГБ свободного места.</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p>GTX 750 Ti - <strong>50–60 FPS</strong>. Наш ветеран кряхтит, но тащит. В густом тумане или при взрыве бочек с порохом фреймрейт может проседать до <strong>45 кадров</strong>, заставляя тебя страдать не только от боссов, но и от микрофризов.</p>
+	    <p>GTX 1050 Ti - cтабильные <strong>60 FPS</strong>. Эта легенда бюджетного гейминга щелкает игру как орешки.</p>
+	    <p>GTX 1060 (3GB) - <strong>60 FPS</strong>. Мощности чипа хватает с огромным запасом. То, что здесь всего 3 гигабайта видеопамяти, игре абсолютно фиолетово, она потребляет чуть больше 1 ГБ на ультрах.</p>
+	    <p>GTX 1060 (6GB) - <strong>60 FPS</strong>. Карта лениво отдыхает, вентиляторы могут даже не крутиться. Идеальный плавный мазохизм без единой просадки.</p>
+	    <p>GTX 1660 / Super - <strong>60 FPS</strong>. Карта избыточна для этой игры. Если накатить фанатский мод на разблокировку кадров, она легко выдаст <strong>120–140+ FPS</strong>.</p>
+	    <p>RX 570 / 580 (4GB) - <strong>60 FPS</strong>. Полярис выдает максимальный фреймрейт. Изредка AMD-шные драйверы могут выдать секундный статтер при переходе между локациями, чтобы ты не расслаблялся.</p>
+	    <p>RX 580 8GB - <strong>60 FPS</strong>. Ультимативный запас прочности. Видеопамяти здесь столько, что можно загрузить в нее текстуры еще трех таких же игр. С разлоком FPS способна выдать в районе <strong>100–120 кадров</strong>.</p>
+        </div>
+
+	<p>В эту игру я к счастью не играл. Поберег нервы)</p>
+
+	<h3>Оптимизация</h3>
+	<p>Чудо, которое случилось до того, как FromSoftware разучились это делать. Если ты ждал, что игра будет лагать так же безбожно, как первая часть в Чумном Городе, то у нас плохие новости, здесь оптимизацию завезли добротную. Разработчики превзошли сами себя и выдали код, который работает стабильнее, чем психика игрока после сотой смерти.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, стоит. Но только если твоя нервная система уже достаточно закалена, а клавиатура или геймпад имеют противоударную гарантию. На дворе 2026 год, индустрия завалена графонистыми AAA-аттракционами, которые водят игрока за ручку, но Dark Souls 2 по-прежнему предлагает то, чего не хватает многим современным играм, чистый, нефильтрованный садомазохизм.</p>
+
+	<h3>Итог</h3>
+	<p><span style="color: #66fcf1; font-weight: bold; text-shadow: 0 0 5px rgba(102, 252, 241, 0.5); "10/10"</p>
+	<p> Dark Souls 2 — это как бывшая, к которой ты всё равно возвращаешься. Ты помнишь все её косяки, кривые хитбоксы и дурацкие капризы, но альтернативы на рынке всё равно не имеют такой же дикой харизмы. Это самая спорная, самая заплеванная фанатами, но при этом безумно затягивающая часть трилогии. 10 разбитых мышек из 10.</p>
+	</div>
+
+        <a href="/" class="back-btn">← На главную</a>
+    </div>
+</body>
+</html>
