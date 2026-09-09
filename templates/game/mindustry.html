@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mindustry — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Mindustry</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Tower Defense / Фабричный симулятор</div>
+            <div class="info-item"><span>Дата релиза:</span> 8 июня 2018 года</div>
+            <div class="info-item"><span>Издатель:</span> Anuken</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 77/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Это как если бы Factorio и классический tower defense поженились и родили бесплатного (ну почти) ребенка на 2D-движке. Сюжет тут условный - какая-то межпланетная война фракций за ресурсы, но по сути он просто оправдание для главного занятия. Ты строишь конвейеры, добываешь руду, производишь боеприпасы и одновременно отбиваешься от волн вражеских дронов, которые очень хотят это все разрушить. Чем дальше в кампанию, тем сложнее логистика и тем больше факторка внутри тебя начинает довольно потирать руки.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/mindustry_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра написана на Java и рисует все в 2D, поэтому требования тут почти неприлично низкие для 2026 года.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i3 или аналог</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ</li>
+            <li><strong>Видеокарта:</strong> Intel HD Graphics 4000 или любая дискретная карта уровня GeForce GTX 760 и новее для больших карт</li>
+	    <li><strong>Вес:</strong> около 500 МБ свободного места</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - стабильные <strong>60 FPS</strong> на небольших и средних картах, легкое проседание до <strong>45-50 FPS</strong> может случиться только на гигантских поздних базах с тысячами построек одновременно.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> практически везде, даже разросшаяся до горизонта фабрика с сотнями конвейеров не заставляет карту напрячься.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong> без исключений, тут скорее твой процессор и симуляция логистики упрутся в потолок раньше видеокарты.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong>, лишние гигабайты видеопамяти тут абсолютно ни на что не влияют.</p>				
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong> и вагон свободных ресурсов карты про запас.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong>, полная зеркальная копия ситуации с GTX 1060.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>, видеокарта тут откровенно избыточна для задачи.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Mindustry - это тот редкий инди-проект, где узкое место почти никогда не видеокарта, а процессор и оперативная память, когда на карте скапливаются тысячи юнитов, снарядов и логических блоков одновременно. Игра написана на Java, что по идее должно вызывать привычный страх любого технаря, но команда разработчиков явно знала, что делает, даже гигантские позднеигровые базы с автоматизированной логистикой редко проседают ниже 45 кадров, и то в самые горячие моменты массовых атак дронов. Для 2D-игры с открытым исходным кодом, которую по большей части делают энтузиасты, это уровень оптимизации, которому позавидуют иные ААА-проекты.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, особенно если тебе нравится идея Factorio, но пугает порог входа и цена. Mindustry бесплатна (либо стоит символические деньги в стим версии), имеет открытый исходный код, активное комьюнити с постоянными обновлениями и достаточно глубины, чтобы затянуть на сотни часов, судя по отзывам некоторых игроков, счет там реально идет на тысячи часов. Отличный вариант, если хочется факторки, но без покупки нового пк под нее.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Mindustry доказывает, что для отличной игры про автоматизацию заводов не нужен мощный комп, а нужна лишь готовность потерять счет времени, наблюдая, как конвейерные ленты медленно, но верно превращают твою жизнь в бесконечный цикл оптимизации логистики.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
