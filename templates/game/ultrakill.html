@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ULTRAKILL — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>ULTRAKILL</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / Шутер от первого лица</div>
+            <div class="info-item"><span>Дата релиза:</span> 3 сентября 2020 года</div>
+            <div class="info-item"><span>Издатель:</span> New Blood Interactive</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 89/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Человечество вымерло, а на поверхности Земли остались только машины, работающие на крови. Проблема в том, что кровь на поверхности заканчивается, поэтому машины устремляются вниз, прямиком в Ад, чтобы добыть еще. Ты играешь за одну из таких машин - кролика-гладиатора V1, который спускается по кругам Ада, раздает люлей демонам всех мастей и параллельно выясняет, зачем его вообще создали. Сюжет подается урывками между уровнями, но за годы раннего доступа успел обрасти настоящим лором с претензией на библейский эпос, только в стиле треш-метал клипа.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/ultrakill_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра сделана в стиле низкополигональной ретро-эстетики под PS1, поэтому требования смехотворно низкие даже по меркам десятилетней давности.</p>
+        <ul>
+            <li><strong>Процессор:</strong> любой двухъядерный 2.4 ГГц и выше</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ</li>
+            <li><strong>Видеокарта:</strong> NVIDIA GeForce GTX 460 или аналог (для комфорта рекомендуют что-то на уровне GTX 970)</li>
+	    <li><strong>Вес:</strong> около 3 ГБ свободного места</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - <strong>120-150 FPS</strong>. Минимальные требования игры настолько скромные, что 750 Ti тут чувствует себя чуть ли не топовой картой десятилетия.</p>
+	    <p>GTX 1050 Ti - <strong>150-180 FPS</strong>. Низкополигональные демоны и заляпанные кровью текстуры совершенно не напрягают эту карточку.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>180-220 FPS</strong>. На таком фреймрейте парировать вражеские снаряды становится ощутимо проще чисто из-за плавности картинки.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>190-230 FPS</strong>, разница с 3-гигабайтной версией минимальна — движок Unity тут откровенно не просит много видеопамяти.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>220-260+ FPS</strong>, дальше все упирается в частоту обновления монитора, а не в мощность карты.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>180-220 FPS</strong>, на уровне линейки GTX 1060.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>220-250 FPS</strong>, играть можно хоть с максимальной частотой кадров, хоть с зашкаливающим количеством частиц крови на экране.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>ULTRAKILL - пример игры на Unity, где разработчик явно понимал, что делает. Низкополигональная геометрия, минималистичные текстуры и агрессивная стилизация под графику конца 90-х позволяют движку выдавать сотни кадров в секунду почти на любом железе, при этом визуально игра выглядит стильно и цельно, а не как бюджетная поделка. Из странностей - иногда при резком скачке между большим количеством врагов и частиц крови может ненадолго просесть фреймрейт, но это скорее фирменная фишка "экрана из адского месива", чем реальная проблема оптимизации.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, безоговорочно. Несмотря на то, что игра формально до сих пор в раннем доступе, контента там уже на полноценный релиз, множество уровней, боссов, оружия с альтернативными режимами стрельбы и системой парирования, которая заставляет чувствовать себя настоящим машинным ангелом мести. При этом требования настолько скромные, что играть можно хоть на видавшем виды офисном ноутбуке.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> ULTRAKILL доказывает, что можно быть одновременно визуально стильной, безумно быстрой и совершенно нетребовательной к железу игрой. Твоя видеокарта тут точно не станет узким местом. Узким местом станет твоя реакция на летящую в лицо ракету, которую нужно было отпарировать секунду назад.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
