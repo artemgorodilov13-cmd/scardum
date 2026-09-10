@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SCARDUM — Статистика просмотров</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #0b0c10;
+            color: #c5c6c7;
+            margin: 0;
+            padding: 40px 20px;
+            box-sizing: border-box;
+        }
+        .wrap {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 24px;
+        }
+        h1 {
+            color: #66fcf1;
+            margin: 0;
+        }
+        .logout {
+            color: #66fcf1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+        }
+        .logout:hover { text-decoration: underline; }
+        .nav-links a {
+            color: #66fcf1;
+            text-decoration: none;
+            font-weight: bold;
+            font-size: 0.9rem;
+            margin-left: 16px;
+        }
+        .nav-links a:hover { text-decoration: underline; }
+        .pending-badge {
+            display: inline-block;
+            background: #8a0303;
+            color: #ffffff;
+            border-radius: 10px;
+            font-size: 0.75rem;
+            padding: 1px 7px;
+            margin-left: 4px;
+        }
+        .summary {
+            background: #1f2833;
+            border: 1px solid #1e3a45;
+            border-radius: 8px;
+            padding: 16px 20px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background: #1f2833;
+            border: 1px solid #1e3a45;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        th, td {
+            text-align: left;
+            padding: 12px 16px;
+        }
+        th {
+            background: #0b0c10;
+            color: #45f3ff;
+            font-size: 0.85rem;
+            text-transform: uppercase;
+        }
+        tr:not(:last-child) td {
+            border-bottom: 1px solid #0b0c10;
+        }
+        .views {
+            color: #66fcf1;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrap">
+        <div class="top-bar">
+            <h1>Статистика просмотров</h1>
+            <div class="nav-links">
+                <a href="{{ url_for('admin_comments') }}">Комментарии{% if pending_comments_count %}<span class="pending-badge">{{ pending_comments_count }}</span>{% endif %}</a>
+                <a href="{{ url_for('admin_suggestions') }}">Предложения{% if pending_suggestions_count %}<span class="pending-badge">{{ pending_suggestions_count }}</span>{% endif %}</a>
+                <a class="logout" href="{{ url_for('admin_logout') }}">Выйти</a>
+            </div>
+        </div>
+
+        <div class="summary">Всего просмотров по всем играм: <span class="views">{{ total_views }}</span></div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Игра</th>
+                    <th>Slug</th>
+                    <th>Просмотры</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for game in games %}
+                <tr>
+                    <td>{{ game.title }}</td>
+                    <td>{{ game.slug }}</td>
+                    <td class="views">{{ game.views }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+</body>
+</html>

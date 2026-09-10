@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rhythm Doctor — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Rhythm Doctor</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Ритм-игра</div>
+            <div class="info-item"><span>Дата релиза:</span> </div>
+            <div class="info-item"><span>Издатель:</span> 7th Beat Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 75/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Ты - стажер больницы Middlesea, который через камеры наблюдения удаленно управляет экспериментальным дефибриллятором в виде длинной механической руки. Персонал с тобой разговаривает, а ты можешь ответить только одним способом - нажатием пробела точно в такт седьмому удару сердца пациента. Звучит как медицинская процедура, а на деле это трогательная история про пациентов больницы, поданная через один единственный игровой инпут. Кнопка одна, но эмоций она вызывает на десяток обычных игр вперед.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/rhythmdoctor_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра сделана на минималистичной 2D-графике, поэтому официальные требования скромные до неприличия, тут важнее реакция игрока, чем видеокарта.</p>
+        <ul>
+            <li><strong>Процессор:</strong> любой двухъядерный камень от Intel Core i3 и выше</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ</li>
+            <li><strong>Видеокарта:</strong> любая с поддержкой DirectX 10, даже встроенная в процессор</li>
+	    <li><strong>Вес:</strong> около 2 ГБ свободного места</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - <strong>140-165 FPS</strong>. Карта откровенно скучает, потому что рисовать тут особо нечего, кроме пиксельной больничной палаты и полоски сердцебиения.</p>
+	    <p>GTX 1050 Ti - <strong>160-200+ FPS</strong>. Единственное, что тут может тормозить - это твои собственные рефлексы на седьмом ударе сердца очередного пациента.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>200+ FPS</strong>, дальше уже упирается в частоту обновления твоего монитора, а не в возможности карты.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>200+ FPS</strong>, разницы с 3 гигабайтной версией тут никакой, игре откровенно все равно, сколько у тебя видеопамяти.</p>	
+	    <p>GTX 1660 / 1660 Super - <strong>240+ FPS</strong> при любых настройках, карта работает вполсилы вентилятора.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>200+ FPS</strong>, полный аналог ситуации с GTX 1060.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>240+ FPS</strong>, видеокарта тут скорее для галочки, чем для реальной нагрузки.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Об оптимизации Rhythm Doctor можно вообще не переживать - это тот редкий случай, когда игра требовательна не к железу, а к твоему чувству ритма. Разработчики за годы раннего доступа отполировали движок до блеска. Никаких фризов, никаких просадок, только точная синхронизация звука и картинки, потому что в игре, где нужно жать одну кнопку в правильный момент, любая рассинхронизация звука и видео буквально ломает весь игровой процесс. Единственная "оптимизация", которая тебе тут реально понадобится - это оптимизация собственных нервов после сотого провала на сложном уровне.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Определенно да, причем вне зависимости от того, какое у тебя железо, тут решает не видеокарта, а чувство темпа. Полный релиз собрал историю воедино и добавил финальные уровни, так что теперь это не просто набор сложных чарт-паттернов, а завершенная эмоциональная история про больницу, персонала и странного стажера с механической рукой вместо голоса.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Rhythm Doctor - это единственная игра из нашего списка, где твоя GTX 750 Ti окажется быстрее тебя самого. FPS тут всегда будет запредельным, а вот твой личный рекорд по количеству нажатий мимо такта, уже как повезет.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
