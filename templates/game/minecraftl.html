@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minecraft: Legacy Console Edition — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Minecraft: Legacy Console Edition</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Песочница / Выживание</div>
+            <div class="info-item"><span>Дата релиза:</span> 9 мая 2012 года</div>
+            <div class="info-item"><span>Издатель:</span> Microsoft Studios & Mojang</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> ?/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Какой сюжет? Это майнкрафт, бро. Ты появляешься посреди леса, вокруг несколько деревьев, свинья смотрит на тебя с выражением "ну и что ты теперь будешь делать", а через некоторое время наступает ночь и выясняется, что местные жители природы не слишком любят гостей. Эта игра буквально то же самое, что и обычный майнкрафт, только более старый и для консолей.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/minecraftl_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Здесь не будет вообще ничего. Игра сделана исключительно под консоли прошого и позапрошлого поколения, то есть у любого человека с консолью есть как минимум Xbox 360 или Series S. Обычно для того времени фреймрейт на консолях был ореинтирован на <strong>30 FPS</strong>.</p>
+
+	<h3>Оптимизация</h3>
+	<p>4J Studios действительно заслуживает уважения. Legacy Edition пришлось работать на железе, которое по современным меркам уже можно найти разве что в музее рядом с экспонатом "первый компьютер", на котором кто-то запустил Minecraft. И всё это при необходимости обеспечить огромный процедурно генерируемый мир, физику, мобов, освещение, строительство и сохранение мира. При этом разработчики не просто перенесли одну версию на всё подряд. Консольные издания развивались отдельно и получали собственные функции и оптимизации. Mojang в 2018 году официально объявила, что Xbox 360, PS3, PS Vita и Wii U получат Update Aquatic, но после него крупных обновлений больше не будет. Причина была довольно более чем понятной. Старые консоли составляли уже менее 5% активной аудитории. PS4 Edition продержалась дольше остальных и получила больше обновлений, но в декабре 2019 года и она окончательно уступила место Bedrock Edition.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Скорее нет, чем да. Современные Java и Bedrock ушли настолько далеко вперёд, что Legacy Edition сегодня выглядит скорее как исторический кусок майнкрафта.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Minecraft Legacy Console Edition - это майнкрафт из эпохи, когда игра ещё не пыталась быть одновременно песочницей, RPG, магазином контента, серверной платформой и, кажется, операционной системой. 7 далеких земель из 10.</p>
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

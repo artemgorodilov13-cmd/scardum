@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PC Building Simulator 2 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>PC Building Simulator 2</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Cимулятор</div>
+            <div class="info-item"><span>Дата релиза:</span> 12 октября 2022 года</div>
+            <div class="info-item"><span>Издатель:</span> Epic Games Publishing</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 82/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>На сюжет тут по-прежнему кот наплакал, зато масштаб вырос в разы. В карьере ты все так же чинишь и собираешь чужие компы за деньги, но теперь с более чем 1200 лицензированными комплектующими, кастомным вотер-кулингом, разгоном процессора и видеокарты и даже встроенными бенчмарками 3DMark и Cinebench, чтобы проверить, не сжег ли ты случайно чей-то бюджетный системник. В свободном режиме по-прежнему можно собирать компьютер мечты без оглядки на ценники, но теперь мечта выглядит куда презентабельнее. И даже добавили возможность скальпировать процессор. Для техно-гиков или оверклокеров - это подарок от разработчиков.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/pcbs2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>А вот тут начинается разница с первой частью. Разработчики решили, что раз ты собираешь виртуальные компьютеры, то и твой собственный должен быть не из палок и желудей.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i5-3470 или AMD Ryzen 3 1200 (минимум), Intel Core i7-6700K или AMD Ryzen 5 2600 (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 8 ГБ (минимум), 16 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> NVIDIA GeForce GTX 660 или AMD Radeon HD 7850 (минимум), NVIDIA GeForce GTX 1060 или AMD Radeon RX 580 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 20 ГБ</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - минимальная планка тут поднялась до GTX 660, и старушка 750 Ti формально ее превосходит, но с трудом. На низких настройках в 1080p получим болезненные <strong>25-35 FPS</strong>, с просадками при переключении между режимами освещения в мастерской.</p>
+	    <p>GTX 1050 Ti - карта официально даже не упомянута в требованиях, что по нынешним меркам симулятора уже говорит о многом. На низко-средних настройках в 1080p ожидай <strong>40-50 FPS</strong>, вполне терпимо для неторопливой сборки железа.</p>
+	    <p>GTX 1060 (3 ГБ) - это уже почти официально рекомендуемый уровень. На средних настройках в 1080p карта выдаст <strong>55-65 FPS</strong>, и большую часть времени ты даже не вспомнишь, что когда-то у тебя дома стояла эта видеокарта, а не в игре.</p>
+	    <p>GTX 1060 (6 ГБ) - чуть больше памяти дает небольшой запас прочности на высоких настройках <strong>60-70 FPS</strong> в 1080p, стабильно и без драмы.</p>		    <p>GTX 1660 / 1660 Super - официально рекомендованный разработчиками уровень производительности. На высоких-ультрах в 1080p получаем комфортные <strong>75-90 FPS</strong>, свет и отражения в мастерской наконец выглядят так, как задумывали художники.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - примерный аналог GTX 1060 по производительности здесь, около <strong>55-65 FPS</strong> на высоких настройках в 1080p.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - официально рекомендованная разработчиками карта наравне с 1660. Ожидаемо крепкие <strong>65-75 FPS</strong> на высоких-ультрах в 1080p.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Если первая часть была симулятором сборки ПК, который спокойно запускался хоть на тостере, то вторая часть внезапно решила, что раз игрок собирает мощное железо у себя на экране, то и ему самому не помешает обновиться в реальности. Требования подросли примерно так же, как цены на видеокарты во время очередного майнинга. Резко и без предупреждения. При этом сама игра не выглядит как что-то невозможное для рендера, тут те же коробки с деталями, тот же верстак, просто теперь с более детализированными моделями, честным вотер-кулингом и физически корректным освещением. Из странностей, иногда движок на слабом железе подгружает текстуры новых деталей с небольшой задержкой, будто твоя видеокарта сама заказывает их на маркетплейсе, что даже на удивление добавляет реалистичности.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, особенно если ты уже прошел первую часть вдоль и поперек и ищешь чего-то более комплексного. PC Building Simulator 2 - это буквально та игра, когда сиквел не просто добавил контента, а переизобрел механики, то есть реальные бенчмарки, разгон, сложная логистика заказа деталей под клиента. Единственный минус - это теперь для комфортной игры тебе действительно нужен приличный ПК, а не бабушкин системник с балкона.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> PC Building Simulator 2 вырос из скромного тренажера в почти полноценный симулятор компьютерного мастера, но заодно и поднял планку требований. Если твое железо тянет саму игру про сборку компьютеров лучше, чем компьютеры внутри нее, то поздравляю, ты восстал против иронии судьбы.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

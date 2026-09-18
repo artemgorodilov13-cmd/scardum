@@ -1,0 +1,190 @@
+<div class="scardum-comments-block">
+    <style>
+        .scardum-comments-block {
+            max-width: 700px;
+            width: 100%;
+            margin: 0 auto 40px;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .scardum-comments-block h3 {
+            color: #66fcf1 !important;
+            margin-bottom: 16px;
+        }
+        body.light-theme .scardum-comments-block h3 { color: #0d9488 !important; }
+
+        .scardum-comments-block .comment-item {
+            background: #1f2833;
+            border: 1px solid #1e3a45;
+            border-radius: 8px;
+            padding: 14px 16px;
+            margin-bottom: 12px;
+        }
+        body.light-theme .scardum-comments-block .comment-item {
+            background: #f8fafc;
+            border: 1px solid #e2e8f0;
+        }
+
+        .scardum-comments-block .comment-header {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 6px;
+        }
+        .scardum-comments-block .comment-name {
+            font-weight: bold;
+            color: #66fcf1;
+        }
+        body.light-theme .scardum-comments-block .comment-name { color: #0d9488; }
+
+        .scardum-comments-block .comment-date {
+            font-size: 0.8rem;
+            color: #a0aec0;
+        }
+        .scardum-comments-block .comment-text {
+            color: #c5c6c7;
+            line-height: 1.5;
+            word-break: break-word;
+        }
+        body.light-theme .scardum-comments-block .comment-text { color: #2d3748; }
+
+        .scardum-comments-block .comment-empty {
+            color: #a0aec0;
+            font-style: italic;
+            margin-bottom: 16px;
+        }
+
+        .scardum-comments-block form {
+            background: #1f2833;
+            border: 1px solid #1e3a45;
+            border-radius: 8px;
+            padding: 16px;
+            margin-top: 20px;
+        }
+        body.light-theme .scardum-comments-block form {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+        }
+
+        .scardum-comments-block input[type="text"],
+        .scardum-comments-block textarea {
+            width: 100%;
+            padding: 10px 14px;
+            background: #0b0c10;
+            border: 1px solid #45f3ff;
+            border-radius: 8px;
+            color: #ffffff;
+            font-size: 0.95rem;
+            box-sizing: border-box;
+            margin-bottom: 10px;
+            font-family: inherit;
+        }
+        body.light-theme .scardum-comments-block input[type="text"],
+        body.light-theme .scardum-comments-block textarea {
+            background: #ffffff;
+            border: 1px solid #cbd5e1;
+            color: #1a202c;
+        }
+
+        .scardum-comments-block textarea {
+            min-height: 80px;
+            resize: vertical;
+        }
+
+        .scardum-comments-block button {
+            padding: 10px 22px;
+            background: #66fcf1;
+            border: none;
+            border-radius: 8px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        .scardum-comments-block button:hover { background: #45f3ff; }
+        .scardum-comments-block button:disabled { opacity: 0.6; cursor: default; }
+
+        .scardum-comments-block .comment-status {
+            margin-top: 10px;
+            font-size: 0.9rem;
+        }
+        .scardum-comments-block .comment-status.ok { color: #66fcf1; }
+        .scardum-comments-block .comment-status.err { color: #ff6b6b; }
+
+        /* Honeypot — скрыт от людей, но виден ботам, заполняющим все поля формы */
+        .scardum-comments-block .comment-honeypot {
+            position: absolute;
+            left: -9999px;
+            width: 1px;
+            height: 1px;
+            opacity: 0;
+        }
+    </style>
+
+    <h3>Комментарии ({{ comments|length }})</h3>
+
+    <div class="comments-list">
+        {% for c in comments %}
+        <div class="comment-item">
+            <div class="comment-header">
+                <span class="comment-name">{{ c.name }}</span>
+                <span class="comment-date">{{ c.created_at.strftime('%d.%m.%Y') }}</span>
+            </div>
+            <div class="comment-text">{{ c.text }}</div>
+        </div>
+        {% else %}
+        <div class="comment-empty">Комментариев пока нет — стань первым!</div>
+        {% endfor %}
+    </div>
+
+    <form id="scardum-comment-form" data-slug="{{ game.slug }}">
+        <input type="text" name="name" maxlength="50" placeholder="Имя" required>
+        <textarea name="text" maxlength="500" placeholder="Твой комментарий..." required></textarea>
+        <input type="text" name="website" class="comment-honeypot" tabindex="-1" autocomplete="off">
+        <button type="submit">Отправить</button>
+        <div class="comment-status"></div>
+    </form>
+</div>
+
+<script>
+(function () {
+    const form = document.getElementById('scardum-comment-form');
+    if (!form) return;
+
+    form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const slug = form.dataset.slug;
+        const name = form.querySelector('[name="name"]').value.trim();
+        const text = form.querySelector('[name="text"]').value.trim();
+        const website = form.querySelector('[name="website"]').value;
+        const statusEl = form.querySelector('.comment-status');
+        const btn = form.querySelector('button');
+
+        if (!name || !text) return;
+
+        btn.disabled = true;
+        statusEl.className = 'comment-status';
+        statusEl.innerText = '';
+
+        try {
+            const res = await fetch(`/game/${slug}/comment`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ name, text, website })
+            });
+            const data = await res.json();
+
+            if (res.ok) {
+                statusEl.className = 'comment-status ok';
+                statusEl.innerText = 'Спасибо! Комментарий отправлен на модерацию и появится после проверки.';
+                form.reset();
+            } else {
+                statusEl.className = 'comment-status err';
+                statusEl.innerText = 'Не получилось отправить. Проверь имя и текст комментария.';
+            }
+        } catch (err) {
+            statusEl.className = 'comment-status err';
+            statusEl.innerText = 'Ошибка сети, попробуй ещё раз.';
+        } finally {
+            btn.disabled = false;
+        }
+    });
+})();
+</script>
