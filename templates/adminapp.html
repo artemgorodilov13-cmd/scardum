@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>SCARDUM — Панель</title>
+
+<link rel="manifest" href="{{ url_for('static', filename='adminapp/manifest.json') }}">
+<link rel="apple-touch-icon" href="{{ url_for('static', filename='adminapp/icon-192.png') }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="SCARDUM">
+<meta name="theme-color" content="#0b0c10">
+
+<style>
+    :root {
+        --bg: #0b0c10;
+        --card: #1f2833;
+        --card2: #141d26;
+        --border: #2a3a45;
+        --accent: #66fcf1;
+        --accent2: #45f3ff;
+        --text: #c5c6c7;
+        --text-dim: #8b9299;
+        --danger: #ff6b6b;
+        --ok: #6bffa0;
+    }
+    * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
+    body {
+        margin: 0;
+        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        background: var(--bg);
+        color: var(--text);
+        padding-bottom: 70px;
+        min-height: 100vh;
+    }
+    header {
+        position: sticky; top: 0; z-index: 10;
+        background: var(--card);
+        border-bottom: 1px solid var(--border);
+        padding: 14px 16px;
+        display: flex; align-items: center; justify-content: space-between;
+    }
+    header h1 { font-size: 1.2rem; margin: 0; color: var(--accent); font-family: monospace; letter-spacing: 2px; }
+    header .sub { font-size: 0.75rem; color: var(--text-dim); }
+
+    main { padding: 14px; max-width: 640px; margin: 0 auto; }
+
+    input, textarea, select {
+        width: 100%;
+        background: var(--card2);
+        border: 1px solid var(--border);
+        color: var(--text);
+        border-radius: 8px;
+        padding: 12px;
+        font-size: 1rem;
+        font-family: inherit;
+        margin-bottom: 10px;
+    }
+    input:focus, textarea:focus { outline: none; border-color: var(--accent2); }
+    label { font-size: 0.8rem; color: var(--text-dim); display: block; margin-bottom: 4px; }
+    .field { margin-bottom: 14px; }
+    .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .checkbox-row input { width: auto; margin: 0; }
+    .checkbox-row label { margin: 0; color: var(--text); font-size: 0.95rem; }
+
+    button {
+        border: none; border-radius: 8px; padding: 12px 16px;
+        font-size: 1rem; font-weight: bold; cursor: pointer;
+    }
+    .btn-primary { background: var(--accent2); color: #0b0c10; width: 100%; }
+    .btn-secondary { background: transparent; color: var(--accent); border: 1px solid var(--accent2); width: 100%; }
+    .btn-danger { background: transparent; color: var(--danger); border: 1px solid var(--danger); width: 100%; }
+    .btn-row { display: flex; gap: 10px; margin-top: 16px; }
+    .btn-row > * { flex: 1; }
+
+    .game-card {
+        background: var(--card);
+        border: 1px solid var(--border);
+        border-radius: 10px;
+        padding: 12px 14px;
+        margin-bottom: 10px;
+        display: flex; justify-content: space-between; align-items: center;
+        gap: 10px;
+    }
+    .game-card .info h3 { margin: 0 0 4px; font-size: 1rem; color: #fff; }
+    .game-card .info .meta { font-size: 0.75rem; color: var(--text-dim); }
+    .game-card .stats { font-size: 0.75rem; color: var(--accent); text-align: right; white-space: nowrap; }
+    .badge-dot { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 5px; }
+    .badge-dot.has-review { background: var(--ok); }
+    .badge-dot.no-review { background: var(--text-dim); }
+
+    .toolbar { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 8px; }
+    .toolbar button { background: var(--card2); border: 1px solid var(--border); color: var(--accent); font-size: 0.75rem; padding: 8px 10px; font-weight: normal; }
+
+    #login-view { max-width: 320px; margin: 15vh auto 0; padding: 20px; }
+    #login-view h2 { text-align: center; color: var(--accent); font-family: monospace; letter-spacing: 3px; }
+    .error-msg { color: var(--danger); font-size: 0.85rem; margin-bottom: 10px; min-height: 1.2em; }
+
+    .bottom-nav {
+        position: fixed; bottom: 0; left: 0; right: 0;
+        background: var(--card);
+        border-top: 1px solid var(--border);
+        display: flex;
+        padding-bottom: env(safe-area-inset-bottom);
+        z-index: 10;
+    }
+    .bottom-nav button {
+        flex: 1; background: none; border-radius: 0;
+        color: var(--text-dim); font-weight: normal; font-size: 0.85rem;
+        padding: 12px 4px;
+    }
+    .bottom-nav button.active { color: var(--accent); font-weight: bold; }
+
+    .fab {
+        position: fixed; right: 18px; bottom: 78px;
+        width: 54px; height: 54px; border-radius: 50%;
+        background: var(--accent2); color: #0b0c10;
+        font-size: 1.6rem; line-height: 1;
+        display: flex; align-items: center; justify-content: center;
+        box-shadow: 0 4px 14px rgba(69,243,255,0.35);
+        z-index: 9;
+    }
+
+    .search-row { display: flex; gap: 8px; margin-bottom: 12px; }
+    .search-row input { margin-bottom: 0; }
+
+    .stat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 16px; }
+    .stat-box { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 14px; text-align: center; }
+    .stat-box .num { font-size: 1.6rem; color: var(--accent); font-weight: bold; }
+    .stat-box .lbl { font-size: 0.75rem; color: var(--text-dim); }
+
+    .top-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid var(--border); font-size: 0.9rem; }
+    .top-item:last-child { border-bottom: none; }
+
+    .hidden { display: none !important; }
+    .status-msg { font-size: 0.85rem; text-align: center; margin: 10px 0; min-height: 1.2em; }
+    .status-msg.ok { color: var(--ok); }
+    .status-msg.err { color: var(--danger); }
+
+    .back-link { color: var(--accent); text-decoration: none; font-size: 0.9rem; display: inline-block; margin-bottom: 12px; }
+    h2.view-title { color: #fff; font-size: 1.1rem; margin: 4px 0 16px; }
+    .logout-bottom { margin: 24px 0 10px; }
+    .logout-bottom button { background: none; border: 1px solid var(--border); color: var(--text-dim); width: 100%; font-weight: normal; }
+</style>
+</head>
+<body>
+
+<div id="login-view">
+    <h2>SCARDUM</h2>
+    <div class="error-msg" id="login-error"></div>
+    <div class="field">
+        <label>Пароль админки</label>
+        <input type="password" id="login-password" autocomplete="current-password">
+    </div>
+    <button class="btn-primary" onclick="doLogin()">Войти</button>
+</div>
+
+<div id="app-view" class="hidden">
+    <header>
+        <h1>SCARDUM</h1>
+        <span class="sub" onclick="doLogout()" style="cursor:pointer;">выход</span>
+    </header>
+
+    <main>
+        <!-- LIST VIEW -->
+        <div id="view-list">
+            <div class="search-row">
+                <input type="text" id="search-input" placeholder="Поиск по названию/slug" oninput="renderGameList()">
+            </div>
+            <div id="games-list"></div>
+        </div>
+
+        <!-- EDIT VIEW -->
+        <div id="view-edit" class="hidden">
+            <a class="back-link" onclick="showView('list')">← К списку</a>
+            <h2 class="view-title" id="edit-title">Новая карточка</h2>
+
+            <div class="field">
+                <label>Slug (латиницей, как в URL)</label>
+                <input type="text" id="f-slug" placeholder="например witcher3">
+            </div>
+            <div class="field">
+                <label>Название</label>
+                <input type="text" id="f-title" placeholder="например The Witcher 3: Wild Hunt">
+            </div>
+            <div class="field">
+                <label>Бейдж (короткая фраза на карточке)</label>
+                <input type="text" id="f-badge" placeholder="например Шедевр на века">
+            </div>
+            <div class="field">
+                <label>Издатель</label>
+                <input type="text" id="f-publisher" placeholder="например CD Projekt">
+            </div>
+            <div class="field">
+                <label>Короткий текст на карточке</label>
+                <textarea id="f-short_text" rows="3"></textarea>
+            </div>
+            <div class="checkbox-row">
+                <input type="checkbox" id="f-is_special">
+                <label for="f-is_special">Особая карточка (is_special)</label>
+            </div>
+            <div class="checkbox-row">
+                <input type="checkbox" id="f-is_hidden">
+                <label for="f-is_hidden">Скрыть с главной (только по прямой ссылке)</label>
+            </div>
+
+            <div class="field">
+                <label>Текст страницы-обзора (вставится под заголовком с названием игры)</label>
+                <div class="toolbar">
+                    <button type="button" onclick="insertSnippet('info')">+ Инфо-блок</button>
+                    <button type="button" onclick="insertSnippet('shot')">+ Скриншот</button>
+                    <button type="button" onclick="insertSnippet('section')">+ Раздел (h3+текст)</button>
+                    <button type="button" onclick="insertSnippet('fps')">+ FPS-блок</button>
+                    <button type="button" onclick="insertSnippet('optimization')">+ Оптимизация</button>
+                    <button type="button" onclick="insertSnippet('worth2026')">+ Стоит ли играть в 2026</button>
+                    <button type="button" onclick="insertSnippet('verdict')">+ Итог</button>
+                </div>
+                <textarea id="f-review_html" rows="14" placeholder="Можно оставить пустым, если обзор уже есть файлом на сайте"></textarea>
+            </div>
+
+            <div class="status-msg" id="edit-status"></div>
+
+            <div class="btn-row">
+                <button class="btn-primary" onclick="saveGame()">Сохранить</button>
+            </div>
+            <div class="btn-row" id="delete-row">
+                <button class="btn-danger" onclick="deleteGame()">Удалить карточку</button>
+            </div>
+        </div>
+
+        <!-- STATS VIEW -->
+        <div id="view-stats" class="hidden">
+            <h2 class="view-title">Статистика</h2>
+            <div class="stat-grid" id="stat-grid"></div>
+            <div class="game-card" style="display:block;">
+                <div class="info" style="margin-bottom:6px;"><h3>Топ карточек</h3></div>
+                <div id="top-games"></div>
+            </div>
+        </div>
+
+        <div class="logout-bottom">
+            <button onclick="doLogout()">Выйти из аккаунта</button>
+        </div>
+    </main>
+
+    <div class="fab" id="fab-add" onclick="openNewGame()">+</div>
+
+    <div class="bottom-nav">
+        <button id="nav-list" class="active" onclick="showView('list')">Игры</button>
+        <button id="nav-stats" onclick="showView('stats')">Статистика</button>
+    </div>
+</div>
+
+<script>
+    let games = [];
+    let currentGameId = null;
+
+    async function api(path, opts) {
+        const res = await fetch(path, Object.assign({
+            headers: { 'Content-Type': 'application/json' }
+        }, opts || {}));
+        let data = null;
+        try { data = await res.json(); } catch (e) {}
+        if (!res.ok) throw (data && data.error) ? data.error : ('Ошибка ' + res.status);
+        return data;
+    }
+
+    async function checkSession() {
+        try {
+            const me = await api('/admin/api/me');
+            if (me.is_admin) {
+                document.getElementById('login-view').classList.add('hidden');
+                document.getElementById('app-view').classList.remove('hidden');
+                showView('list');
+                loadGames();
+            }
+        } catch (e) {}
+    }
+
+    async function doLogin() {
+        const password = document.getElementById('login-password').value;
+        const errEl = document.getElementById('login-error');
+        errEl.innerText = '';
+        try {
+            await api('/admin/api/login', { method: 'POST', body: JSON.stringify({ password }) });
+            document.getElementById('login-view').classList.add('hidden');
+            document.getElementById('app-view').classList.remove('hidden');
+            showView('list');
+            loadGames();
+        } catch (e) {
+            errEl.innerText = 'Неверный пароль';
+        }
+    }
+
+    async function doLogout() {
+        try { await api('/admin/api/logout', { method: 'POST' }); } catch (e) {}
+        location.reload();
+    }
+
+    function showView(name) {
+        ['list', 'edit', 'stats'].forEach(v => {
+            document.getElementById('view-' + v).classList.toggle('hidden', v !== name);
+        });
+        document.getElementById('fab-add').classList.toggle('hidden', name !== 'list');
+        document.getElementById('nav-list').classList.toggle('active', name === 'list');
+        document.getElementById('nav-stats').classList.toggle('active', name === 'stats');
+        if (name === 'stats') loadStats();
+    }
+
+    async function loadGames() {
+        games = await api('/admin/api/games');
+        renderGameList();
+    }
+
+    function renderGameList() {
+        const q = document.getElementById('search-input').value.toLowerCase().trim();
+        const list = document.getElementById('games-list');
+        list.innerHTML = '';
+        games
+            .filter(g => !q || g.title.toLowerCase().includes(q) || g.slug.toLowerCase().includes(q))
+            .forEach(g => {
+                const div = document.createElement('div');
+                div.className = 'game-card';
+                div.onclick = () => openEditGame(g.id);
+                div.innerHTML = `
+                    <div class="info">
+                        <h3><span class="badge-dot ${g.has_review_html ? 'has-review' : 'no-review'}"></span>${escapeHtml(g.title)}</h3>
+                        <div class="meta">${escapeHtml(g.slug)} · ${escapeHtml(g.publisher || '—')}${g.is_hidden ? ' · скрыта' : ''}</div>
+                    </div>
+                    <div class="stats">👁 ${g.views}<br>reac ${g.total_reactions}</div>
+                `;
+                list.appendChild(div);
+            });
+    }
+
+    function escapeHtml(s) {
+        return (s || '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+    }
+
+    function openNewGame() {
+        currentGameId = null;
+        document.getElementById('edit-title').innerText = 'Новая карточка';
+        document.getElementById('delete-row').classList.add('hidden');
+        ['slug','title','badge','publisher','short_text','review_html'].forEach(f => document.getElementById('f-' + f).value = '');
+        document.getElementById('f-is_special').checked = false;
+        document.getElementById('f-is_hidden').checked = false;
+        document.getElementById('edit-status').innerText = '';
+        showView('edit');
+    }
+
+    async function openEditGame(id) {
+        const g = await api('/admin/api/games/' + id);
+        currentGameId = g.id;
+        document.getElementById('edit-title').innerText = g.title;
+        document.getElementById('delete-row').classList.remove('hidden');
+        document.getElementById('f-slug').value = g.slug;
+        document.getElementById('f-title').value = g.title;
+        document.getElementById('f-badge').value = g.badge;
+        document.getElementById('f-publisher').value = g.publisher;
+        document.getElementById('f-short_text').value = g.short_text;
+        document.getElementById('f-review_html').value = g.review_html;
+        document.getElementById('f-is_special').checked = g.is_special;
+        document.getElementById('f-is_hidden').checked = g.is_hidden;
+        document.getElementById('edit-status').innerText = '';
+        showView('edit');
+    }
+
+    async function saveGame() {
+        const payload = {
+            slug: document.getElementById('f-slug').value.trim(),
+            title: document.getElementById('f-title').value.trim(),
+            badge: document.getElementById('f-badge').value.trim(),
+            publisher: document.getElementById('f-publisher').value.trim(),
+            short_text: document.getElementById('f-short_text').value.trim(),
+            review_html: document.getElementById('f-review_html').value,
+            is_special: document.getElementById('f-is_special').checked,
+            is_hidden: document.getElementById('f-is_hidden').checked,
+        };
+        const statusEl = document.getElementById('edit-status');
+        statusEl.className = 'status-msg';
+        statusEl.innerText = 'Сохраняю…';
+        try {
+            if (currentGameId) {
+                await api('/admin/api/games/' + currentGameId, { method: 'PUT', body: JSON.stringify(payload) });
+            } else {
+                const created = await api('/admin/api/games', { method: 'POST', body: JSON.stringify(payload) });
+                currentGameId = created.id;
+                document.getElementById('delete-row').classList.remove('hidden');
+            }
+            statusEl.className = 'status-msg ok';
+            statusEl.innerText = 'Сохранено';
+            await loadGames();
+        } catch (e) {
+            statusEl.className = 'status-msg err';
+            statusEl.innerText = typeof e === 'string' ? e : 'Ошибка сохранения';
+        }
+    }
+
+    async function deleteGame() {
+        if (!currentGameId) return;
+        if (!confirm('Удалить карточку и обзор без возможности восстановить?')) return;
+        try {
+            await api('/admin/api/games/' + currentGameId, { method: 'DELETE' });
+            await loadGames();
+            showView('list');
+        } catch (e) {
+            alert('Не получилось удалить: ' + e);
+        }
+    }
+
+    function insertSnippet(kind) {
+        const ta = document.getElementById('f-review_html');
+        const snippets = {
+            info: `\n<div class="info-grid">\n    <div class="info-item"><span>Жанр:</span> </div>\n    <div class="info-item"><span>Дата релиза:</span> </div>\n    <div class="info-item"><span>Издатель:</span> </div>\n    <div class="info-item"><span>Рейтинг критиков:</span> </div>\n</div>\n`,
+            shot: `\n<div class="game-screenshot-box">\n    <img src="{{ url_for('static', filename='images/ИМЯ_ФАЙЛА.jpg') }}" class="game-img">\n</div>\n`,
+            section: `\n<h3>Заголовок раздела</h3>\n<p>Текст раздела.</p>\n`,
+            fps: `\n<div class="fps-box">\n    <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>\n    <p>GTX 750 Ti - </p>\n    <p>GTX 1060 - </p>\n    <p>RX 580 8GB - </p>\n</div>\n`,
+            optimization: `\n<h3>Оптимизация</h3>\n<p>Текст про оптимизацию.</p>\n`,
+            worth2026: `\n<h3>Стоит ли играть в 2026 году?</h3>\n<p>Текст ответа.</p>\n`,
+            verdict: `\n<h3>Итог</h3>\n<p><strong>Вердикт:</strong> текст.</p>\n`,
+        };
+        const snippet = snippets[kind] || '';
+        const start = ta.selectionStart;
+        const end = ta.selectionEnd;
+        ta.value = ta.value.slice(0, start) + snippet + ta.value.slice(end);
+        ta.focus();
+        ta.selectionStart = ta.selectionEnd = start + snippet.length;
+    }
+
+    async function loadStats() {
+        const s = await api('/admin/api/stats');
+        document.getElementById('stat-grid').innerHTML = `
+            <div class="stat-box"><div class="num">${s.total_games}</div><div class="lbl">Карточек</div></div>
+            <div class="stat-box"><div class="num">${s.total_views}</div><div class="lbl">Просмотров</div></div>
+            <div class="stat-box"><div class="num">${s.total_reactions}</div><div class="lbl">Реакций</div></div>
+            <div class="stat-box"><div class="num">${s.pending_comments}</div><div class="lbl">Комментов на модерации</div></div>
+        `;
+        document.getElementById('top-games').innerHTML = s.top_games.map(g =>
+            `<div class="top-item"><span>${escapeHtml(g.title)}</span><span>👁${g.views} · react ${g.reactions}</span></div>`
+        ).join('') || '<div class="top-item">Пока пусто</div>';
+    }
+
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('{{ url_for("static", filename="adminapp/sw.js") }}').catch(() => {});
+    }
+
+    checkSession();
+</script>
+</body>
+</html>
