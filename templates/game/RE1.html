@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Evil HD Remaster — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resident Evil HD Remaster</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror</div>
+            <div class="info-item"><span>Дата релиза:</span> 20 января 2015</div>
+            <div class="info-item"><span>Издатель:</span> Capcom</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 82/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>1998 год, окрестности Раккун-Сити. Отряд спецназа S.T.A.R.S. (прям как космостарс XD) отправляется расследовать серию жестоких убийств в лесу и практически сразу попадает в засаду. Стая зомби псов загоняет группу в единственное убежище поблизости, старинный особняк, который на первый взгляд кажется спасением. На деле это оказывается ещё худшей ловушкой. Особняк под завязку набит мутировавшими существами, головоломками, запертыми дверями и записками бывших сотрудников, из которых постепенно складывается картина того, что здесь на самом деле происходило. За событиями стоит фармацевтический гигант Umbrella Corporation, тайно разрабатывавший биологическое оружие, а именно вирус, превращающий людей и животных в кровожадных монстров. Играя за Криса Редфилда или Джилл Валентайн, предстоит не только выжить среди трупов и щелкающих челюстей, но и выяснить, кто из отряда предатель, а кто следующая жертва.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/RE1_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Resident Evil HD Remaster вышел в 2015 году, и это по сути пересобранный ремейк 2002 года. Требования соответствующие, для актуального на тот момент бюджетного железа.</p>
+        <ul>  
+	    <li><strong>Процессор:</strong> Intel Core 2 Duo 2.4 ГГц / AMD Athlon X2 2.8 ГГц (минимум), Intel Core 2 Quad 2.7 ГГц / AMD Phenom II X4 3.0 ГГц (рекомендуется)</li>          
+            <li><strong>Оперативная память:</strong> 2 ГБ (минимум), 4 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> GTX 260 / Radeon HD 6790 (минимум), GTX 560 / Radeon HD 6950 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 20 ГБ</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - стабильные <strong>60 FPS</strong> на максималах, никаких снижений настроек не требуется.</p>
+	    <p>GTX 1050 Ti - та же картина, <strong>60 FPS</strong> без единой запинки.</p>
+	    <p>GTX 1060 (3-6 ГБ) - <strong>60 FPS</strong>, обе карты скучают на такой нагрузке.</p>									
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong>, дальше говорить не о чем, потолок есть потолок.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong>, движок 2002 года не способен напрячь такую карту.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>, видеопамять простаивает так же безмятежно, как Джилл Валентайн ищет чернильную ленту в особняке.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Resident Evil HD Remaster - это ремастер ремейка, то есть Capcom по сути отполировала уже отполированное. Подтянули текстуры фонов, добавили широкоформатную картинку взамен исходного 4:3, разлочили фреймрейт до честных 60 и слегка обновили модели персонажей, оставив при этом геймплей, камеру и фиксированные ракурсы практически нетронутыми. Фирменная фишка серии, из-за которой зомби эффектно вылезают из-за угла, которого ты просто не видишь. Порт получился крепким, но не без огрехов. Известна проблема с просадками фреймрейта на слабом встроенном видео (Intel HD и подобных), для которой сообщество даже выпустило неофициальный фикс, а на некоторых системах игра почему-то капризничает именно на минимальных настройках сильнее, чем на средних.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Не стоит все же в это играть. Но все же головоломки с чернильными лентами и ограниченным инвентарём заставляют думать головой, а не просто жать на курок, а особняк Спенсеров за прошедшие годы не потерял ни капли атмосферы. Единственное, что может смутить, так это правление в стиле танка, которое либо влюбляет в себя намертво, либо выбешивает в первые полчаса. Благо в ремастере можно переключиться на более современную схему.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Resident Evil HD Remaster дает возможность познакомиться с игрой, которая заложила фундамент всего жанра survival horror, без скидок на устаревшую графику 1996 года. Фиксированные камеры и осознанный дефицит патронов работают на атмосферу даже спустя десятилетия, а особняк Спенсеров остаётся одной из самых запоминающихся локаций в истории жанра. Требования по железу здесь не проблема ни для кого, кто читает этот обзор, и переживать стоит разве что за собственные нервы во время встречи с первым зомби в коридоре. 8 чернильных лент из 10.</p>
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

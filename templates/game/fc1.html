@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Far Cry 1 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Far Cry 1</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Шутер от первого лица</div>
+            <div class="info-item"><span>Дата релиза:</span> 23 марта 2004 года</div>
+            <div class="info-item"><span>Издатель:</span> Ubisoft & Crytek</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 91/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>2004 год, до Crysis еще три года, но немецкие ребята из Crytek уже тогда решили показать всем, что такое "мой пека не тянет". Играем за бывшего спецназовца Джека Карвера, которого наняли отвезти журналистку на некий тропический остров. Разумеется, лодка взрывается, журналистку похищают, а сам остров оказывается напичкан наемниками психа по имени Крюгер. И вот тут начинается настоящий цирк. Только-только расстрелял пару десятков бандитов с автоматами, как вдруг на тебя выбегает мутант с щупальцами, потому что где-то там, в секретной лаборатории, кто-то не глядя нажимал кнопки. Сюжет простой как палка, зато остров красивый настолько, что в 2004 году люди реально покупали видеокарты именно ради этой игры.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/fc1_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>На релизе игра требовала себе видеокарту уровня GeForce 3, но времена изменились, и сегодня любой утюг с USB портом переварит эту игру не глядя.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium 4 1.4 ГГц или аналог AMD (по современным меркам подойдет буквально что угодно)</li>
+
+            <li><strong>Оперативная память:</strong> 256 МБ (по нынешним временам это даже не оперативка, а гордость музея)</li>
+
+            <li><strong>Видеокарта:</strong> GeForce 3 или Radeon 8500</li>
+
+	    <li><strong>Вес:</strong> 2,5 ГБ</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - тут даже думать не о чем, стабильные <strong>300+ FPS</strong> на максималках в 1080p. Единственное, что может ограничивать кадры - это лимит самого движка CryEngine 1, который на некоторых сборках капризничает выше определенного порога.</p>
+	    <p>GTX 1050 Ti - та же история, <strong>300+ FPS</strong>, карта даже не почувствует нагрузки.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>300+ FPS</strong> без единой просадки.</p>
+	    <p>GTX 1060 (6 ГБ) - аналогично, <strong>300+ FPS</strong>, разницы с 3 гиговой версией нет никакой, игра даже не замечает, что ты вообще что-то апгрейдил.</p>    
+	    <p>GTX 1660 / 1660 Super - тут уже начинается комедия. Карта настолько избыточна, что вопрос не сколько FPS, а зачем ты вообще запустил на ней Far Cry 2004 года. <strong>300+ FPS</strong>, упор чисто в лимитер движка.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>300+ FPS</strong>. AMD тут справляется ничуть не хуже, движок одинаково легко переваривается что зеленым, что красным лагерем.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - все те же самые <strong>300+ FPS</strong>.</p>    
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Оптимизация в оригинальном Far Cry - это отдельная история из мира "было и хорошо, и плохо одновременно". С одной стороны, движок CryEngine 1 в свое время был технологическим прорывом. Открытые пространства, дальность прорисовки, шейдеры воды, от которых у геймеров 2004 года случался легкий инфаркт. С другой стороны, тот же движок был настолько требователен к однопоточной производительности процессора, что даже сегодня на некоторых системах можно словить странные микрофризы там, где по логике их быть не должно. Зато искусственный интеллект противников - это отдельный вид искусства для своего времени. Наемники обходят с флангов, кидают гранаты и вообще ведут себя как люди, а не как мешки с опилками, что для 2004 года было почти магией.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Как ни странно - да. Не ради ностальгии по графике (она, будем честны, давно устарела), а ради того самого открытого тропического острова, где до сих пор приятно просто бегать и стрелять. Плюс это отличный повод понять, откуда растут ноги у всей современной серии, и почему Crytek потом ушли делать Crysis, чтобы окончательно добить видеокарты всего мира.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Дедушка серии, который в свое время ломал видеокарты игрокам, а теперь сам не может нагрузить даже бюджетный ноутбук. Крепкий, атмосферный шутер, с которого всё началось. 8 наемников с флангов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

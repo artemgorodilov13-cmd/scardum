@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Far Cry 5 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Far Cry 5</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Шутер от первого лица / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 27 марта 2018 года</div>
+            <div class="info-item"><span>Издатель:</span> Ubisoft</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 81/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Серия наконец покидает джунгли и горы ради сельской Монтаны, где вместо диктаторов и повстанцев тебя ждёт культ судного дня во главе с Джозефом Сидом и его "семьёй". Ты - безымянный помощник шерифа, который приезжает арестовать пророка и внезапно оказывается втянут в полноценную партизанскую войну против фанатиков секты Эдемовых Врат по всему округу Хоуп. Формула та же. Вышки (тут их заменили радиовышки), аванпосты, охота, только теперь ты ещё и разжигаешь восстание местных против культистов с ружьём в одной руке и крестом в другой.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/fc5_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Движок Dunia Engine 2 снова подрос в требованиях. Разработчики официально рекомендуют уровень GTX 970 или R9 290X, что для 2018 года уже далеко не бюджетный вариант.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i5-2400 или AMD FX-6300 (минимум), Intel Core i7-4770 или AMD Ryzen 5 1600 (рекомендуется)</li>
+
+            <li><strong>Оперативная память:</strong> 8 ГБ</li>
+
+            <li><strong>Видеокарта:</strong> GTX 670 или R9 270 (минимум), GTX 970 или R9 290X (рекомендуется)</li>
+
+	    <li><strong>Вес:</strong> 40 ГБ (Gold Edition весит 72 гига, а консольная версия 45)</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - не более <strong>30-40 FPS</strong> на ультрах, с необходимостью снижать настройки.</p>
+	    <p>GTX 1050 Ti - <strong>40-50 FPS</strong> в 1080p на высоких без FSR. С включенным FSR будет <strong>60 FPS</strong>, но с просадками до <strong>53 FPS</strong>.</p>
+	    <p>GTX 1060 (3 ГБ) - не гарантирует игру в <strong>60 кадров</strong>, но ожидай <strong>55-65 FPS</strong> в среднем на ультрах.</p>
+	    <p>GTX 1060 (6 ГБ) - а вот это уже одна из двух видеокарт нашего списка, которая стабильно держит минимум <strong>60 FPS</strong> на ультрах в 1080p. Уверенный и комфортный результат.</p>    
+	    <p>GTX 1660 / 1660 Super - карта вышла уже после релиза игры, но по её запасу производительности над GTX 1060 стоит рассчитывать на комфортные <strong>90+ FPS</strong> на ультрах без всяких компромиссов.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - именно эти карточки красного лагеря стали точкой входа для стабильных <strong>60 FPS</strong> на ультрах в 1080p.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - стабильно держит <strong>60 FPS</strong> на ультрах, и показывала в среднем <strong>71 FPS</strong>. Лучший результат среди всего бюджетного сегмента карт того поколения.</p>   
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Far Cry 5 - это та игра, где Ubisoft явно поработали с красными над оптимизацией. Практически во всех тестах карты Radeon обходят своих прямых конкурентов от Nvidia на сопоставимых ценовых позициях, что для игр той эпохи было скорее исключением, чем правилом. При этом сама игра довольно требовательна к настройкам сглаживания и теней. Впрочем, снижение именно этих параметров, а не общего пресета качества, даёт наибольший прирост кадров без потери в атмосфере открытого мира Монтаны.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>В целом, игра еще более как щадит старые видеокарты, поэтому да. Фанатам серии очень зайдет сельский сеттинг и культ судного дня, который до сих пор выделяется на фоне остальных частей, а кооп на двоих делает прохождение веселее. Разве что сюжетно Джозеф Сид и его семья воспринимаются неоднозначно. Ну, кому как.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Смена декораций пошла серии на пользу, а отличная оптимизация под AMD карты - это приятный бонус для владельцев Radeon. Требовательна к настройкам сильнее, чем можно было ожидать, но железо конца 2010-х держит её уверенно. 8 радиовышек из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

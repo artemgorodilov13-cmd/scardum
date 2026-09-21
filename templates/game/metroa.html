@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Metro Awakening — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Metro Awakening</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> VR-шутер / Survival Horror / Приключение</div>
+            <div class="info-item"><span>Дата релиза:</span> 7 ноября 2024 года</div>
+            <div class="info-item"><span>Издатель:</span> Vertigo Games & Vertigo Studios Amsterdam</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 74/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Metro Awakening переносит нас задолго до событий Metro 2033, когда московское метро ещё только продолжало превращаться в тот самый подземный кошмар, который мы знаем по основной серии. Главный герой Сердар, врач и человек науки, который отправляется в тёмные тоннели метро на поиски своей жены. И, разумеется, если ты отправляешься искать человека в постапокалиптическом московском метро, где поезда давно превратились в декорации, а вокруг шляются мутанты и вооружённые выжившие, то всё обязательно пойдёт по плану. Ну почти. Главная особенность Awakening - эта игра полностью построена вокруг VR. Ты не просто управляешь Артёмом с дивана, а ты сам оказываешься внутри метро. Сам надеваешь противогаз, сам работаешь с фонарём, сам следишь за фильтрами и боеприпасами.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/metroawakening_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p></p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i7-9700</li>
+            <li><strong>Оперативная память:</strong> 16 ГБ</li>
+            <li><strong>Видеокарта:</strong> RTX 2070 8 ГБ</li>
+	    <li><strong>VR:</strong> Oculus Rift, Meta Quest 2/3, HTC Vive / Vive Pro / Pro 2, Valve Index</li>
+	    <li><strong>Вес:</strong> 77,4 ГБ (в стиме)</li>
+        </ul>
+
+        <p>Писать какие-то надежды я не буду. Игре нужна минимум RTX видюха, а в списке её даже и в помине нету. Поэтому, можешь просто посмотреть о чем игра, и что у нее с оптимизацией.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Awakening работает на Unreal Engine и с самого начала создавалась именно как VR игра. И это сильно меняет требования. В обычной игре можно пережить просадку с <strong>80 до 55 FPS</strong>. В VR подобная ситуация значительно неприятнее, поэтому разработчикам приходится гораздо внимательнее относиться к производительности. При этом игра умудряется сохранить знакомую атмосферу Metro. Темнота, тоннели, ограниченные ресурсы, противогаз, фонарь и постоянное ощущение, что за ближайшим поворотом тебя ждёт очередная причина пожалеть о своём решении спускаться сюда.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Если у тебя есть подходящий VR шлем и компьютер, который соответствует требованиям, то да. Это не полноценная новая номерная часть вроде Exodus и не попытка заменить основную серию. Скорее это отдельная история, которая позволяет посмотреть на вселенную Metro с совершенно другого ракурса.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Metro Awakening - это необычная часть серии, которая буквально заставляет игрока оказаться внутри метро. История происходит до Metro 2033, а главный акцент сделан на погружении, исследовании и выживании в VR. 10 360 оборотов вокруг себя из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

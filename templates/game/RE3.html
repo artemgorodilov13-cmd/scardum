@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resident Evil 3 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Resident Evil 3</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror</div>
+            <div class="info-item"><span>Дата релиза:</span> 22 сентября 1999</div>
+            <div class="info-item"><span>Издатель:</span> Capcom</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 87/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Раккун-Сити продолжает гореть в буквальном и переносном смысле, и в этом пылающем кошмаре застряла Джилл Валентайн, бывшая участница S.T.A.R.S., которая наивно полагала, что после первого особняка ее жизнь войдет в мирное русло. Спойлер: не вошла. Пока город трещит по швам, Джилл пытается выбраться наружу, попутно натыкаясь на военного наёмника Карлоса Оливейру и его отряд Амбрелла, отправленный якобы спасать выживших. С той степенью честности, которую вообще можно ожидать от корпорации, устроившей все это изначально. Но настоящая звезда шоу - это, конечно, Немезида, биологическое оружие ростом с холодильник, чье единственное хобби выслеживать конкретно тебя через полгорода, произнося ваше имя с интонацией коллектора по кредитам.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/RE3_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Будем честны, игра 1999 года, и требования здесь просто ничтожество, поэтому потянет любой материальный объект.</p>
+        <ul>  
+	    <li><strong>Процессор:</strong> Pentium 166 МГц (минимум), Pentium II 233 МГц (рекомендуемые)</li>          
+            <li><strong>Оперативная память:</strong> 16 МБ (минимум), 32 МБ (рекомендуемые)</li>
+            <li><strong>Видеокарта:</strong> любая DirectX 6 совместимая видеокарта с 2 МБ видеопамяти (минимум), 4 МБ (рекомендуемые)</li>
+	    <li><strong>Вес:</strong> 600 МБ</li>
+        </ul>
+
+	<h3>Оптимизация</h3>
+	<p>Оптимизация RE3 1999 года - это, по сути, разговор ни о чем, потому что игра создавалась под плойке той эпохи, где производительность измерялась в мегабайтах оперативки, а не в гигагерцах. Современный запуск обычно идет либо через эмулятор, либо через классический порт под винду того времени, и в обоих случаях любое железо из нашего списка справляется с игрой настолько легко, что сам вопрос оптимизации звучит как издевательство. Примерно как спрашивать Немезиса, не устал ли он бегать.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Нет. Просто потому что игра 1999 года, и давно вышел ремейк тройки, и причем очень добротный. Автор прошел его два раза, и эмоции после каждого прохождения только положительные. Фиксированные ракурсы камеры, танковое управление и загадки, требующие терпения буддийского монаха... все это либо вызывает ностальгию, либо откровенно раздражает, третьего не дано. Но если тебе интересно не просто поиграть в хоррор, а понять, откуда растут ноги у всей франшизы и почему Немезис стал одним из самых узнаваемых монстров в игровой индустрии, то оригинал того стоит, причем стоит именно как оригинал, а не как то, что ремейк якобы полностью заменил. У ремейка выше темп и меньше контента (несколько локаций вообще вырезали), а у классики тот самый медленный нарастающий ужас, когда неизвестно, из-за какого угла в следующий раз вылезет проблема. Для фанатов жанра - это обязательный пункт программы, для случайного игрока все таки вещь на любителя, но с историческим весом, который трудно игнорировать.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Resident Evil 3 - это тот дед, где продолжение на самом деле означает "то же самое, но теперь тебя преследует конкретный монстр с личной вендеттой и умением проламывать стены". 10 недовольных Немезисов из 10.</p>
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
