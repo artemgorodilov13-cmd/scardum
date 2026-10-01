@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill 2 Remake - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill 2 Remake</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Психологический хоррор</div>
+            <div class="info-item"><span>Дата релиза:</span> 8 октября 2024</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 86/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>История та же, что и в оригинале, только рассказана заново. Джеймс Сандерленд получает письмо от жены, которая умерла три года назад, и вместо визита к врачу едет в Сайлент-Хилл. Там его ждут туман, странные жители, Пирамидоголовый и Мария, подозрительно похожая на Мэри. Bloober Team, которую раньше знали по Layers of Fear и The Medium, взялась за культовую игру, и все ждали катастрофы, а получили одну из лучших переделок в жанре. Камера теперь висит за плечом, бои стали бодрее, а Джеймс наконец-то шевелит лицом, так что страдать от вины он может в высоком разрешении.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh2re_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра на Unreal Engine 5 с системой освещения Lumen, которая по сути является трассировкой лучей, только без вывески. Требования соответствующие. Минимум обещает 1080p и 30 FPS на низких-средних, рекомендуемые дают 60 FPS на средних или 30 на высоких.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i7-6700K / Ryzen 5 3600 (минимум), Intel Core i7-8700K / Ryzen 5 3600X (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 16 ГБ (минимум и рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> GTX 1070 Ti / RX 5700 / Arc A750 (минимум), RTX 2080 / RX 6800 XT (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 50 ГБ</li>
+	    <li><strong>Дополнительно:</strong> нужна DirectX 12 и желательно SSD</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>Речь про 1080p на низких и средних настройках, а там, где без апскейлера никак, с FSR. Цифры сильно зависят от места в городе, поэтому давайте считать их ориентиром, а не гарантией.</p>
+	    <p>GTX 750 Ti - <strong>меньше 30 FPS</strong>, если игра вообще запустится. Официальный минимум это GTX 1070 Ti, так что эта карта смотрит на него снизу вверх, как Джеймс на Пирамидоголового.</p>
+	    <p>GTX 1050 Ti - <strong>около 30 FPS</strong> на низких с FSR. Играть можно, но в 720p город выглядит примерно так, как его помнит сам Джеймс, то есть смутно.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>25-30 FPS</strong> на низких с FSR и с просадками. Трех гигабайт видеопамяти игре мало, зато это скромный вклад в атмосферу безысходности.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>30-60 FPS</strong> на средних с FSR, иногда падает ниже 30. Зато на этой карте ты по-настоящему понимаешь героя, который бежит и никак не может убежать.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>около 30 FPS</strong> на низких-средних без апскейла, с FSR можно подобраться к 60. Первая карта в списке, которая стоит хотя бы рядом с минимальными требованиями, а не под ними.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>около 30 FPS</strong> на низких с FSR. Четыре гигабайта здесь как запас патронов в игре, то есть заканчиваются на самом интересном.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>30-60 FPS</strong> на средних с FSR, примерно как у GTX 1060 на 6 ГБ. Восемь гигабайт позволяют не думать о нехватке памяти, зато о нехватке мощности придется.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Unreal Engine 5, Lumen и красивые туманные улицы, за которые платит видеокарта. Игра заметно лучше чувствует себя на Nvidia, чем на AMD, а на самых больших настройках в 1080p съедает около 6 ГБ видеопамяти, так что владельцам старых карт здесь особо радоваться нечему. К этому добавляются подлагивания при пересечении города, ролики, залоченные на 30 FPS, и отсутствие официальной генерации кадров, хотя DLSS, FSR и XeSS на месте. Слабые видеокарты выручают низкие настройки, которые быстрее ультра примерно на треть, и запуск с параметром -dx11, который многие игроки считают обязательным для нормальной производительности. Вердикт по оптимизации, игра красивая, но не для тех, кто дружит со старым железом.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Однозначно да, если позволяет железо. Это один из лучших ремейков за последние годы, который сохранил дух оригинала и при этом добавил приличную боевую систему, нормальную камеру и отдельные уровни сложности для боев и головоломок. Если видеокарта старая, есть оригинал 2001 года с Enhanced Edition, который запустится на чем угодно, а вот пугать будет ничуть не хуже.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Ремейк, который взяли скептики и прогнали через туман, а на выходе получили один из лучших хорроров года. Требования кусаются, оптимизация местами больно щиплет, но города, из которого не хочется уходить, это не отменяет. 10 писем в 4K с освещением из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

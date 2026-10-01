@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill 2 - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill 2</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Психологический хоррор</div>
+            <div class="info-item"><span>Дата релиза:</span> 24 сентября 2001 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 89/100 (Metacritic</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Джеймс Сандерленд получает письмо от жены Мэри, в котором она зовет его в Сайлент-Хилл, в их особое место. Небольшая деталь, Мэри умерла три года назад. Нормальный человек на этом месте показал бы письмо врачу, но Джеймс садится в машину и едет, ведь мертвые жены пишут не каждый день. В городе его ждут туман, пустые улицы и местные жители, с которыми лучше не пересекаться, вроде девочки Лоры, которая подозрительно быстро находит с ним общий язык. А еще Мария, как две капли воды похожая на Мэри, только с гардеробом посмелее и совсем другим характером. Отдельное удовольствие это Пирамидоголовый, парень с огромным ножом и железной пирамидой вместо головы, который явно гуляет по городу не просто так. Игра осторожно подводит к вопросу, зачем Джеймс на самом деле сюда приехал, и лучше не пропускать этот момент.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Речь про оригинал 2001 года и его пк порт 2002 года, а не про ремейк. Требования там из эпохи Windows XP, так что современный компьютер их даже не заметит.</p>
+        <ul>
+            <li><strong>Процессор:</strong> любой современный, оригинальные требования смешные по меркам 2026 года</li>
+            <li><strong>Оперативная память:</strong> тоже смешные, хватит и одной вкладки браузера</li>
+            <li><strong>Видеокарта:</strong> любая современная, для сглаживания и HD-разрешений из Enhanced Edition лучше дискретная</li>
+	    <li><strong>Вес:</strong> по нынешним меркам мелочь, даже с Enhanced Edition</li>
+	    <li><strong>Дополнительно:</strong> без Enhanced Edition или PC Fix игра застряла на 30 FPS и ведет себя как ПК 2002 года</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>По умолчанию пк версия заперта на 30 FPS. С Enhanced Edition или PC Fix можно выставить 60, по ним и ориентируемся. Выше 60 игра не пойдет, так что все карты упираются в потолок самой игры, а не в свои силы.</p>
+	    <p>GTX 750 Ti - <strong>60 FPS</strong> в 1080p. Для карты 2014 года игра 2001 это разминка перед сном. Единственное, что тут может тормозить, это сам Джеймс, который бегает как по колено в киселе.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> в 1080p со сглаживанием. Заборы и перила перестали рябить, а вот сюжет от этого веселее не стал.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong> в 1080p с любым сглаживанием. Трех гигабайт хватает и на игру, и на HD текстуры из Enhanced Edition, и еще остается на ощущение собственной избыточности.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong> в 1080p. Вторые три гигабайта просто стоят рядом и смотрят, как Джеймс бродит в тумане и ищет жену.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong> с огромным запасом. Мощности здесь столько, что карта скоро начнет разговаривать сама с собой, как Джеймс перед зеркалом.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong> в 1080p. Кстати, баг с белыми текстурами вместо черных ловят зеленые лагеря, так что у красной команды сегодня повод для маленькой гордости.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong> в 1080p. Запас видеопамяти такой, что рядом с ним игра 2001 года выглядит как открытка.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>ПК версию делала студия Creature Labs, и по результату кажется, что с портом ее познакомили за пару дней до релиза. Игра по умолчанию заперта на 30 FPS, звуковая библиотека на многоядерных процессорах любит подвисать и щелкать, а часть текстур, которые должны быть черными, у владельцев зеленых карт показывается ярко белым. Настоящую оптимизацию сделали фанаты, выпустив Enhanced Edition, где есть широкоформатные разрешения, звук как на PS2, вернувшийся туман и поддержка 60 FPS. Получилось, что сообщество сделало то, что издателю было лень, причем бесплатно.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, и это тот случай, когда ответ не требует оговорок. История про вину и самообман до сих пор бьет точнее, чем большинство хорроров, где нужно просто стрелять по всему подряд. Боевка тут скорее наказание за то, что ты не смог убежать, управление танковое, а Джеймс машет доской так, будто впервые видит гвозди. Enhanced Edition ставить обязательно, без него играть можно, но зачем себя мучить. Есть еще дополнительный сценарий про Марию, так что переигрывать тебя заставят.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Игра, в которой самый страшный монстр живет в голове у главного героя, а самый заметный носит на голове железную пирамиду. ПК порт не образец, но фанаты давно все починили, а требования такие, что запустится на чем угодно. 10 пирамид из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

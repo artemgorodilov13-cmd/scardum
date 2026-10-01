@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill f - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill f</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Психологический хоррор</div>
+            <div class="info-item"><span>Дата релиза:</span> 25 сентября 2025 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 85/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Действие переезжает из Сайлент-Хилла в вымышленный японский городок Эбисугаока конца 1960-х. Школьница Хинако Симидзу живет обычной жизнью, пока город не накрывает туман, родной дом не превращается в ловушку, а на улицах не остаются одни чудовища. Сценарий написал Рюкиси07, автор Higurashi и Umineko, так что хорошего настроения и простых ответов ждать не стоит. Хинако придется драться с монстрами и решать головоломки, за которыми стоят ее собственные страхи и сомнения, а решения по ходу игры ведут к пяти разным концовкам. Отличный способ провести конец учебного года.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh_f_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра на Unreal Engine 5, но требования при этом неожиданно человеческие. Минимум обещает 30 FPS в 720p на режиме Performance, а рекомендуемые дают 60 FPS в 1080p на Performance или 30 FPS на Quality.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Core i5-8400 / Ryzen 5 2600 (минимум), Core i7-9700 (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 16 ГБ</li>
+            <li><strong>Видеокарта:</strong> GTX 1070 Ti / RX 5700 (минимум), RTX 2080 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 50 ГБ</li>
+	    <li><strong>Дополнительно:</strong> нужна Windows 11 и DirectX 12, а SSD для рекомендуемых требований обязателен</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>Речь про 1080p. Цифры взяты из тестов игроков на этих же или соседних картах, а апскейлер FSR в этой игре почти обязателен. Разброс в цифрах честный, потому что кадры сильно зависят от места, где ты в этот момент стоишь.</p>
+	    <p>GTX 750 Ti - <strong>меньше 30 FPS</strong> даже на низких. Уже GTX 970 на низких с FSR Performance выдает 23-54 кадра, а 750 Ti заметно слабее и стоит ниже минимальных требований. Карта смотрит на игру, игра на карту, и обе в ужасе.</p>
+	    <p>GTX 1050 Ti - <strong>35-70 FPS</strong> на низких с FSR Performance. Разброс зависит от того, идешь ты по пустому коридору или на тебя смотрит вся деревня. Картинка при этом честно собрана из 540p, так что выглядит примерно как акварель.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>около 35-45 FPS</strong> на низких с FSR. Трех гигабайт для игры 2025 года маловато, так что карта выживает по всем законам жанра.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>около 40-55 FPS</strong> на низких-средних с FSR. Стоит между 1050 Ti и 1660, так что кадров хватает, чтобы вовремя уклоняться. А уклоняться придется много.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>40-47 FPS</strong> на средних с FSR Performance, у версии Super чуть больше. Хватает, чтобы вовремя нажать контратаку, а для выживания в этой игре это уже почти все.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>около 50-60 FPS</strong> на средних с FSR. Игра, судя по тестам, любит AMD чуть больше, чем Nvidia. Четыре гигабайта здесь как туман, вроде и не мешают, но видимость ограничивают.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>57-62 FPS</strong> на средних с FSR Quality. Единственная карта в списке, которая честно тянет средние с качественным апскейлом и держит ровные 60 кадров. Такое ощущение, что разработчики втайне болеют за красных.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Unreal Engine 5, Lumen и красивый туман, но в этот раз все работает заметно лучше, чем можно было ждать. Тесты показывают, что игра легче многих других проектов на этом движке, а карты AMD ей нравятся чуть больше, чем Nvidia. При этом официальной генерации кадров нет, DLSS работает так себе, а слабым картам поможет отключаемый Lumen и апскейлер. Туман, кстати, привычно ограничивает видимость, и для экономии ресурсов это очень удобно. Отдельно порадует требование Windows 11, так как Windows 10 в списке поддерживаемых нет, и владельцам старых систем предлагается сначала пережить свой личный хоррор с обновлением.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, особенно если тебе нравится японский хоррор, а не просто монстры в тумане. Это самостоятельная история, которая не требует знания предыдущих игр, а на прохождение уходит часов двенадцать-пятнадцать. Боевка с уклонениями, контратаками и запасом сил получилась живой, хотя игру постоянно сравнивают с Soulslike, а продюсеры просили так не делать. Есть небольшие претензии к управлению и к тому, что героиня иногда цепляется за рельеф, зато после первой концовки игра дает новый круг с измененными боссами и врагами.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Silent Hill, который переехал в Японию, оставил там туман и научился драться. Требования разумные, оптимизация приятная, а страшно бывает не только от монстров, но и от собственных решений. 9 пугал из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

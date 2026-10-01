@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill: Shattered Memories - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill: Shattered Memories</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Психологический хоррор / Приключение</div>
+            <div class="info-item"><span>Дата релиза:</span> 8 декабря 2009 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 79/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Конами посмотрела на первый сайлент хилл и решила, что переделать ее один в один было бы слишком просто. Поэтому Гарри Мейсон снова ищет пропавшую дочь Шерил Мейсон в сайлент хилле, но теперь сама история начинает подозрительно интересоваться тем, какой ты человек. Игра периодически отправляет тебя на сеансы к психологу, а твои ответы, действия и даже некоторые мелочи постепенно влияют на персонажей, окружение и дальнейшее восприятие происходящего. А когда город окончательно превращается в ледяной кошмар, философствовать уже некогда, приходится просто бежать. Жаль драться нельзя. Вообще. Видимо, разработчики решили, что лучший способ победить монстра -  это показать ему спину и очень убедительно объяснить, что ты занят.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh_shattered_memories_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Shattered Memories вышла на Wii, PS2 и PSP, поэтому на компе речь идет об эмуляции. Версия для Wii была основной, а PS2 и PSP получили адаптации позже.</p>
+        <ul>
+            <li><strong>Процессор:</strong> зависит от эмулятора</li>
+            <li><strong>Оперативная память:</strong> зависит от эмулятора</li>
+            <li><strong>Видеокарта:</strong> зависит от эмулятора</li>
+	    <li><strong>Вес:</strong> зависит от версии</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - <strong>60 FPS</strong> в большинстве сценариев при нормальной настройке эмулятора и умеренном апскейле. Для игры, которая изначально жила на Wii и PS2, карта явно не собирается увольняться.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> практически без проблем. Даже с повышением внутреннего разрешения запас остается приличным, хотя отдельные сцены эмулятор все равно может испортить чисто из принципа.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong>. Запаса более чем достаточно, а 3 гига видеопамяти для такой игры выглядят примерно как грузовик для перевозки одной табуретки.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong>. Еще больше видеопамяти, еще меньше причин для беспокойства. Игра все равно упрямо остается игрой эпохи Wii.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong>. Для этих видеокарт задача настолько легкая, что самым сложным местом снова становится не графика, а поиск выхода из лабиринта.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong> при нормальной конфигурации эмулятора. Запаса хватает с большим перевесом.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>. Видеопамяти столько, будто сейчас начнется ремейк второго сайлент хилла, а не игра 2009 года.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>На оригинальном железе игра была сделана достаточно аккуратно, но на пк ситуация зависит уже от эмулятора. Старые версии PCSX2 могли устраивать настоящий цирк с графикой, звуком и внутриигровыми роликами, если частота кадров уходила от нужного значения. Современные сборки значительно исправили эти проблемы. На Wii ситуация тоже зависит от эмулятора.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, если хочется увидеть, как сайлент хилл экспериментировал с формулой. Здесь нет привычной системы боя, зато есть психологический профиль, изменяющий восприятие игры, необычная структура повествования и очень сильная атмосфера. Это скорее интерактивный психологический эксперимент, который зачем-то заставили быть хоррором.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Shattered Memories - один из самых необычных экспериментов серии. Она берет знакомую историю, переворачивает ее вверх ногами и выкидывает привычную боевую систему в окно. 10 психологических тестов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill 3 - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill 3</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Психологический хоррор</div>
+            <div class="info-item"><span>Дата релиза:</span> 23 мая 2003 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 72/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Хизер семнадцать лет, и она просто хотела спокойно погулять по торговому центру. Но уснула в кафе, проснулась в кошмарной версии того же места, и дальше все пошло по нарастающей. Стены сочатся кровью, магазины закрыты навсегда, а рядом бродит подозрительный частный детектив, который очень настойчиво интересуется ее жизнью. Выясняется, что ее отец это тот самый Харри Мейсон из первой части, а вернувшаяся секта не закончила дело, которое затевала в прошлый раз. Обычный подростковый день, если не считать того, что торговый центр здесь пытается тебя убить.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh3_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра 2003 года на движке под Direct3D 8.1, так что современному компьютеру она интересна примерно так же, как взрослому детская игровая комната.</p>
+        <ul>
+            <li><strong>Процессор:</strong> из эпохи Windows XP, любой современный справится с огромным запасом</li>
+            <li><strong>Оперативная память:</strong> по нынешним меркам смешная</li>
+            <li><strong>Видеокарта:</strong> любая, которая умеет в древний Direct3D 8.1, то есть все, что вы можете найти</li>
+	    <li><strong>Вес:</strong> в американской коробке лежали 5 дисков, так что по меркам 2026 года это мелочь</li>
+	    <li><strong>Дополнительно:</strong> без PC Fix от Steam006 или Widescreen Fix лучше даже не пытаться</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>Потолок у игры 60 FPS. Выше лезть не стоит, потому что после 60 она начинает бежать быстрее, а без фикса кадры еще любят прыгать между 30 и 60. Поэтому все карты упираются в игру, а не наоборот.</p>
+	    <p>GTX 750 Ti - <strong>60 FPS</strong> в 1080p. Держит потолок без пота. Проблемы у игры совсем в другом, например в звуке, который звучит так, будто пластинку крутят не на той скорости.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> в 1080p. Единственная жалоба карты в том, что до потолка так легко дотянуться.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong> в 1080p. Игре нужна видеопамять примерно так же, как торговому центру Хизер нужны покупатели, то есть вообще не нужна.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong> в 1080p. Та же картина, только с тремя лишними гигабайтами, которые некуда девать. Можно хранить в них скриншоты страданий Хизер.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong> в 1080p и выше. Карта выдала бы больше, но за 60 игра начинает бежать быстрее, так что гордость пришлось спрятать вместе с потолком.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong> в 1080p. Если вдруг картинка начнет дергаться между 30 и 60, ругайте не карту, а ПК-порт.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong> в 1080p. Восемь гигабайт видеопамяти ради мира, где самое сложное для видеокарты это ржавые стены и кровь. Ему и без них хватает.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>ПК-версия вышла в конце 2003 года и получила улучшенный свет фонарика, 60 FPS и сохранение в любом месте, что для хоррора почти оскорбительно щедро. Зато ограничителя кадров в ней нет, так что выше 60 игра ускоряется, а ниже кадры прыгают между 30 и 60. Звук сжали так, что он звучит с искаженной высотой, а из версии для PS2 пропали все 14 рекламных нарядов Хизер, отчего игра сильно потеряла в модном образе. Раз издатель не торопился, все починили фанаты. PC Fix от Steam006 добавляет свои разрешения, оконный режим и правильный формат роликов, а Widescreen Fix убирает лишнее вроде черных полос в катсценах.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, и это один из лучших сюжетных заходов серии, если ты играл(а) в первую часть. Хизер живая, язвительная героиня, а не человек с чемоданом трагедии, что по меркам серии почти вызов. Монстры вышли мерзкими на любой вкус, головоломки бывают такими, что хочется позвонить автору, а сохраняться можно где угодно, как и заявлено в описании ПК-версии. Управление по-прежнему танковое, зато боевка стала терпимее, чем у Джеймса и Харри. Ставь фиксы и не спорь.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Игра, которая берет историю из первой части, пропускает ее через торговый центр и делает из этого один из самых мрачных сиквелов в жанре. Порт не идеален, но фанаты давно все привели в порядок, так что пугать тебя будет только сама игра. 9 бургеров из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
