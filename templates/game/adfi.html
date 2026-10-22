@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Dance of Fire and Ice — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>A Dance of Fire and Ice</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> </div>
+            <div class="info-item"><span>Дата релиза:</span> </div>
+            <div class="info-item"><span>Издатель:</span> </div>
+            <div class="info-item"><span>Рейтинг критиков:</span> /100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>A Dance of Fire and Ice на первый взгляд выглядит как очередная простенькая ритм-игра, где два шарика катаются по дорожке под музыку. А потом ты заходишь на первый же нормальный уровень, промахиваешься на одном повороте и понимаешь, что эти два шарика теперь лично хотят уничтожить твою самооценку. Вся игра строится вокруг одного правила. Нужно вовремя нажимать кнопку, заставляя планеты двигаться по траектории строго в ритм музыке. Никаких комбинаций из двадцати клавиш, сложных интерфейсов и горы механик. Только ритм, реакция и постепенно усложняющиеся уровни. При этом сложность здесь вполне серьёзная, ведь ближе к поздним уровням игра начинает требовать уже не просто чувства ритма, а почти математического понимания происходящего на экране. А если стандартных уровней станет мало, есть редактор, позволяющий создавать собственные карты и превращать игру в персональный генератор страданий.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/adfi_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Вот тут A Dance of Fire and Ice наконец напоминает инди-игру, а не очередной современный релиз, которому почему-то нужен компьютер NASA</p>
+        <ul>
+            <li><strong>Процессор:</strong> Пойдет вообще на любом процессоре Intel или AMD</li>
+            <li><strong>Оперативная память:</strong> 2 ГБ</li>
+            <li><strong>Видеокарта:</strong> Intel Graphics 4000 с двумя гигами (к слову, даже встроенная отлично подойдет)</li>
+	    <li><strong>Вес:</strong> 1,5 ГБ</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 1050 Ti - так как игра вообще нетребовательная, на этой видеокарте она не просто запуститься, она будет <strong>летать</strong>. Примерно в <strong>220 FPS</strong> при 1080p на средних настройках, но это именно расчёт, а не независимый игровой тест, поэтому воспринимать цифру как гарантию не стоит.</p>
+
+	</div>
+
+	<p>В целом, не вижу смысла объяснять какой фпс выдаст на других картах. Игра не такая требовательная, поэтому пойдет практически на всём (если комп конечно не из 2000-x).</p>
+
+	<h3>Оптимизация</h3>
+	<p>С оптимизацией здесь всё довольно забавно. Игра работает на Unity и при этом визуально совершенно не пытается изображать очередной технический прорыв человечества. Большая часть нагрузки приходится не на какие-то тяжёлые открытые миры или реалистичное освещение, а на саму обработку игры и ритмических элементов. Поэтому современные компьютеры проходят её требования с огромным запасом, а даже старое железо способно справляться с игрой без особых проблем.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>50/50. Если тебе вообще нравятся ритм-игры, A Dance of Fire and Ice до сих пор отлично работает по своему главному принципу: правила элементарные, а освоить их до идеала, уже совсем другая история. Игра не требует мощного компьютера, занимает около 1,5 ГБ и до сих пор имеет редактор уровней, поэтому контентом она ограничивается далеко не только тем, что положили разработчики.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> A Dance of Fire and Ice - это пример того, как из двух шариков, одной дорожки и одной кнопки можно сделать игру, способную уничтожить уверенность в собственных рефлексах. 9 нетребовательных игр из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

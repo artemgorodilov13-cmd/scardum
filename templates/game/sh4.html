@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill 4: The Room - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill 4: The Room</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Психологический хоррор</div>
+            <div class="info-item"><span>Дата релиза:</span> 7 сентября 2004 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 76/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Генри Тауншенд живет в квартире 302 и проснулся с проблемой, о которой в объявлениях о сдаче жилья не пишут. Дверь закрыта изнутри на цепь, окна не открываются, телефон молчит, и так уже несколько дней. Зато в ванной появилась дыра в стене, которая ведет в очень странные места, полные призраков и людей, с которыми лучше не пересекаться. Все это связано с серийным убийцей, у которого явно был тяжелый день, и он решил сделать его тяжелым для всех остальных. Отдельно радует, что квартира, которая сначала была единственным безопасным местом, постепенно перестает им быть, так что даже дома расслабиться не получится.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh4_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Требования из 2004 года, и по ним видно, что в те времена видеокарты называли красиво, а мощности от них ждали поменьше.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Pentium 4 2.4 ГГц (любой современный обгонит его в разы)</li>
+            <li><strong>Оперативная память:</strong> 256 МБ, то есть меньше, чем занимает одна вкладка браузера</li>
+            <li><strong>Видеокарта:</strong> Radeon 8500, которую давно пора выставлять в музее</li>
+	    <li><strong>Вес:</strong> 2.4 ГБ (версия из GOG)</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>Потолок игры 30 FPS, так что все карты упираются в него одинаково. Разница между ними только в том, насколько скучно им живется.</p>
+	    <p>GTX 750 Ti - <strong>30 FPS</strong> в 1080p. Минимальной Radeon 8500 давно место в музее, а эта карта смотрит на нее как на далекого предка. Игра для нее это детская горка для танка.</p>
+	    <p>GTX 1050 Ti - <strong>30 FPS</strong> в 1080p со сглаживанием. Карта даже не заметила, что включили сглаживание, чего не скажешь про тебя, когда из стены лезет призрак.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>30 FPS</strong> в 1080p. Вся игра весит 2.4 ГБ, так что теоретически влезла бы в видеопамять целиком.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>30 FPS</strong> в 1080p. Влезли бы уже две таких игры, но у карты хватает ума не пробовать.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>30 FPS</strong> в 1080p. Мощность здесь нужна примерно как ключ от квартиры Генри, то есть выйти за потолок все равно не получится.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>30 FPS</strong> в 1080p. Тянет с запасом, и это единственный запас в игре, где патронов и здоровья вечно не хватает.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>30 FPS</strong> в 1080p. Восемь гигабайт видеопамяти под игру, которой в лучшие годы хватало 256 МБ оперативки. Карта явно скучает по временам, когда от нее ждали меньше.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>ПК версия вышла через два дня после PS2 и, судя по результату, сделали ее в эти самые два дня. Мягких теней нет, часть привидений из второй половины игры не пришла, а в роликах было 15 кадров в секунду, будто их снимали на телефон дедушки. При этом игра еще и извинялась за вылеты сообщением про безопасные настройки графики. Все спасло обновление на GOG в 2020 году, где добавили широкоформатный режим, сглаживание, 30 FPS в роликах и облачные сохранения, а заодно убрали проверку, из-за которой игра отказывалась запускаться на нормальных компьютерах. Если хочется большего, есть PC Fix от Steam006, который возвращает пропавших призраков и добавляет поддержку DirectX 12.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, но с оговоркой. Это самая спорная часть серии, ее до сих пор ругают за то, что она ушла от классической формулы и даже не пустила игрока в сам Сайлент-Хилл. Зато она смелее остальных, а квартира как центр игры до сих пор придумана отлично. Боевка неуклюжая, призраки бессмертные и к концу успевают надоесть, а напарницу придется таскать за собой, и вот это уже настоящее испытание для нервов. Проходится часов за десять, так что игра не успеет надоесть сильнее, чем призраки.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Самый странный ребенок в семье, который сидит в своей комнате и никуда не выходит, но делает это со вкусом. Запустится на чем угодно, а вот твои нервы получат больше, чем видеокарта. 8 запертых дверей из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

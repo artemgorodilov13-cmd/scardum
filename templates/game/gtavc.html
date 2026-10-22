@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto Vice City — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grand Theft Auto Vice City</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 27 октября 2002 года</div>
+            <div class="info-item"><span>Издатель:</span> Rockstar Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 95/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Томми Версетти выходит из тюрьмы после 15 лет отсидки и сразу же попадает в подставу во время сделки по продаже наркотиков. Товар и деньги исчезают, а Томми остаётся должен местным криминал-авторитетам. Дальше классика. Построение собственной криминальной империи в неоновом Вайс-Сити (прямая отсылка на Майами 80-х) и саундтрек, который сам по себе достоин отдельного диплома по поп-культуре десятилетия. Именно здесь рокстары добавили полноценную озвучку главного героя, недвижимость, которую можно покупать, и вообще ощущение настоящего гангстерского восхождения, а не просто набора миссий.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/gtavc_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Движок тот же RenderWare, что и в тройке, лишь слегка доработанный. То есть, требования выросли не сильно.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium III или AMD Athlon 733 МГц (минимум), 1 ГГц (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 128 МБ (минимум), 160 МБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> 32 МБ видеопамяти с поддержкой Direct3D (минимум), 64 МБ (рекомендуется)</li>
+	    <li><strong>Вес:</strong> ~ 800 МБ</li>
+        </ul>
+
+        <p>Как и с гта 3, отдельной таблицы по видеокартам тут не будет. Современное железо разгоняет игру до сотен кадров без малейшего усилия, и узкое место снова не в видеокарте. По опыту сообщества самый рабочий компромисс - это жёстко ограничить фреймрейт на <strong>60 FPS</strong> (через встроенный лимитер игры, Nvidia/AMD панель управления или RivaTuner).</p> 
+
+	<h3>Совет</h3>
+	<p>На этой отметке физика в большинстве случаев ведёт себя стабильно, а вот выше <strong>60</strong> без модов лучше <strong>не подниматься</strong>. Если тебе нужен список модов для этого, то держи: SilentPatch (обязательная база), Widescreen Fixes Pack (он же FusionFix для 3D эры гта), CLEO-скрипт с лимитером (опционально, как подстраховка). Лучше именно в такой последовательности ставить моды. Третий мод вообще по желанию, он необязательный. Он чисто для красок, скинов и доп. контента.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Тот же RenderWare-движок, что и в гта 3, с той же самой ключевой проблемой. Логика игры изначально была синхронизирована с фреймрейтом под консольный порт PS2, а при переносе на PC разработчики не потрудились это отвязать. Отсюда и все современные танцы с лимитерами FPS - это не баг (это фича) производительности, а архитектурная особенность движка двадцатилетней давности.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Абсолютно да. Атмосфера Майами 80-х, саундтрек и Томми Версетти до сих пор держат уровень, который многие открытые миры не могут повторить даже спустя 20+ лет. С парой патчей на совместимость это всё ещё крепкая и стильная игра, а не просто ностальгия.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Неон, синтвейв и криминальная империя, построенная с нуля - это один из самых стильных открытых миров в истории индустрии. Из технических проблем - это только капризная физика на высоком FPS, что для игры 2002 года более чем простительно. 10 вложений в недвижимость Вайс Сити из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

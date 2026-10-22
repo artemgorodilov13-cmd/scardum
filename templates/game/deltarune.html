@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deltarune — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Deltarune</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> RPG</div>
+            <div class="info-item"><span>Дата релиза:</span> 31 октября 2018 года</div>
+            <div class="info-item"><span>Издатель:</span> 8-4 / Toby Fox</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 81/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Духовный наследник Undertale от того же Тоби Фокса переносит нас в параллельный мир, куда затягивает школьника по имени Крис вместе с его одноклассницей Сьюзи. Там их уже ждет добродушный маг Ральсей, который тут же назначает их героями пророчества и отправляет закрывать темные порталы, попутно сражаясь (или не сражаясь) с местными жителями в пошаговых боях с элементами bullet hell. Как и в Undertale, тут можно решать конфликты и словом, и оружием, только теперь на арене сразу несколько героев партии, а не один одинокий ребенок с ножом.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/deltarune_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра сделана на движке GameMaker в пиксельной 2D-графике, поэтому требования тут скорее формальность, чем реальный барьер.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i3-2100 или аналог</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ</li>
+            <li><strong>Видеокарта:</strong> Intel HD Graphics 4000 или любая дискретная карта уровня GeForce 7-й серии и новее</li>
+	    <li><strong>Вес:</strong> 2 ГБ</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - стабильные <strong>60 FPS</strong> (родной лимит игры), карта тут просто отдыхает и наблюдает за пиксельными персонажами.</p>
+	    <p>GTX 1050 Ti - те же стабильные <strong>60 FPS</strong>, без единой просадки даже во время самых насыщенных bullet hell-фаз боя.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong>, разговаривать тут не о чем. Игре хватило бы и встроенной графики от старого ноутбука.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong>, дополнительная видеопамять тут просто пылится без дела.</p>							
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong>, разница с бюджетными картами из этого списка отсутствует полностью.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong>, ситуация зеркальная линейке GTX 1060.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>, как и на всех картах из списка - тут упор идет исключительно во встроенный лимит игры.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Об оптимизации Deltarune можно рассказать в одном предложении. Её тут просто не существует как проблемы. Игра запускалась на калькуляторах еще во времена демо первой главы, и с полным релизом ситуация не изменилась, а разработчики целенаправленно держат графику простой и пиксельной, чтобы сфокусировать все ресурсы движка на музыке, анимациях персонажей и боевой системе, а не на красивых тенях. Единственное, что тут может подвиснуть, - твое собственное сердце во время особенно трогательных сюжетных моментов.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Определенно да, особенно если играл в Undertale и хочешь узнать, что стало с этой вселенной дальше. С полным релизом всех глав история наконец обрела форму, а не ощущается набором разрозненных демок, растянутых на несколько лет ожидания. При этом требования настолько скромные, что единственная причина не поиграть - это отсутствие желания плакать над пиксельной графикой.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Deltarune - это тот случай, когда игра абсолютно наплевательски относится к твоему железу, зато крайне серьезно относится к твоим чувствам. FPS тут стабилен даже на утюге, а вот эмоциональная стабильность после прохождения уже не гарантируется.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

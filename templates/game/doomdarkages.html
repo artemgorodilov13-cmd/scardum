@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOM: The Dark Ages - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+        .game-screenshot-box {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            border: 1px solid #45f3ff;
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+            box-sizing: border-box;
+        }
+
+        .game-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 7px;
+        }
+
+        .fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DOOM: The Dark Ages</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Шутер от первого лица</div>
+            <div class="info-item"><span>Дата релиза:</span> 15 мая 2025 года</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 83/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>DOOM: The Dark Ages - это приквел, который отправляет нас в прошлое, до событий DOOM 2016. Палач Рока еще не заперт в саркофаге, а только начинает свой путь как оружие возмездия. На этот раз его отправили в средневековый мир, где демоны устроили настоящий ад на Земле. Вместо привычных марсианских коридоров тебя ждут мрачные крепости, поля сражений и огромные механические драконы.</p>
+        <p>Сюжет здесь подается более эпично, чем в предыдущих частях. Ты увидишь, как Палач Рока становится тем, кем мы его знаем, и какие жертвы ему пришлось принести. Но не переживай, это все еще DOOM: катсцены короткие, а основное внимание уделено тому, чтобы ты как можно быстрее вернулся к уничтожению демонов.</p>
+
+        <!-- Блок со скриншотом -->
+        <div class="game-screenshot-box">
+            <img src="{{ url_for('static', filename='images/doomdarkages_screen.jpg') }}" class="game-img" alt="DOOM: The Dark Ages Screenshot">
+        </div>
+
+        <h3>Системные требования</h3>
+        <p>А вот тут начинается самое интересное. DOOM: The Dark Ages - это первая игра в серии, которая <strong>не запустится</strong> на видеокартах без аппаратной поддержки трассировки лучей. Если у тебя GTX 1060, GTX 750 Ti или RX 580, игра просто выдаст ошибку при запуске. Движок id Tech 8 использует RTGI (трассировку лучей в реальном времени) как базу для освещения, и обойти это невозможно .</p>
+        <ul>
+            <li><strong>Процессор:</strong> Ryzen 7 3700X или Intel Core i7-10700K (минимум)</li>
+            <li><strong>Оперативная память:</strong> 16 ГБ (минимум), 32 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> RTX 2060 Super или RX 6600 (минимум)</li>
+            <li><strong>Накопитель:</strong> 100 ГБ на NVMe SSD (без вариантов, HDD даже не рассматривается)</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p><strong>GTX 750 Ti / GTX 1050 Ti / GTX 1060 / RX 580</strong> - <strong>Игра не запускается</strong>. Технически невозможно обойти требование аппаратного RT. Эти карты официально не поддерживаются, и никакие патчи или костыли тут не помогут. Если ты владелец одной из них, эту игру можно смело пропускать.</p>
+            <p><strong>RTX 2060 Super (8 ГБ)</strong> - минимальная карта для запуска. На низких настройках в 1080p с DLSS Quality можно рассчитывать на стабильные <strong>60 FPS</strong>. Без апскейла фреймрейт будет проседать до 40-45 кадров в тяжелых сценах.</p>
+            <p><strong>RTX 3060 Ti / RX 6700 XT</strong> - рекомендованные карты. На высоких настройках в 1080p с DLSS Quality выдают <strong>70-80 FPS</strong>. Запас есть, можно не думать о просадках и наслаждаться боями.</p>
+            <p><strong>RTX 4060</strong> - на высоких настройках в 1440p с DLSS Quality выдает <strong>60+ FPS</strong>. Карта отлично справляется с игрой, а если снизить тени или качество текстур, можно получить еще больше кадров.</p>
+            <p><strong>RTX 4070 / RTX 4070 Super</strong> - на ультра настройках в 1440p с DLSS Quality выдают <strong>90-100+ FPS</strong>. Ты упрешься либо в частоту монитора, либо в процессор, но точно не в видеокарту.</p>
+        </div>
+
+        <h3>Оптимизация</h3>
+        <p>Несмотря на высокие требования, DOOM: The Dark Ages удивительно хорошо оптимизирована. Digital Foundry назвали ее одной из самых оптимизированных игр за последнее время, отметив отсутствие компиляции шейдеров и стабильное время смены кадров. Игра не фризит, не вылетает и загружается за пару секунд даже на старых SSD.</p>
+        <p>Главный пожиратель ресурсов - это видеопамять. На картах с 8 ГБ VRAM рекомендуется ставить пул текстур на 2048, иначе могут начаться просадки. На картах с 12+ ГБ можно смело выкручивать на максимум. Также стоит помнить, что игра использует DLSS, FSR и XeSS, так что владельцы разных карт могут выбрать подходящий апскейлер.</p>
+
+        <h3>Стоит ли играть в 2026 году?</h3>
+        <p>Если у тебя есть видеокарта уровня RTX 2060 Super или выше - однозначно да. Это эпичный приквел, который добавляет в серию новые механики (щит, парирование, драконьи полеты) и при этом сохраняет фирменную скорость и жестокость DOOM. Критики встретили игру тепло, а пользователи в стиме оставили 88% положительных отзывов.</p>
+        <p>Если у тебя все еще GTX 1060 или старее - увы, но эту игру придется пропустить. Это не тот случай, когда можно снизить настройки и играть. Технически игра просто не запустится. Так что либо апгрейд, либо проходим мимо и ждем следующую часть.</p>
+
+        <h3>Итог</h3>
+        <p><strong>Вердикт:</strong> DOOM: The Dark Ages - это смелый шаг вперед для серии, который поднимает планку графики и требует современного железа. Она не прощает старые видеокарты, но если у тебя есть RTX-карта, ты получишь один из самых эпичных и быстрых шутеров на рынке. 8.5 щитов Палача Рока из 10.</p>
+
+        <a href="/" class="back-btn" onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">- На главную</a>
+    </div>
+</body>
+</html>

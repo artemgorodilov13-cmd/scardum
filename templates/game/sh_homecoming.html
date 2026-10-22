@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill: Homecoming - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill: Homecoming</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Survival horror / Экшен</div>
+            <div class="info-item"><span>Дата релиза:</span> 6 ноября 2008 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 71/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Солдат Алекс Шепард возвращается в родной городок Шепардс-Глен, потому что пропал его младший брат. Дома его ждут мать, которая сидит и почти не разговаривает, отец, который куда-то делся, и целый город, который явно не рад гостям. Чтобы найти брата, Алексу придется добраться до Сайлент-Хилла, а по дороге разобраться с историей родных мест и с тем, что вообще творится у него в голове. Игра любит намекать, что главный герой видит далеко не все так, как есть, и это очень удобно, когда нужно объяснить любой странный поворот сюжета. Возвращение домой, в общем, вышло так себе.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh_homecoming_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игру 2008 года делали под тогдашнее железо, поэтому требования у нее такие, что современный ПК их просто не заметит.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Core 2 Duo 2.13 ГГц (минимум), Athlon 64 X2 5200+ (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 1 ГБ (минимум), 2 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> GeForce 7600 GT / Radeon HD 2600 (минимум), GeForce 8800 / Radeon HD 2900 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 10 ГБ</li>
+	    <li><strong>Дополнительно:</strong> нужен Steam, потому что все версии игры требуют его защиту</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>Без патчей игра работает в 30 FPS. Фанатский патч открывает 60 и больше, поэтому цифры ниже даны именно с ним, на высоких настройках в 1080p.</p>
+	    <p>GTX 750 Ti - <strong>60 FPS</strong> с патчем. Рекомендованная GeForce 8800 давно ушла на покой, а эта карта бежит по игре с таким видом, будто ей уже надоело.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> с патчем. Стабильно держит потолок и оставляет время оценить, как Алекс дерется. Лучше бы не оценивал.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong> с патчем. Видеопамять здесь нужна меньше всего, куда важнее нервы для тех самых QTE, которые ломает сам движок.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong> с патчем. Разницы с версией на 3 ГБ нет, ведь игра просила 512 МБ и на большее не претендует. Остальное просто болтается без дела, как Алекс в родном городе.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong> с запасом. Мощности хватает даже на формат 21:9, который фанатский патч, к счастью, поддерживает.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong> с патчем. Карта справляется, только игра иногда сама портит себе день вылетом при входе в дом Шепардов. Ругайте не карту.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong> с патчем. Восемь гигабайт под игру, которой хватало 512 МБ, это как прийти на семейный ужин с целым оркестром.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Игру делала студия Double Helix на движке Slayer, и результат получился очень своеобразным. Настроек графики всего две, средние и высокие, причем высокие дают чуть лучшие текстуры и тени, а на этом разговор о красоте заканчивается. Полноэкранный режим упрямо сидит на 60 или 100 Гц, даже если монитор умеет больше, звук понимает только схему 5.1, а игра может вылететь прямо на входе в дом Шепардов, что для игры про возвращение домой звучит почти символично. Спасает все тот же патч, который открывает 60 и больше FPS, чинит QTE, добавляет 21:9 и заодно правит вылеты. Фанаты, как обычно, работают лучше издателя.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Только если ты фанат серии или коллекционер. Homecoming считается одной из самых спорных частей, ее оценка в Metacritic заметно ниже, чем у классики, и у этого есть причины. Драк здесь гораздо больше, чем страха, QTE ломаются, а сам Алекс дерется так, будто в армии его учили другому. Зато атмосфера и музыка Акиры Ямаоки еще напоминают, что ты играешь в Silent Hill, а не в обычный экшен. С патчем игра вполне терпима, без него лучше не начинать.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Возвращение в родной город, которое получилось не таким теплым, как хотелось. Требования смешные, но с игрой без фанатских патчей возвращаться не стоит. 6 возвращений на малую родину из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

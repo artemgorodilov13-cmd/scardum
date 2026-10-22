@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto IV — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grand Theft Auto IV</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 2 декабря 2008 года</div>
+            <div class="info-item"><span>Издатель:</span> Rockstar Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 90/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Никлас Беллик приезжает в Либерти-Сити из Восточной Европы в поисках американской мечты, которую ему щедро обещал двоюродный брат Роман, а на деле мечта оказывается долгами, разборками с местной мафией и грузом травматичного военного прошлого, от которого Нико (не путать с Николой Ковачем) бежал через океан. Серия впервые сменила движок на собственный RAGE, отказалась от аркадности в пользу более реалистичной физики (привет, Euphoria. Та самая система, из-за которой персонажи так забавно и одновременно жутко реалистично вылетают со свистом из лобового стекла) и подала историю всерьёз, без прежнего сатирического стёба над Америкой. Мрачнее, драматичнее и технологичнее всего, что было раньше в серии.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/gta4_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>RAGE Engine - это первый по-настоящему требовательный движок в серии, и именно с этой игры начинается печально известная слава гта как франшизы с проблемной оптимизацией на пк.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core 2 Quad Q6600 или AMD Phenom 9850 (минимум), Intel Core i5-2400 или AMD FX-8350 (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 1,5 ГБ (минимум), 2 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> 256 МБ видеопамяти уровня GeForce 7900 или Radeon X1900 (минимум), 512 МБ уровня GeForce 8800 GT (рекомендуется)</li>
+	    <li><strong>Вес:</strong> около 16-22 ГБ (в зависимости от издания)</li>
+        </ul>
+
+	<!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti / GTX 1050 Ti - с адекватным современным процессором (не слабее i5) стоит ожидать <strong>40-55 FPS</strong> на средних в 1080p, но при слабом CPU результат может просесть значительно ниже независимо от карты.</p>
+	    <p>GTX 1060 (3-6 ГБ) - с сильным процессором комфортные <strong>60+ FPS</strong> на максималках в 1080p, но с посредственным процессором просадки вплоть до <strong>20-40 FPS</strong>. Узкое место именно в процессоре, а не в карте.</p>		   
+	    <p>GTX 1660 / 1660 Super - в целом, карта избыточна для этой игры, поэтому при приличном процессоре здесь стабильные <strong>80+ FPS</strong> на максималках в 1080p.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4-8 ГБ) - аналогично GTX 1060 по диапазону, <strong>55-70+ FPS</strong> при сильном процессоре.</p>
+	</div>
+
+	<p>Мощная видеокарта далеко не гарантирует хороший фреймрейт. Игра исторически плохо использует многопоточность и крайне требовательна именно к частоте одного ядра процессора, а не к видюхе. Полезный реальный лайфхак от сообщества: в файле commandline.txt в папке игры можно прописать параметры вроде -norestrictions -nomemrestrict -availablevidmem 4000, которые снимают устаревшие ограничения по памяти.</p>
+	
+	<h3>Оптимизация</h3>
+	<p>Ну... она просто существует (и то не факт).</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, особенно ради истории Нико - это одна из самых сильных драматических сюжетных линий во всей франшизе. Но будь готов повозиться с настройками и, возможно, поставить FusionFix. Из коробки даже на мощном современном компе игра иногда ведёт себя не так, как должна.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Самая мрачная, драматичная и технически проблемная часть серии одновременно. Отличная история ценой изрядной возни с оптимизацией, но оно того стоит. 10 боулингов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

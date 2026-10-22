@@ -1,0 +1,438 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}SCARDUM{% endblock %}</title>
+
+    <style>
+        /* ==================================================================
+           ЦВЕТОВЫЕ ПЕРЕМЕННЫЕ (ТОКЕНЫ ТЕМ)
+           ================================================================== */
+        :root {
+            --bg-body: #0b0c10;
+            --bg-card: #1f2833;
+            --border-card: #1e3a45;
+            --border-hover: #66fcf1;
+
+            --color-logo: #66fcf1;
+            --color-subtitle: #a0aec0;
+            --color-heading: #ffffff;
+            --color-text: #cbd5e1;
+
+            --badge-bg: #254e58;
+            --badge-text: #66fcf1;
+            --badge-border: transparent;
+            --shadow: rgba(0, 0, 0, 0.4);
+            --shadow-hover: rgba(102, 252, 241, 0.4);
+
+            --input-bg: #0b0c10;
+            --input-border: #45f3ff;
+            --input-text: #ffffff;
+        }
+
+        body.light-theme {
+            --bg-body: #f4f7f6;
+            --bg-card: #ffffff;
+            --border-card: #e2e8f0;
+            --border-hover: #0d9488;
+
+            --color-logo: #0f766e;
+            --color-subtitle: #4a5568;
+            --color-heading: #1a202c;
+            --color-text: #2d3748;
+
+            --badge-bg: #ccfbf1;
+            --badge-text: #115e59;
+            --badge-border: #99f6e4;
+            --shadow: rgba(0, 0, 0, 0.05);
+            --shadow-hover: rgba(13, 148, 136, 0.2);
+
+            --input-bg: #ffffff;
+            --input-border: #cbd5e1;
+            --input-text: #1a202c;
+        }
+
+        body.vice-theme {
+            --bg-body: #1a0b2e;
+            --bg-card: #2a1246;
+            --border-card: #7a2d8f;
+            --border-hover: #ff2ea6;
+
+            --color-logo: #ff2ea6;
+            --color-subtitle: #c9a6e8;
+            --color-heading: #ffffff;
+            --color-text: #e6d6ff;
+
+            --badge-bg: #4a1866;
+            --badge-text: #ff6ec7;
+            --badge-border: #ff2ea6;
+            --shadow: rgba(255, 46, 166, 0.15);
+            --shadow-hover: rgba(255, 46, 166, 0.5);
+
+            --input-bg: #2a1246;
+            --input-border: #ff2ea6;
+            --input-text: #ffffff;
+        }
+        
+        /* Неоновая сетка на фоне */
+                /* Неоновая сетка на фоне */
+        .vice-grid {
+            position: fixed;
+            bottom: -5vh; /* Опустили чуть ниже, чтобы верхушка сетки уходила вдаль */
+            left: -50%;
+            width: 200%;
+            height: 65vh; /* Сделали сетку выше */
+            background-image: 
+                linear-gradient(rgba(255, 46, 166, 0.4) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255, 46, 166, 0.4) 1px, transparent 1px);
+            background-size: 50px 50px;
+            transform: perspective(500px) rotateX(60deg);
+            animation: grid-move 2s linear infinite;
+            z-index: -2;
+            pointer-events: none;
+            display: none;
+            
+            /* Плавно растворяем верх сетки, чтобы не было резкой линии */
+            mask-image: linear-gradient(to top, black 50%, transparent 100%);
+            -webkit-mask-image: linear-gradient(to top, black 50%, transparent 100%);
+        }
+        
+        body.vice-theme .vice-grid { display: block; }
+
+        @keyframes grid-move {
+            0%   { background-position: 0 0; }
+            100% { background-position: 0 50px; }
+        }
+
+        /* Огромное ретро-солнце */
+        .vice-sun-container {
+            position: fixed;
+            bottom: 30vh; /* ПОДНЯЛИ ВЫШЕ (было 25vh) */
+            left: 50%;
+            transform: translateX(-50%);
+            width: 900px; 
+            height: 450px; 
+            overflow: hidden;
+            z-index: -3;
+            pointer-events: none;
+            display: none;
+            
+            /* ЗАМЫЛИВАЕМ НИЗ: Плавно растворяем нижнюю часть контейнера */
+            mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+            -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 95%);
+        }
+
+        body.vice-theme .vice-sun-container { display: block; }
+
+        .vice-sun {
+            width: 900px;
+            height: 900px;
+            border-radius: 50%;
+            background: linear-gradient(to bottom, #ff9a00 0%, #ff2ea6 50%, #ff0055 100%);
+            box-shadow: 0 0 80px #ff2ea6, 0 0 200px rgba(255, 154, 0, 0.4);
+            
+            /* Полосы оставляем, но благодаря маске контейнера они будут плавно исчезать */
+            mask-image: linear-gradient(to bottom, 
+                black 0%, black 40%, 
+                transparent 40%, transparent 43%, 
+                black 43%, black 50%, 
+                transparent 50%, transparent 53%, 
+                black 53%, black 60%, 
+                transparent 60%, transparent 63%, 
+                black 63%, black 70%, 
+                transparent 70%, transparent 73%, 
+                black 73%, black 100%
+            );
+            -webkit-mask-image: linear-gradient(to bottom, 
+                black 0%, black 40%, 
+                transparent 40%, transparent 43%, 
+                black 43%, black 50%, 
+                transparent 50%, transparent 53%, 
+                black 53%, black 60%, 
+                transparent 60%, transparent 63%, 
+                black 63%, black 70%, 
+                transparent 70%, transparent 73%, 
+                black 73%, black 100%
+            );
+        }
+
+        /* Светящиеся частицы */
+        .vice-particle {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1; /* Частицы тоже на заднем плане, чтобы не мешали читать */
+            display: none;
+            box-shadow: 0 0 10px currentColor;
+        }
+
+        body.vice-theme .vice-particle { display: block; }
+
+        /* Неоновое свечение для карточек в цвет солнца */
+        body.vice-theme .game-card {
+            box-shadow: 0 0 15px rgba(255, 46, 166, 0.2) !important;
+            border-color: rgba(255, 154, 0, 0.4) !important; /* Рамка стала оранжевой */
+        }
+        
+        body.vice-theme .game-card:hover {
+            box-shadow: 0 0 25px rgba(255, 154, 0, 0.7), inset 0 0 15px rgba(255, 46, 166, 0.3) !important;
+            border-color: #ff9a00 !important;
+        }
+        
+        body.vice-theme h1, body.vice-theme h3 {
+            text-shadow: 0 0 10px rgba(255, 46, 166, 0.6), 0 0 20px rgba(255, 154, 0, 0.4) !important;
+        }
+
+        /* Свечение инпутов */
+        body.vice-theme input, body.vice-theme textarea {
+            box-shadow: inset 0 0 8px rgba(255, 46, 166, 0.3) !important;
+            border-color: #ff9a00 !important;
+        }
+
+        /* ==================================================================
+           ХЭЛЛОУИН ТЕМА 🎃
+           ================================================================== */
+        body.halloween-theme {
+            --bg-body: #0a0705;
+            --bg-card: #1a0f05;
+            --border-card: #3d1f00;
+            --border-hover: #ff6a00;
+
+            --color-logo: #ff6a00;
+            --color-subtitle: #d4a574;
+            --color-heading: #ffb347;
+            --color-text: #e0d5c0;
+
+            --badge-bg: #2a1200;
+            --badge-text: #ff8c00;
+            --badge-border: #ff6a00;
+            --shadow: rgba(255, 106, 0, 0.15);
+            --shadow-hover: rgba(255, 106, 0, 0.5);
+
+            --input-bg: #0a0705;
+            --input-border: #ff6a00;
+            --input-text: #e0d5c0;
+        }
+
+        /* Жуткие детали хэллоуина */
+        body.halloween-theme h1 {
+            text-shadow: 0 0 10px rgba(255, 106, 0, 0.8), 0 0 20px rgba(255, 106, 0, 0.4);
+            font-family: 'Creepster', 'Segoe UI', cursive, sans-serif;
+            letter-spacing: 8px;
+        }
+        body.halloween-theme .container::before {
+            content: "🕸️";
+            position: absolute;
+            top: -8px;
+            left: -8px;
+            font-size: 44px;
+            opacity: 0.55;
+            pointer-events: none;
+        }
+        body.halloween-theme .container::after {
+            content: "🎃";
+            position: absolute;
+            bottom: -8px;
+            right: -8px;
+            font-size: 44px;
+            animation: halloween-float 3s ease-in-out infinite;
+            pointer-events: none;
+        }
+        body.halloween-theme .container { position: relative; }
+
+        @keyframes halloween-float {
+            0%, 100% { transform: translateY(0) rotate(-5deg); }
+            50%      { transform: translateY(-12px) rotate(5deg); }
+        }
+
+        /* Паутина по углам экрана */
+        .halloween-cobweb {
+            position: fixed;
+            width: 150px;
+            height: 150px;
+            pointer-events: none;
+            opacity: 0.6;
+            z-index: 9990;
+            background-image:
+                radial-gradient(circle at 0 0, transparent 0 20px, rgba(255, 106, 0, 0.4) 21px 22px, transparent 23px),
+                linear-gradient(45deg, transparent 49%, rgba(255, 106, 0, 0.4) 50%, transparent 51%),
+                linear-gradient(-45deg, transparent 49%, rgba(255, 106, 0, 0.4) 50%, transparent 51%);
+            display: none; /* По умолчанию скрыто */
+        }
+        .halloween-cobweb.tl { top: 0; left: 0; }
+        .halloween-cobweb.tr { top: 0; right: 0; transform: rotate(90deg); }
+        
+        /* Показываем паутину только в хэллоуин-теме */
+        body.halloween-theme .halloween-cobweb { display: block; }
+
+        .halloween-bat {
+            position: fixed;
+            top: 0;
+            left: 0;
+            font-size: 1.5rem;
+            pointer-events: none;
+            z-index: 9991;
+            will-change: transform;
+            opacity: 0.8;
+            display: none;
+        }
+        
+        body.halloween-theme .halloween-bat { display: block; }
+
+        .bat-icon {
+            display: inline-block;
+            animation: flap 0.4s ease-in-out infinite alternate;
+            transform-origin: center;
+        }
+
+        @keyframes flap {
+            0%   { transform: rotate(-15deg) scaleY(0.9); }
+            100% { transform: rotate(15deg) scaleY(1.1); }
+        }
+
+        /* ==================================================================
+           ПЕРЕКЛЮЧАТЕЛЬ ТЕМ
+           ================================================================== */
+        .triple-toggle-container {
+            position: fixed;
+            top: 20px;
+            left: 20px;
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            background: var(--bg-card);
+            padding: 6px 16px;
+            border: 1px solid var(--border-card);
+            border-radius: 24px;
+            box-shadow: 0 4px 10px var(--shadow);
+            transition: background 0.3s ease, border-color 0.3s ease;
+            
+            min-width: 240px; 
+            justify-content: space-between;
+            box-sizing: border-box;
+        }
+
+        .toggle-label {
+            font-size: 0.75rem;
+            font-weight: bold;
+            color: var(--color-text);
+            font-family: monospace;
+            transition: color 0.3s ease;
+            min-width: 85px;
+            text-align: left;
+            flex-shrink: 0; 
+        }
+
+        .triple-switch {
+            --slider-pos: 0;
+            --slider-count: 3;
+            position: relative;
+            display: flex;
+            width: calc(50px + (var(--slider-count) - 2) * 24px);
+            height: 26px;
+            background-color: #222;
+            border-radius: 14px;
+            padding: 2px;
+            box-sizing: border-box;
+            cursor: pointer;
+            border: 1px solid #444;
+            transition: width 0.3s ease;
+            
+            flex-shrink: 0; 
+        }
+
+        .triple-switch::before {
+            content: "";
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            /* Увеличил кружок с 18px до 20px для красоты */
+            width: 20px; 
+            height: 20px;
+            background-color: #ffffff;
+            border-radius: 50%;
+            transition: transform 0.25s cubic-bezier(0.25, 0.8, 0.25, 1),
+                        background-color 0.25s ease,
+                        box-shadow 0.25s ease;
+            z-index: 2;
+            transform: translateX(calc(var(--slider-pos) * 24px));
+        }
+
+        .triple-toggle-container input[type="radio"] {
+            opacity: 0;
+            width: 0;
+            height: 0;
+            position: absolute;
+        }
+
+        .switch-zone {
+            flex: 1;
+            z-index: 3;
+            height: 100%;
+        }
+
+        .theme-hidden { display: none !important; }
+
+        /* Разные цвета бегунка для каждой темы */
+        .triple-switch[data-active="dark-theme"]::before      { background-color: #66fcf1; box-shadow: 0 0 8px rgba(102, 252, 241, 0.6); }
+        .triple-switch[data-active="light-theme"]::before     { background-color: #ff9800; box-shadow: 0 0 8px rgba(255, 152, 0, 0.6); }
+        .triple-switch[data-active="vice-theme"]::before      { background: linear-gradient(135deg, #ff2ea6, #00e5ff); box-shadow: 0 0 8px rgba(255, 46, 166, 0.7); }
+        .triple-switch[data-active="halloween-theme"]::before { background-color: #ff6a00; box-shadow: 0 0 12px rgba(255, 106, 0, 0.9); }
+
+        /* Мобильная адаптация переключателя */
+        @media (max-width: 768px) {
+            .triple-toggle-container {
+                position: static;
+                margin: 0 auto 20px;
+                width: fit-content;
+            }
+        }
+
+        /* ==================================================================
+           ОБЩИЕ СТИЛИ
+           ================================================================== */
+        * { box-sizing: border-box; }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: var(--bg-body);
+            color: var(--color-text);
+            margin: 0;
+            min-height: 100vh;
+            transition: background 0.3s ease, color 0.3s ease;
+        }
+    </style>
+
+    <!-- Жуткий шрифт для хэллоуина -->
+    <link href="https://fonts.googleapis.com/css2?family=Creepster&display=swap" rel="stylesheet">
+
+    {% block extra_head %}{% endblock %}
+</head>
+<body>
+
+    {% block theme_toggle %}
+    <!-- Переключатель тем -->
+    <div class="triple-toggle-container">
+        <span class="toggle-label" id="theme-status">DARK</span>
+
+        <input type="radio" name="theme-pos" id="position-dark">
+        <input type="radio" name="theme-pos" id="position-light">
+        <input type="radio" name="theme-pos" id="position-vice">
+        <input type="radio" name="theme-pos" id="position-halloween">
+
+        <div class="triple-switch">
+            <label for="position-dark" class="switch-zone" onclick="setTheme('dark-theme')"></label>
+            <label for="position-light" class="switch-zone" onclick="setTheme('light-theme')"></label>
+            <label for="position-vice" class="switch-zone" onclick="setTheme('vice-theme')"></label>
+            <label for="position-halloween" class="switch-zone" onclick="setTheme('halloween-theme')"></label>
+        </div>
+    </div>
+    {% endblock %}
+
+    {% block content %}{% endblock %}
+
+    <script src="{{ url_for('static', filename='theme.js') }}"></script>
+    {% block extra_scripts %}{% endblock %}
+</body>
+</html>

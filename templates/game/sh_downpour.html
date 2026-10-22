@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill: Downpour - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill: Downpour</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Психологический хоррор / Приключение / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 13 марта 2012 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 64/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Мерфи Пендлтон оказывается в сайлент хилле после аварии тюремного транспорта. Казалось бы, обычный рабочий день для города, где уже давно никто не удивляется человеку, внезапно оказавшемуся посреди тумана и кошмаров. Мерфи пытается выбраться из города, но постепенно сталкивается со своим прошлым и начинает понимать, что сайлент хилл опять решил провести бесплатный сеанс психотерапии, только вместо дивана здесь ржавые здания и монстры. Впервые серия делает заметную ставку на исследование большого пространства с дополнительными заданиями, поэтому можно не только идти по основному маршруту, но и отклоняться в сторону. Потому что если уж приехал в проклятый город, почему бы заодно не выполнить пару побочных квестов.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh_downpour_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Недавно в этом году появился DownpourRecomp, который статически рекомпилирует Xbox 360 версию в нативное приложение винды, что спасает положение тех, кто хочет поиграть в это на компе.</p>
+        <ul>
+            <li><strong>Процессор:</strong> зависит от версии запуска</li>
+            <li><strong>Оперативная память:</strong> зависит от версии запуска</li>
+            <li><strong>Видеокарта:</strong> зависит от версии запуска</li>
+	    <li><strong>Вес:</strong> зависит от версии</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - <strong>25-35 FPS</strong> в эмуляции Xenia при повышенном разрешении. Игра тяжелая уже для самого эмулятора, а не только для видеокарты.</p>
+	    <p>GTX 1050 Ti - <strong>30-40 FPS</strong> в Xenia при 1080p. Снизить разрешение можно, но тогда туман в игре будет выглядеть так, будто его первоклассник в пэинте нарисовал.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>28-36 FPS</strong> в Xenia при нагрузке. Без сглаживания получаем <strong>36 FPS</strong>.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>30-40 FPS</strong> в Xenia при аналогичной нагрузке. Основной тормоз здесь не видеопамять, а сама эмуляция и процессор, поэтому дополнительные 3 гига не превращают игру в скоростной аттракцион.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>57-60 FPS</strong>. Xenia здесь не нагибает эти карточки, как и сама игра, поэтому переживать не стоит.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>30-40 FPS</strong> в Xenia. Карта вполне способна переварить картинку, но эмулятор снова напоминает, кто здесь главный.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>35-45 FPS</strong> в Xenia при аналогичных настройках. Запаса памяти хватает, но процессорная часть эмуляции все равно может упираться в потолок.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Вот здесь Downpour начинает делать вид, что оптимизация - это рекомендация, а не обязательная часть разработки. Оригинальная версия имела заметные проблемы с производительностью и подгрузкой объектов. В тестах того времени даже переключение PS3 в более низкое разрешение помогало приблизиться к стабильным <strong>30 FPS</strong>, а загрузка новых участков могла вызывать рывки.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Если хочется закрыть пробел в основной серии, то да. Downpour не пытается просто повторить старые сайлент хиллы, а делает ставку на исследование города, побочные истории и более личную историю Murphy. Технически оригинал состарился не лучшим образом, зато современные способы запуска наконец позволяют нормально оценить саму игру, а не бесконечно наблюдать за тем, как движок пытается догрузить очередную улицу.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Downpour - неоднозначная, но вполне самостоятельная попытка вдохнуть новую жизнь в серию. Она увеличила масштаб, добавила побочные задания и открыла город для исследования, но вместе с этим принесла технические проблемы. 9 прогулок под дождем с движком из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

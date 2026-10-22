@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elden Ring: Shadow of the Erdtree — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Elden Ring: Shadow of the Erdtree</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / РПГ</div>
+            <div class="info-item"><span>Дата релиза:</span> 21 июня 2024</div>
+            <div class="info-item"><span>Издатель:</span> Bandai Namco</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 95/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Раз базовая игра тебя недостаточно унизила, наш японский Жак Фреско решил выпустить отдельное платное дополнение специально для того, чтобы добить тех редких везунчиков, которые каким-то чудом прошли оригинал и по глупости решили, что теперь они готовы. Ты отправляешься в Страну Теней, землю, спрятанную настолько хорошо, что даже сценаристы забыли о ней рассказать в основной игре, и там встречаешь Микеллу, того самого полубога, чья капсула с коконом маячила на фоне всей игры, как чеховское ружьё, которое наконец решили выстрелить. Заодно тебе представят Радана заново, только теперь уже как милого пёсика на побегушках у главного злодея. Видимо, чтобы напомнить тебе, что даже самый страшный босс основной игры был просто разминкой перед разминкой. Сюжет здесь подаётся всё так же. Фрагментами, недомолвками и трупами неписей, у которых была своя личная драма, а ты об этом узнаешь только после того, как случайно прочитаешь описание их пепла.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/eldenringDLC_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Миядзаки официально не стал менять требования вообще. Формально Shadow of the Erdtree работает на том же самом железе, что и база. Видимо, у студии не было времени переписывать табличку, они были заняты тем, что придумывали ещё пять способов заставить тебя умереть от одного удара.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i5-8400 или Ryzen 3 3300X (минимум), Intel Core i7-8700K или Ryzen 5 3600X (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 12 ГБ (минимум), 16 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> GTX 1060 3GB или RX 580 4GB (минимум), GTX 1070 8GB или RX Vega 56 8GB (рекомендуется)</li>
+	    <li><strong>Вес:</strong> +18 ГБ поверх базовой игры</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - карта, которую никто не спрашивал, продолжает свой крестовый поход по требованиям, которые ее давно переросли. В Стране Теней, где плотность деталей и освещения выше, чем в основной игре, жди <strong>14-20 FPS</strong> на низких настройках в 1080p. По сути, слайд-шоу с претензией на арт-хаус.</p>
+	    <p>GTX 1050 Ti - тоже держится на морально волевых, а не по спецификациям. Низкие настройки в 1080p дадут <strong>20-28 FPS</strong>, и Микелла тебя точно осудит за такую нестабильную частоту кадров во время катсцен.</p>
+	    <p>GTX 1060 (3 ГБ) - официальный минимум, который в новых локациях чувствует себя чуть хуже, чем в Лимграве. Низко-средние настройки в 1080p дадут нам <strong>35-42 FPS</strong>, с редкими просадками в самых нагруженных зонах вроде Города Теней.</p>
+	    <p>GTX 1060 (6 ГБ) - запас видеопамяти снова спасает положение. Средние настройки в 1080p <strong>42-50 FPS</strong>, вполне играбельно, если ты уже привык к тому, что игра тебя не любит.</p>		   
+	    <p>GTX 1660 / 1660 Super - рекомендованный уровень держится увереннее, хоть и с лёгкой просадкой относительно базовой игры. Высокие настройки в 1080p <strong>48-55 FPS</strong>, новые локации выглядят действительно роскошно, что почти извиняет их беспощадность.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - аналог GTX 1060 по мощности, около <strong>38-45 FPS</strong> на средних настройках в 1080p.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - за счёт памяти держится чуть увереннее на текстурах Страны Теней. <strong>45-52 FPS</strong> на высоких настройках в 1080p.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Официально требования не изменились, но по факту Страна Теней явно потяжелее базового Междуземья. Больше плотность объектов, больше частиц, больше света, и, конечно же, все та же родная потоковая передача данных, которую Миядзаки пронес через игру как фамильную ценность.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Абсолютно да, если ты уже прошел базовую игру и втайне скучаешь по ощущению, что тебя выключили из розетки очередным боссом. Shadow of the Erdtree - это по сути отдельная полноценная игра размером с не самое скромное DLC других студий, с новой картой, новым оружием, новыми механиками (привет рекантам пепла) и, конечно же, финальным боссом, о котором до сих пор ведутся споры на форумах.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Shadow of the Erdtree - это FromSoftware, доказывающие, что даже после того, как они сломали тебя один раз, у них найдётся ещё одна попытка. 10 смертей от Радана из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

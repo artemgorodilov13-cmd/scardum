@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forza Horizon 4 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forza Horizon 4</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Аркадно-гоночный симулятор / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 2 октября 2018 года</div>
+            <div class="info-item"><span>Издатель:</span> Playground Games & Turn 10 Studios</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 92/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Фестиваль Horizon возвращается на родину разработчиков, в уютную, холмистую и вечно дождливую Великобританию. Сюжет здесь окончательно превратился в оду стилю жизни автомобильного фаната. Ты покупаешь старинные британские особняки, открываешь свой бизнес по прокату суперкаров, снимаешься в роли каскадера для кино и участвуешь в легальных марафонах. Больше никакой борьбы за чемпионство. Ты просто живешь в этом идеализированном английском раю, коллекционируешь редкие авто и становишься живой легендой фестиваля, катаясь на фоне шотландских замков и старинных улочек Эдинбурга.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/fh4_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Четвертая часть стала первой игрой серии, которая официально заглянула в Steam, окончательно разбив оковы эксклюзивности Microsoft Store.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i3-4170 или AMD FX-8300 (минимум), Intel Core i7-3820 или AMD Ryzen 5 1400 (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 8 ГБ (минимум), 16 ГБ (рекомендуется для игры без фризов в сетевом режиме)</li>
+            <li><strong>Видеокарта:</strong> GTX 650 Ti / GTX 750 Ti или R7 250X (минимум), GTX 970 / GTX 1060 (6 ГБ) или AMD Radeon RX 470 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 80 ГБ (сейчас уже 93 ГБ со всеми DLC)</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - здесь движок ударился мизинцем об табуретку, и теперь он всем раздает халявные фреймрейты. Не смотря на то, что это четвертая часть, которая превосходит по графону тройку, она все равно умудряется выдавать больше фпс. Здесь мы получим <strong>31-45 FPS</strong> на низких в 1080p.</p>
+	    <p>GTX 1050 Ti - на ультрах не всегда стабильные <strong>60</strong>, на средне-высоких уже под <strong>60+ FPS</strong>.</p>
+	    <p>GTX 1060 (3 ГБ) - из-за нехватки VRAM заметно отстаёт от версии на 6 гигов, поэтому выдает <strong>49–65 FPS</strong>.</p>
+	    <p>GTX 1060 (6 ГБ) - одна из карт, которая держит стабильные <strong>60+ FPS</strong> на ультрах.</p>    
+	    <p>GTX 1660 / 1660 Super - <strong>90–100 FPS</strong>. На этих карточках игра будет просто летать как гиперкары в игре.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - они примерно <strong>20%+</strong> быстрее GTX 1060 3GB. Здесь мы получаем <strong>80–90</strong>.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - эта карточка вообще на <strong>10%</strong> быстрее GTX 1060 6GB. <strong>90–95 FPS</strong> получаем более чем заслуженно.</p>    
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>В плане технического исполнения Forza Horizon 4 - это абсолютный шедевр и триумф ребят из Playground Games. Они внедрили революционную фичу - динамическую смену четырех времен года. Раз в неделю весь сервер синхронно переходил из цветущего лета в дождливую осень, а затем в заснеженную зиму, где озера замерзали и превращались в гоночные треки. И всё это великолепие умудрялось выдавать невероятную плавность даже на откровенно старых видеокартах. Игра до сих пор считается эталоном того, как нужно оптимизировать гоночные движки под пк.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, но ситуация здесь та же самая, что и с тройкой. В конце 2024 года Microsoft окончательно удалила Horizon 4 из всех цифровых магазинов из-за окончания лицензий на музыку и машины. Игра ушла на покой, но ее сервера всё еще работают, а комьюнити живо как никогда. Четверка в 2026 году - это безумно красивая, атмосферная и безупречно работающая гонка, которая дарит уникальный опыт ламповой Англии, которого нет в более попсовой пятой части.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Лучшая британская погода в истории видеоигр. Forza Horizon 4 доказала, что времена года могут полностью менять геймплей, подарила нам лучшую оптимизацию в серии и осталась в памяти фанатов как идеальный автомобильный курорт, который мы успели забрать до того, как его закрыли. 10 времен года из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

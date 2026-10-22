@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOOM Eternal: The Ancient Gods - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+        .game-screenshot-box {
+            width: 100%;
+            margin-top: 30px;
+            margin-bottom: 40px;
+            border-radius: 8px;
+            border: 1px solid #45f3ff;
+            box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+            box-sizing: border-box;
+        }
+
+        .game-img {
+            width: 100%;
+            height: auto;
+            display: block;
+            border-radius: 7px;
+        }
+
+        .fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>DOOM Eternal: The Ancient Gods</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Шутер от первого лица (DLC)</div>
+            <div class="info-item"><span>Дата релиза:</span> 20 октября 2020 (Part 1) / 18 марта 2021 (Part 2)</div>
+            <div class="info-item"><span>Издатель:</span> Bethesda Softworks</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 76/100 (Metacritic, Part 1)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>После событий основной игры Палач Рока спас человечество, но расплата оказалась слишком высокой. Равновесие сил в космосе нарушено, и теперь под угрозой находится все мироздание. В первой части дополнения тебе предстоит вернуться в Урдак - царство ангелов-Майкров, которое пало под натиском легионов ада. Твоя задача - помочь Серафиму и восстановить порядок, но, как обычно, все пойдет не по плану.</p>
+        <p>Во второй части, после того как ты отверг богов и пробудил древнее зло, в игру вступает сам Тёмный Лорд (Dark Lord). Теперь тебе предстоит собрать армию Стражей, осадить последнюю цитадель ада и положить конец этой бесконечной войне. Это эпичный финал саги о Палаче Рока, который отвечает на многие вопросы и ставит жирную точку в истории.</p>
+
+        <!-- Блок со скриншотом -->
+        <div class="game-screenshot-box">
+            <img src="{{ url_for('static', filename='images/doometernal_dlc_screen.jpg') }}" class="game-img" alt="DOOM Eternal: The Ancient Gods Screenshot">
+        </div>
+
+        <h3>Системные требования</h3>
+        <p>Разработчики из id Software не стали задирать планку для дополнения, оставив требования на уровне базовой игры. Это значит, что если твой компьютер тянул DOOM Eternal, то и с The Ancient Gods проблем не будет.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core i5 3.3 GHz или Ryzen 3 3.1 GHz (минимум), Intel Core i7-6700K или Ryzen 7 1800X (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 8 ГБ</li>
+            <li><strong>Видеокарта:</strong> GTX 1050 Ti (4 ГБ) / GTX 1060 (3 ГБ) (минимум), GTX 1060 (6 ГБ) / RX 480 (8 ГБ) (рекомендуется)</li>
+            <li><strong>Вес:</strong> 80 ГБ (дополнение интегрируется в основную игру)</li>
+        </ul>
+        <p>Важно: на картах вроде GTX 970 разработчики советуют ставить качество текстур на "Среднее", чтобы избежать неприятных сюрпризов с производительностью.</p>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+            <p><strong>GTX 750 Ti</strong> - эта карта находится за гранью официальных требований. На оптимизированных настройках (снижение теней и эффектов) можно выжать около <strong>43 FPS</strong> в 1080p, но на максималках рассчитывать не на что (около <strong>21 FPS</strong>). Играть можно только если ты готов терпеть постоянные просадки в битвах с ордами.</p>
+            <p><strong>GTX 1050 Ti</strong> - на низких настройках в 1080p эта карта выдает около <strong>44 FPS</strong>. Это минимальный порог для комфортной игры, но в особо жарких сценах фреймрейт все равно будет проседать. Придется смириться с мыльной картинкой ради играбельности.</p>
+            <p><strong>GTX 1060 (3 ГБ)</strong> - на высоких настройках в 1080p ты получишь около <strong>64 FPS</strong>. Версия с 6 ГБ видеопамяти выдает <strong>76.8 FPS</strong>, так что разница в памяти здесь ощутима. Если у тебя 3-гиговая версия, лучше сразу снизить качество текстур.</p>
+            <p><strong>GTX 1660 / 1660 Super</strong> - на ультра настройках в 1080p эти карты выдают <strong>90-100+ FPS</strong>. Ты упрешься либо в частоту монитора, либо в процессор. Игра работает идеально, запас производительности огромный.</p>
+            <p><strong>AMD Radeon RX 580 (8 ГБ)</strong> - с включенным Vulkan эта карта на высоких настройках в 1080p выдает <strong>70-94 FPS</strong>. RX 580 8 ГБ способна держать стабильные 60 FPS на максимальных настройках в 1080p, чего не может GTX 1060. Vulkan здесь решает.</p>
+        </div>
+
+        <h3>Оптимизация</h3>
+        <p>В плане оптимизации The Ancient Gods - это продолжение славных традиций id Tech 7. Игра работает на том же движке, что и базовая DOOM Eternal, и демонстрирует ту же потрясающую производительность. Если у тебя была стабильная игра в оригинале, то и здесь все будет летать. Разработчики не стали добавлять тяжелых эффектов, которые убили бы фреймрейт.</p>
+        <p>Единственный нюанс - это возросшая нагрузка на процессор в некоторых сценах. В частности, в начале кампании Ancient Gods Part 2 можно заметить высокую загрузку CPU из-за большой дальности прорисовки, но по мере продвижения она приходит в норму. Так что если у тебя старенький четырехъядерник, могут быть редкие микро-фризы, но в целом игра работает отлично.</p>
+
+        <h3>Стоит ли играть в 2026 году?</h3>
+        <p>Однозначно да, если ты прошел основную кампанию DOOM Eternal и хочешь больше. The Ancient Gods - это не просто DLC, это полноценный финал истории, который поднимает ставки до небес. Сложность здесь выше, врагов больше, а боссы заставят тебя попотеть даже на средней сложности. Это испытание для настоящих фанатов серии.</p>
+        <p>Если ты никогда не играл в DOOM Eternal, то начинать с дополнения не стоит - ты просто не поймешь, что происходит. Но если база пройдена и хочется еще больше мяса, скорости и адреналина - тебе точно сюда. Игра стоит копейки на распродажах и дарит несколько часов отличного экшена.</p>
+
+        <h3>Итог</h3>
+        <p><strong>Вердикт:</strong> DOOM Eternal: The Ancient Gods - это достойное завершение саги о Палаче Рока. Здесь есть все, за что мы любим серию: безумная скорость и брутальные добивания. Если твой комп тянет базовую игру, смело бери дополнение. 9 древних богов из 10.</p>
+
+        <a href="/" class="back-btn" onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">- На главную</a>
+    </div>
+</body>
+</html>

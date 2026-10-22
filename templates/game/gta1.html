@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto I — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .fps-box { background: #254e58; border-left: 5px solid #66fcf1; padding: 15px; margin: 20px 0; border-radius: 4px; }
+        .fps-title { font-weight: bold; color: #66fcf1; font-size: 1.1rem; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grand Theft Auto I</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / Вид сверху</div>
+            <div class="info-item"><span>Дата релиза:</span> 28 ноября 1997 года</div>
+            <div class="info-item"><span>Издатель:</span> BMG Interactive / ASC Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 82/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Задолго до трёхмерных игр в главной роли был просто вид сверху, три города (Либерти Сити, Сан Андреас и Вайс Сити. Да, эти названия потом станут отдельными играми) и абсолютная криминальная свобода без единого намёка на мораль. Сюжета тут по сути нет. Есть набор миссий от местных криминальных боссов и система "заработай как можно больше денег и репутации", в которую превращается почти любое взаимодействие с городом. Никаких кат-сцен, никакой драмы и конца человечества. Просто ты, угнанная машина и полицейская погоня на выбор.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/gta1_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Игра использует собственный 2D спрайтовый движок и не задействует 3D ускорение вообще, по современным меркам, это даже не игра, а исторический артефакт.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium 166 МГц или аналог (сегодня хватит буквально любого чипа за последние 20 лет)</li>
+            <li><strong>Оперативная память:</strong> 16 МБ (не гигабайт, именно мегабайт)</li>
+            <li><strong>Видеокарта:</strong> любая с поддержкой DirectX 5</li>
+	    <li><strong>Вес:</strong> 70 МБ</li>
+        </ul>
+
+        <p>Здесь ничего не будет, так как игра откровенно слишком старая, поэтому и добавлять видеокарты автор не стал.</p>
+
+	<h3>Оптимизация</h3>
+	<p>Оптимизация тут не вопрос мощности железа, а вопрос совместимости старого кода с новыми операционными системами. Игра создавалась под DOS и раннюю Windows 95/98, поэтому на голом Windows 10/11 без танцев с совместимостью или переиздания через Rockstar Launcher запустить её напрямую может быть проблематично, но как только запустится, дальше всё летает без единой просадки, потому что двигать там особо нечего. Если реально кто-то хочет пробудить этого древнего Ктулху весом в 70 мегабайт, то держи инструкшен.</p>
+
+	<h3>Инструкция по установке игры</h3>
+	<p>У нас есть два пути. Первый - это купить гта, а именно The Trilogy (Classic Edition) в стиме или Rockstar Games Launcher. Туда входят оригинальные GTA 1, GTA 2 и GTA London 1969, адаптированные под современные системы, без танцев с бубном. Второй - это пиратский поступок. Расскажу про второй путь (никто же все равно не будет в здравом уме покупать трилогию).</p>
+
+	<p>Скачай саму игру. Нужен оригинальный дистрибутив GTA 1, либо со своего старого CD, либо с сайтов вроде Abandonware (если игра больше официально не продаётся отдельно, а она не продаётся, только в составе трилогии). Распакуй в отдельную папку, например C:\Games\GTA1 (главное, чтобы без кириллицы в пути к файлу).</p>
+
+	<p>Потом качаем DOSBox. Скачай с официального сайта dosbox.com (бесплатно, там открытый исходный код). Поставь как обычную программу. Запусти DOSBox и в открывшемся чёрном окне введи: mount c C:\Games\GTA1
+c: Вместо этого пути вставь свой путь к игре, иначе будет ошибка.</p>
+
+	<p>После чего запусти установщик или экзешник. Вообще, обычно это install.exe или сразу gta.exe/gta1.exe. Смотри, что лежит в папке. Введи имя файла и жми Enter.</p>
+
+	<p>Потом настрой производительность (если тормозит или наоборот летает слишком быстро). DOSBox эмулирует старый процессор, поэтому иногда игра идёт рывками. Помогает команда cycles=max или ручная настройка в файле dosbox.conf. Там есть параметр cycles, можно поставить конкретное число (например, cycles=20000), если max работает нестабильно.</p>
+
+	<p>Осталось настроить звук и разрешение. Звук в первой гта работает через старые SoundBlaster эмуляции. DOSBox обычно подхватывает их сам, но если тишина, проверь настройки sblaster в конфиге. Разрешение экрана можно растянуть через output=opengl в dosbox.conf, чтобы не играть в окошке 640x480 на весь монитор. Если же всё это не помогло или возникли проблемы, которых здесь нет, то есть готовые сборки на форуме PCGamingWiki, где люди уже настроили конфиг под игру специально. Можно просто скачать готовый dosbox.conf и не возиться самому.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Скорее из исторического интереса, чем ради самого геймплея. Управление и камера сверху сегодня ощущаются архаично даже по меркам инди-игр. Но как первоисточник культовой франшизы и способ понять, с чего вообще всё начиналось, свою пару часов она вполне оправдывает.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Не игра, а музейный экспонат, определивший целый жанр на десятилетия вперёд. Требовательна не к железу, а к твоему терпению найти рабочий способ её запустить. 10 угнанных полицейских машин из 10.</p>
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

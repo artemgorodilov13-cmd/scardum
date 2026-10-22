@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto V — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grand Theft Auto V</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 17 сентября 2013 года</div>
+            <div class="info-item"><span>Издатель:</span> Rockstar Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 96/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Три идиота, три истории, один Лос-Сантос. Майкл, отошедший от дел грабитель банков с кризисом среднего возраста и семьёй, которая его откровенно бесит. Франклин, молодой угонщик тачек, который хочет выбраться из гетто и в итоге по колено вляпывается в криминал покруче прежнего. И Тревор, псих, живущий где-то между наркотрипом и вспышкой ярости, который одним своим появлением на экране заставляет напрячься. Втроём они грабят банки, взрывают вертолёты и в целом ведут себя так, будто государство им лично что-то должно. Сюжет тут не просто "стал самым большим бандитом города" - это чёрная сатира на американскую мечту с тремя разными взглядами на то, как эта мечта окончательно прогнила. Короче, мир слишком желток, он прогнил, и ты во всём виноград и никому не ужин.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/gta5_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>RAGE-движок здесь заметно причесали после провального дебюта в четвёрке. На этот раз рокстары не подвели, игра масштабируется на удивление широкий диапазон железа.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Core 2 Quad Q6600 или AMD Phenom 9850 (минимум), Intel Core i5-3470 или AMD X8 FX-8350 (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 4 ГБ (минимум), 8 ГБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> 9800 GT или AMD HD 4870 (минимум), GTX 660 или HD 7870 (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 72-140 ГБ (зависит от версии)</li>
+        </ul>
+
+	<!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - самая старая карта в списке начинает потеть уже на очень высоких и ультрах, но на высоких (не максимальных) настройках держит вполне играбельные <strong>40-50 FPS</strong> в 1080p.</p>
+	    <p>GTX 1050 Ti - уверенный средний уровень, <strong>64-81 FPS</strong> на высоких в 1080p. Карта, которую многие называли идеальной бюджетной машиной на момент выхода.</p>
+	    <p>GTX 1060 (3-6 ГБ) - тут уже совсем комфортно. На очень высоких минимум держится на уровне <strong>60 FPS</strong>, а средний потолок доходит до <strong>140 FPS</strong>. Одна из тех редких игр, где даже трёхлетний на тот момент средний класс чувствует себя королём.</p>		   
+	    <p>GTX 1660 / 1660 Super - откровенно избыточная мощность для этой игры, <strong>120+ FPS</strong> без всяких усилий на максималках.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4-8 ГБ) - AMD тут тоже не подкачал, оба варианта держатся в районе <strong>100+ FPS</strong> на очень высоких в 1080p, что для карт их ценового сегмента было очень достойным результатом.</p>
+	</div>
+
+	<p></p>
+	
+	<h3>Оптимизация</h3>
+	<p>Ну вот кто бы мог подумать, что после кошмара четвертой гта с её однопоточным адом и битым управлением памятью, рокстар внезапно выпустили одну из самых образцово оптимизированных игр десятилетия. Графические настройки тут детализированы до безумия. Можно выкручивать буквально каждую переменную отдельно, от плотности населения до дальности прорисовки, и игра честно масштабируется под твоё железо, а не просто делает вид. Редкий случай, когда разработчики учли собственные ошибки и не наступили на те же грабли дважды.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да без вопросов. Спустя 10+ лет игра до сих пор держит планку и по геймплею, и по картинке (особенно если поставить последний Enhanced патч), а онлайн продолжает жить своей отдельной жизнью параллельно с основной кампанией. Разве что сюжетка проходится за один присест и оставляет ощущение наполненности на фоне размаха онлайна.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Лучшая техническая работа рокстар на пк за всю историю серии и один из главных open world шедевров индустрии. Чёрный юмор и город, в котором хочется жить вечно. 100 Треворов Филлипсов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

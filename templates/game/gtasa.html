@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Theft Auto San Andreas — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Grand Theft Auto San Andreas</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Экшен / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 7 июня 2005 года</div>
+            <div class="info-item"><span>Издатель:</span> Rockstar Games</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 93/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Легендарная игра всех времен от рокстар. Карл Джонсон возвращается в родной Лос-Сантос после смерти матери и обнаруживает, что его старый район погряз в полном дерьме, бандитских войнах, а бывшие друзья либо предали, либо погибли. Дальше самая масштабная карта во всей 3D эре серии. Три полноценных города (Лос-Сантос, Сан-Фиерро, Лас-Вентурас) плюс огромная сельская местность между ними, RPG элементы вроде прокачки характеристик и внешности персонажа, и сюжет про восстановление собственной банды и разборки с коррумпированными копами. По масштабу и амбициям San Andreas до сих пор остаётся одной из самых больших игр серии.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/gtasa_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Движок опять RenderWare, но карта выросла настолько, что требования по сравнению с Vice City заметно подросли.</p>
+        <ul>
+            <li><strong>Процессор:</strong> Intel Pentium III или AMD Athlon 1 ГГц (минимум), Intel Pentium 4 2.4 ГГц или AMD Athlon XP (рекомендуется)</li>
+            <li><strong>Оперативная память:</strong> 256 МБ (минимум), 384-512 МБ (рекомендуется)</li>
+            <li><strong>Видеокарта:</strong> 64 МБ видеопамяти с поддержкой DirectX 8.1, уровень GeForce 3 (минимум), 128 МБ уровня GeForce 6 Series (рекомендуется)</li>
+	    <li><strong>Вес:</strong> 4-4.7 ГБ</li>
+        </ul>
+
+        <p>Аналогичная ситуация и здесь. Любая видюха из нашего списка справится с этой легендой без напряга.</p> 
+
+	<h3>Совет</h3>
+	<p>Расскажу какие моды нужно обязательно поставить: ModLoader (менеджер модов, позволяет ставить всё остальное простым перетаскиванием папок), SilentPatch (фиксит баги совместимости), Silent's ASI Loader (загрузчик, без которого не заработают многие ASI-плагины), SA Limit Adjuster (снимает старые лимиты движка, и он обязателен, если ты ставишь граф. моды) и CLEO4 (движок скриптов, нужен для многих модов). Есть и графические моды, которые практически не нагружают комп, но визуально очень добротно меняют игру: SkyGFX (главный пункт, то, что тебе нужно в первую очередь), GraphicsTweaker (работает в связке со SkyGFX, добавляет тонкую настройку графики), Timecyc (это просто текстовый файл с цветокоррекцией и настройками освещения по времени суток), Project2DFX (добавляет объёмные короны света на карте (фонари, вывески светятся красиво издалека)) и Proper Shaders (лёгкая шейдерная надстройка для дополнительного полиска картинки). Короче, просто закидываешь каждый в этом последовательности, в которй они написаны, кидаешь папки с модами м ModLoader, и всё, вот тебе мини-некстген без 100 градусного нагрева компа.</p>
+
+	<h3>Оптимизация</h3>
+	<p>San Andreas - это тот же движок, что и в двух предыдущих частях, но растянутый на гораздо большую карту, из-за чего разработчикам пришлось идти на компромиссы. Заметный туман на дальней прорисовке, упрощённая геометрия за пределами видимости игрока. По современным меркам всё это смотрится архаично, но 20 лет назад именно так удавалось уместить три города и сельскую местность между ними в память консолей того поколения.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Безоговорочно да. Лучшая и самая насыщенная часть трилогии. Масштаб, RPG элементы, культовые персонажи и саундтрек держат планку до сих пор, а с правильным набором патчей играется гораздо приятнее, чем можно подумать, глядя на возраст игры.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Самая амбициозная и насыщенная часть классической трилогии, которая до сих пор ощущается масштабно даже на фоне современных открытых миров. Из технических проблем - это физика на высоком FPS, но с правильными патчами это решается за пять минут. 10 упущенных поездов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

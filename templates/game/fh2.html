@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forza Horizon 2 — Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Forza Horizon 2</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Аркадно-гоночный симулятор / Открытый мир</div>
+            <div class="info-item"><span>Дата релиза:</span> 30 сентября 2014 года</div>
+            <div class="info-item"><span>Издатель:</span> Playground Games & Sumo Digital & Turn 10 Studios</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 86/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>Фестиваль Horizon собирает чемоданы и переезжает в залитую солнцем Южную Европу. Граница Франции и Италии, Лазурный берег, бескрайние лавандовые поля и узкие улочки старинных городков. Сюжет здесь окончательно превратился в красивую ширму для бесконечного автомобильного праздника. Больше нет одного конкретного злого финального босса, как Дариус Флинт. Твоя цель - это участвовать в массовых дорожных путешествиях между городами, побеждать в чемпионатах и доказать, что ты достоин забрать главный трофей фестиваля. Атмосфера стала еще более элитарной и курортной. Роскошные суперкары, закаты над Средиземным морем и полная свобода движения.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/fh2_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>Уникальный случай в серии. Игра вышла одновременно на двух поколениях консолей, причем это были две абсолютно разные игры от разных студий.</p>
+        <ul>
+	    <li><strong>Платформа:</strong> Xbox 360 (пастген-версия) или Xbox One / Xbox Series (некстген-версия)</li>
+            <li><strong>Процессор:</strong> 8-ядерный AMD Jaguar на 1.75 ГГц (для Xbox One)</li>
+            <li><strong>Оперативная память:</strong> 8 ГБ DDR3 (для Xbox One)</li>
+            <li><strong>Видеокарта:</strong> кастомный чип AMD Radeon на архитектуре GCN (примерный аналог Radeon HD 7770/7790)</li>
+	    <li><strong>Вес:</strong> 35 ГБ на Xbox One</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	<ul>GTX 1060 (6 ГБ)</li> - единственное, что мне удалось найти, так это фреймрейт на 1060. Но и тот фпс не очень радует. На эмуляторе в 1080p игра выдаёт кинематографичные <strong>17-22 FPS</strong>. Думаю, в такое вряд-ли кто-то захочет играть, а посему не рекомендую ставить эмулятор на вторую часть. Ну, хотя бы просто посмотреть прохождения на ютубе. Это тоже своего рода "прохождение".
+	    
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>На Xbox One игра стала технической витриной нового поколения. Разработчики добавили честную динамическую погоду (впервые в серии пошел дождь, который красиво растекался по кузовам и влиял на зацеп) и полноценный 24-часовой цикл смены дня и ночи. Самое главное техническое достижение, они полностью убрали невидимые стены вдоль дорог. Теперь можно было со свистом пролетать сквозь виноградники и ломать деревянные заборы. При этом на Xbox One игра держала железобетонные 30 кадров в 1080p, без единого намека на просадки даже в самый лютый шторм.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, ради потрясающей атмосферы европейского лета. Многие фанаты до сих пор считают карту Horizon 2 лучшей в серии за её уют, проработку городков и шикарное радио (один трек Liberate от Eric Prydz в стартовой заставке окупает всё). Если у тебя есть возможность запустить оригинальную версию для Xbox One/Series - ты точно не пожалеешь.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Европейские каникулы мечты. Forza Horizon 2 закрепила формулу идеальной аркадной гонки, убрала заборы и доказала, что гонять на Ferrari под дождем вдоль итальянского побережья - это то, ради чего вообще стоит покупать геймпад. 10 капель дождя из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>

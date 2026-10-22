@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Silent Hill: Origins - Тест на слабом ПК</title>
+    <style>
+        body { 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
+            background: #0b0c10; 
+            color: #c5c6c7; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            margin: 0; 
+            padding: 40px 20px;
+        }
+        .container { max-width: 700px; width: 100%; background: #1f2833; border: 1px solid #66fcf1; border-radius: 12px; padding: 30px; box-shadow: 0 0 20px rgba(102, 252, 241, 0.1); }
+        h1 { color: #66fcf1; margin-top: 0; border-bottom: 2px solid #45f3ff; padding-bottom: 10px; }
+        .info-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 15px; margin: 20px 0; background: #0b0c10; padding: 15px; border-radius: 8px; }
+        .info-item span { color: #45f3ff; font-weight: bold; }
+        .back-btn { display: inline-block; margin-top: 20px; color: #66fcf1; text-decoration: none; font-weight: bold; }
+        .back-btn:hover { text-decoration: underline; }
+
+	.game-screenshot-box {
+    	    width: 100%;
+    	    margin-top: 30px;
+    	    margin-bottom: 40px;
+    	    border-radius: 8px;
+    	    border: 1px solid #45f3ff;
+    	    box-shadow: 0 0 15px rgba(69, 243, 255, 0.2);
+    	    box-sizing: border-box;
+	}
+
+	.game-img {
+    	    width: 100%;
+    	    height: auto;
+    	    display: block;
+    	    border-radius: 7px;
+	}
+
+	.fps-box { 
+            background: #141d26;
+            border-left: 5px solid #3b82f6;
+            padding: 15px; 
+            margin: 20px 0; 
+            border-radius: 4px; 
+            transition: all 0.3s ease; 
+        }
+        .fps-box, .fps-box p {
+            color: #cbd5e1 !important;
+        }
+        .fps-title { 
+            font-weight: bold; 
+            color: #60a5fa !important;
+            font-size: 1.1rem; 
+            transition: color 0.3s ease; 
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Silent Hill: Origins</h1>
+        
+        <!-- Основная инфа об игре -->
+        <div class="info-grid">
+            <div class="info-item"><span>Жанр:</span> Психологический хоррор / Экшен / Приключение</div>
+            <div class="info-item"><span>Дата релиза:</span> 6 ноября 2007 года</div>
+            <div class="info-item"><span>Издатель:</span> Konami</div>
+            <div class="info-item"><span>Рейтинг критиков:</span> 78/100 (Metacritic)</div>
+        </div>
+
+        <h3>Сюжет</h3>
+        <p>До того как сайлент хилл успел окончательно превратить жизнь очередного человека в психологический кошмар, туда приехал дальнобойщик Трэвис Грейди. Обычная поездка, обычная дорога и совершенно обычный горящий дом, возле которого нормальный человек развернулся бы и уехал. Трэвис, очевидно, выбрал другой вариант.</p>
+
+	<!-- Блок со скриншотом -->
+	<div class="game-screenshot-box">
+    	    <img src="{{ url_for('static', filename='images/sh_origins_screen.jpg') }}" class="game-img">
+	</div>
+
+
+        <h3>Системные требования</h3>
+        <p>С официальными системными требованиями здесь все просто. Их нет. Origins вышла на PSP, а позднее получила версию для PS2. На компьютере игра запускается через эмуляцию, поэтому требования зависят уже не от самой игры, а от используемого эмулятора.</p>
+        <ul>
+            <li><strong>Процессор:</strong> зависит от эмулятора</li>
+            <li><strong>Оперативная память:</strong> зависит от эмулятора</li>
+            <li><strong>Видеокарта:</strong> зависит от эмулятора</li>
+	    <li><strong>Вес:</strong> зависит от версии</li>
+        </ul>
+
+        <!-- Блок с фреймрейтом -->
+        <div class="fps-box">
+            <div class="fps-title">🚀 Реальный фреймрейт (FPS):</div>
+	    <p>GTX 750 Ti - <strong>60 FPS</strong> в PCSX2 при нормальной настройке. 750 Ti для этой игры выглядит как совершенно избыточная роскошь.</p>
+	    <p>GTX 1050 Ti - <strong>60 FPS</strong> без особых проблем. Карта значительно мощнее железа, на котором Origins уже работает на полной скорости, поэтому ее основная проблема будет заключаться в том, чтобы не заснуть от запаса производительности.</p>
+	    <p>GTX 1060 (3 ГБ) - <strong>60 FPS</strong> с большим запасом. Даже повышение внутреннего разрешения для этой карты не должно стать серьезной нагрузкой. PSP явно не рассчитывала, что ее игру когда-нибудь будут запускать на таком железе.</p>
+	    <p>GTX 1060 (6 ГБ) - <strong>60 FPS</strong>. Доп. 3 гига здесь практически ничего не меняют, потому что Origins совершенно не собирается устраивать видеопамяти экзамен на выживание.</p>
+	    <p>GTX 1660 / 1660 Super - <strong>60 FPS</strong> без напряга. Для этих видеокарт Origins примерно как калькуляторная задачка, только калькулятор почему-то пытается напугать тебя туманом.</p>
+	    <p>AMD Radeon RX 570 / RX 580 (4 ГБ) - <strong>60 FPS</strong>. Карта уровня Radeon HD 6850 уже справлялась с полной скоростью, так что RX 570 тем более не должна испытывать проблем.</p>
+	    <p>AMD Radeon RX 580 (8 ГБ) - <strong>60 FPS</strong>. Восемь гигабайт видеопамяти для игры с PSP - это уже не запас, а попытка решить проблему, которой никогда не существовало.</p>
+	</div>
+
+	<h3>Оптимизация</h3>
+	<p>Для портативной игры Origins была довольно серьезным техническим достижением. Climax умудрилась перенести знакомую структуру сайлент хилла на PSP, сохранив туман, темные помещения, освещение и довольно насыщенное окружение. Даже критики отмечали, что игра удивительно хорошо переносит основные элементы серии на портативное железо.</p>
+
+	<h3>Стоит ли играть в 2026 году?</h3>
+	<p>Да, особенно если хочется пройти всю основную историю сайлент хилла и посмотреть на события до первой части. Origins не переворачивает формулу серии, зато довольно уверенно воспроизводит классическую атмосферу, а история Трэвиса неплохо расширяет знакомую вселенную.</p>
+
+	<h3>Итог</h3>
+	<p><strong>Вердикт:</strong> Silent Hill: Origins - крепкий приквел, который каким-то чудом смог уместить полноценный сайлент хилл на PSP и при этом не превратился в карманный огрызок. 10 почти пугающих туманов из 10.</p>
+
+        <a href="/" class="back-btn" 
+	onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">← На главную</a>
+    </div>
+</body>
+</html>
