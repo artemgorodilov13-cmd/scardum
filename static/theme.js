@@ -23,7 +23,7 @@ function isHalloweenThemeAvailable() {
     const day = now.getDate();
     if (month === 9 && day >= 25) return true;
     if (month === 10 && day <= 2) return true;
-    return true; // Сейчас всегда true для теста
+    return false;
 }
 
 function getAvailableThemes() {
