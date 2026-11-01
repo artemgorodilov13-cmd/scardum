@@ -1,0 +1,294 @@
+/* =========================================
+   СТРАНИЦА ИГРЫ
+   ========================================= */
+
+/* 1. Контейнер */
+.container {
+    max-width: 800px !important;
+    width: 100% !important;
+    margin: 40px auto !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    padding: 0 15px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 20px !important;
+}
+
+/* 2. Главный заголовок */
+.container > h1 {
+    text-align: center !important;
+    color: var(--color-logo) !important;
+    font-size: 2.5rem !important;
+    border-bottom: 2px solid var(--border-hover) !important;
+    padding-bottom: 15px !important;
+    margin: 0 !important;
+}
+
+/* 3. Карточки (общие стили для блоков с фоном) */
+.container > .info-grid,
+.container > .game-screenshot-box,
+.container > .fps-box,
+.container > p,
+.container > ul {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-card) !important;
+    border-radius: 12px !important;
+    padding: 20px 25px !important;
+    margin: 0 !important;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2) !important;
+    transition: border-color 0.3s ease, transform 0.3s ease !important;
+}
+
+/* Наведение на карточки */
+.container > .info-grid:hover,
+.container > .fps-box:hover,
+.container > p:hover,
+.container > ul:hover {
+    border-color: var(--border-hover) !important;
+    transform: translateY(-2px) !important;
+}
+
+/* 4. Информационная панель */
+.container > .info-grid {
+    display: grid !important;
+    grid-template-columns: 1fr 1fr !important;
+    gap: 15px !important;
+    background: var(--bg-body) !important;
+    border-left: 4px solid var(--color-logo) !important;
+}
+
+.container > .info-grid .info-item {
+    display: flex !important;
+    flex-direction: column !important;
+}
+
+.container > .info-grid .info-item span {
+    font-size: 0.8rem !important;
+    text-transform: uppercase !important;
+    color: var(--color-subtitle) !important;
+    letter-spacing: 1px !important;
+}
+
+.container > .info-grid .info-item div {
+    font-size: 1.05rem !important;
+    color: var(--color-heading) !important;
+    font-weight: bold !important;
+}
+
+/* 5. Заголовки разделов */
+.container > h3 {
+    color: var(--color-logo) !important;
+    font-size: 1.3rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    background: transparent !important;
+    border: none !important;
+    border-bottom: 1px dashed var(--border-card) !important;
+    border-radius: 0 !important;
+    box-shadow: none !important;
+    padding: 10px 0 !important;
+    margin: 10px 0 0 0 !important;
+    display: block !important;
+}
+
+.container > h3::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* 6. Скриншот */
+.container > .game-screenshot-box {
+    padding: 0 !important;
+    overflow: hidden !important;
+    border: 2px solid var(--border-hover) !important;
+    box-shadow: 0 0 20px var(--shadow-hover) !important;
+}
+
+.container > .game-screenshot-box img {
+    width: 100% !important;
+    display: block !important;
+    border-radius: 10px !important;
+}
+
+/* 7. Обычный текст (Сюжет) */
+.container > p {
+    line-height: 1.7 !important;
+    font-size: 1.05rem !important;
+    color: var(--color-text) !important;
+    text-align: justify !important;
+}
+
+.container > p strong {
+    color: var(--color-logo) !important;
+}
+
+/* 8. Системки */
+.container > ul {
+    list-style: none !important;
+}
+
+.container > ul li {
+    padding: 0 !important;
+    margin: 0 0 8px 0 !important;
+    color: var(--color-text) !important;
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    text-align: left !important;
+    display: block !important;
+}
+
+.container > ul li:last-child {
+    margin-bottom: 0 !important;
+}
+
+.container > ul li::before {
+    display: none !important;
+    content: none !important;
+}
+
+.container > ul li strong {
+    color: var(--color-heading) !important;
+    font-weight: bold !important;
+}
+
+/* 9. Блок FPS */
+.container > .fps-box {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-card) !important;
+}
+
+.container > .fps-box .fps-title {
+    color: var(--color-logo) !important;
+    font-size: 1.3rem !important;
+    margin-bottom: 15px !important;
+    border-bottom: 1px dashed var(--border-card) !important;
+    padding-bottom: 10px !important;
+    font-weight: bold !important;
+    text-transform: uppercase !important;
+    font-family: inherit !important;
+}
+
+.container > .fps-box p {
+    font-size: 1.05rem !important;
+    line-height: 1.7 !important;
+    color: var(--color-text) !important;
+    margin-bottom: 15px !important;
+    padding: 0 !important;
+    background: transparent !important;
+    border: none !important;
+    box-shadow: none !important;
+    text-align: justify !important;
+    font-family: inherit !important;
+}
+
+.container > .fps-box p:last-child {
+    margin-bottom: 0 !important;
+}
+
+.container > .fps-box p strong {
+    color: var(--color-heading) !important;
+    font-weight: bold !important;
+    background: transparent !important;
+    padding: 0 !important;
+    border: none !important;
+}
+
+/* 10. Кнопка "На главную" */
+.container > a.back-btn {
+    display: block !important;
+    text-align: center !important;
+    padding: 15px !important;
+    background: var(--bg-card) !important;
+    color: var(--color-logo) !important;
+    border: 1px solid var(--color-logo) !important;
+    border-radius: 8px !important;
+    text-decoration: none !important;
+    font-weight: bold !important;
+    transition: all 0.3s ease !important;
+    margin-top: 20px !important;
+}
+
+.container > a.back-btn:hover {
+    background: var(--color-logo) !important;
+    color: var(--bg-body) !important;
+    box-shadow: 0 0 15px var(--shadow-hover) !important;
+}
+
+/* =========================================
+   11. БЛОК КОММЕНТАРИЕВ
+   ========================================= */
+
+div[id*="comments"], div[class*="comments"] {
+    max-width: 800px !important;
+    margin: 40px auto !important;
+    padding: 0 15px !important;
+}
+
+div[id*="comments"] h3, div[class*="comments"] h3 {
+    color: var(--color-logo) !important;
+    font-size: 1.3rem !important;
+    text-transform: uppercase !important;
+    letter-spacing: 1px !important;
+    margin-bottom: 20px !important;
+    border-bottom: 1px dashed var(--border-card) !important;
+    padding-bottom: 10px !important;
+    background: transparent !important;
+    box-shadow: none !important;
+}
+
+div[id*="comments"] form, div[class*="comments"] form {
+    background: var(--bg-card) !important;
+    border: 1px solid var(--border-card) !important;
+    padding: 25px !important;
+    border-radius: 12px !important;
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 15px !important;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2) !important;
+}
+
+div[id*="comments"] input, div[id*="comments"] textarea,
+div[class*="comments"] input, div[class*="comments"] textarea {
+    background: var(--bg-body) !important;
+    border: 1px solid var(--border-card) !important;
+    color: var(--color-text) !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    font-family: inherit !important;
+    font-size: 1rem !important;
+    outline: none !important;
+    width: 100% !important;
+    box-sizing: border-box !important;
+    transition: border-color 0.3s ease !important;
+}
+
+/* Цвет плейсхолдера (подсказки внутри поля) */
+div[id*="comments"] input::placeholder, div[id*="comments"] textarea::placeholder,
+div[class*="comments"] input::placeholder, div[class*="comments"] textarea::placeholder {
+    color: var(--color-subtitle) !important;
+}
+
+div[id*="comments"] input:focus, div[id*="comments"] textarea:focus,
+div[class*="comments"] input:focus, div[class*="comments"] textarea:focus {
+    border-color: var(--border-hover) !important;
+}
+
+div[id*="comments"] button, div[class*="comments"] button {
+    background: var(--color-logo) !important;
+    color: var(--bg-body) !important;
+    border: none !important;
+    border-radius: 8px !important;
+    padding: 14px 25px !important;
+    font-weight: bold !important;
+    font-size: 1rem !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+    align-self: flex-start !important;
+}
+
+div[id*="comments"] button:hover, div[class*="comments"] button:hover {
+    box-shadow: 0 0 15px var(--shadow-hover) !important;
+    transform: translateY(-2px) !important;
+}
