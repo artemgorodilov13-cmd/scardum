@@ -4,28 +4,52 @@
 
 {% block extra_head %}
 <style>
+    /* =====================  БАЗОВАЯ СТРУКТУРА  ===================== */
     body {
         display: flex;
         flex-direction: column;
         align-items: center;
         justify-content: center;
-        padding: 20px;
+        padding: 60px 20px 20px 20px;
     }
 
     .container {
         text-align: center;
-        max-width: 800px;
+        max-width: 1200px;
         width: 100%;
         position: relative;
+        margin: 0 auto;
     }
 
+    /* =====================  ШОКОЛАДНАЯ ТЕМА (ТОЛЬКО ДЛЯ DARK)  ===================== */
+    body:not(.light-theme):not(.vice-theme):not(.halloween-theme) {
+        --bg-body: #120e0d;
+        --bg-card: #1e1816;
+        --border-card: #332925;
+        --color-logo: #c87a54;       
+        --color-heading: #e0a96d;    
+        --border-hover: #c87a54;
+        --shadow: rgba(0, 0, 0, 0.6);
+        --shadow-hover: rgba(200, 122, 84, 0.4);
+        --badge-bg: #2a211d;
+        --badge-border: #3d2f28;
+        --badge-text: #c87a54;
+        --input-bg: #120e0d;
+        --input-border: #332925;
+        
+        background-color: #120e0d !important; 
+        background-image: radial-gradient(circle at center, #1c1615 0%, #120e0d 100%) !important;
+        background-attachment: fixed !important;
+    }
+
+    /* =====================  СТИЛИ ЭЛЕМЕНТОВ  ===================== */
     h1 {
-        color: var(--color-logo);
+        color: var(--color-logo) !important; 
         font-size: 4rem;
         margin: 0;
         font-family: monospace;
         letter-spacing: 5px;
-        text-shadow: 0 0 10px var(--shadow-hover);
+        text-shadow: 0 0 15px var(--shadow-hover) !important;
         transition: color 0.3s ease, text-shadow 0.3s ease;
     }
 
@@ -36,34 +60,98 @@
         line-height: 1.6;
     }
 
-    /* =====================  Сетка карточек  ===================== */
+    /* Таймер GTA VI */
+    .gta6-countdown {
+        max-width: 400px;
+        margin: 20px auto 0;
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-card) !important;
+        border-radius: 12px;
+        padding: 20px 16px;
+        box-shadow: 0 10px 30px var(--shadow) !important;
+    }
+    .gta6-countdown-title {
+        text-align: center; color: var(--color-logo) !important;
+        font-size: 0.9rem; font-weight: bold; letter-spacing: 0.5px; margin-bottom: 4px;
+    }
+    .gta6-countdown-date {
+        text-align: center; color: var(--color-subtitle);
+        font-size: 0.75rem; margin-bottom: 16px;
+    }
+    .gta6-countdown-grid { 
+        display: grid !important; grid-template-columns: repeat(4, 1fr) !important; gap: 8px !important; 
+    }
+    .gta6-countdown-box { 
+        background: var(--bg-body) !important; border: 1px solid var(--border-card) !important;
+        border-radius: 8px !important; padding: 10px 4px !important; text-align: center !important; 
+    }
+    .gta6-countdown-num { 
+        color: var(--color-logo) !important; font-size: clamp(16px, 5vw, 26px) !important; font-weight: bold !important; 
+    }
+    .gta6-countdown-label { 
+        color: var(--color-text); font-size: 0.68rem !important; margin-top: 2px !important; 
+    }
+
+    /* Вкладки */
+    .page-tabs { display: flex !important; justify-content: center !important; gap: 10px !important; margin: 24px 0 10px !important; flex-wrap: wrap !important; }
+    .page-tab {
+        background: var(--bg-card) !important; border: 1px solid var(--border-card) !important;
+        color: var(--color-text) !important; padding: 10px 22px !important; border-radius: 20px !important;
+        cursor: pointer !important; font-size: 0.95rem !important; font-weight: bold !important; transition: all 0.25s ease !important;
+    }
+    .page-tab:hover { border-color: var(--border-hover) !important; }
+    .page-tab.active { background: var(--color-logo) !important; border-color: var(--color-logo) !important; color: var(--bg-body) !important; }
+
+    /* Поиск и фильтр */
+    .search-container { margin: 20px auto !important; width: 100% !important; max-width: 400px !important; position: relative !important; }
+    .search-row { display: flex !important; align-items: center !important; gap: 10px !important; }
+    .search-row #game-search { flex: 1 !important; border-radius: 25px !important; padding: 12px 20px !important; color: var(--input-text) !important; font-size: 1rem !important; outline: none !important; background: var(--bg-card) !important; border: 1px solid var(--border-card) !important; }
+    #game-search::placeholder { color: var(--color-subtitle) !important; }
+    #filter-btn { flex-shrink: 0 !important; width: 44px !important; height: 44px !important; display: flex !important; align-items: center !important; justify-content: center !important; border-radius: 50% !important; color: var(--color-logo) !important; cursor: pointer !important; transition: all 0.25s ease !important; background: var(--bg-card) !important; border: 1px solid var(--border-card) !important; }
+    #filter-btn:hover, #filter-btn.has-active { background: var(--color-logo) !important; color: var(--bg-body) !important; }
+
+    .filter-dropdown { position: absolute !important; top: calc(100% + 10px) !important; left: 0 !important; right: 0 !important; z-index: 20 !important; max-height: 280px !important; overflow-y: auto !important; border-radius: 14px !important; text-align: left !important; padding: 6px !important; opacity: 0 !important; transform: translateY(-8px) !important; visibility: hidden !important; pointer-events: none !important; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s !important; background: var(--bg-card) !important; border: 1px solid var(--border-card) !important; }
+    .filter-dropdown:not(.hidden) { opacity: 1 !important; transform: translateY(0) !important; visibility: visible !important; pointer-events: auto !important; }
+    .filter-option { display: flex !important; align-items: center !important; gap: 12px !important; padding: 9px 12px !important; cursor: pointer !important; color: var(--color-text) !important; font-size: 0.92rem !important; border-radius: 8px !important; transition: background 0.15s ease !important; }
+    .filter-option:hover { background: var(--bg-body) !important; }
+    .filter-option.active { color: var(--color-logo) !important; font-weight: bold !important; background: var(--bg-body) !important; }
+    .filter-option span { flex: 1 !important; }
+    .filter-option.active::after { content: "✓" !important; color: var(--color-logo) !important; }
+    .filter-icon-wrap { width: 26px !important; height: 26px !important; border-radius: 7px !important; background: #ffffff !important; display: flex !important; align-items: center !important; justify-content: center !important; flex-shrink: 0 !important; overflow: hidden !important; }
+    .filter-icon { width: 100% !important; height: 100% !important; object-fit: contain !important; padding: 2px !important; }
+
+    /* =====================  СЕТКА КАРТОЧЕК (ГЛАВНЫЙ ФИКС) ===================== */
     .games-grid {
-        display: flex;
-        justify-content: center;
-        gap: 20px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 24px;
         margin-top: 40px;
-        flex-wrap: wrap;
+        text-align: left;
+        
+        /* ВОТ ОНО! Карточки больше не будут растягиваться, оставляя пустоты */
+        align-items: start; 
     }
 
     .game-card {
         position: relative;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
+        background: var(--bg-card) !important;
+        border: 1px solid var(--border-card) !important;
         border-radius: 12px;
-        width: 280px;
+        width: 100%;
         padding: 24px;
-        text-align: left;
         text-decoration: none;
         color: var(--color-text);
         transition: all 0.3s ease;
         box-shadow: 0 4px 10px var(--shadow);
         line-height: 1.5;
+        display: flex;
+        flex-direction: column;
     }
 
     .game-card:hover {
         transform: translateY(-5px);
-        border-color: var(--border-hover);
-        box-shadow: 0 10px 20px var(--shadow-hover);
+        border-color: var(--border-hover) !important;
+        box-shadow: 0 10px 30px var(--shadow), 0 0 15px var(--shadow-hover) !important;
     }
 
     .game-card h3 {
@@ -74,383 +162,65 @@
         transition: color 0.3s ease;
     }
 
+    /* Ограничиваем текст, чтобы он не делал карточки слишком длинными */
+    .game-card-text {
+        display: -webkit-box;
+        -webkit-line-clamp: 6; /* Максимум 6 строк текста */
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
     .game-badge {
         display: inline-block;
         padding: 4px 10px;
-        background: var(--badge-bg);
-        color: var(--badge-text);
-        border: 1px solid var(--badge-border);
+        background: var(--badge-bg) !important;
+        color: var(--badge-text) !important;
+        border: 1px solid var(--badge-border) !important;
         border-radius: 5px;
         font-size: 0.8rem;
         font-weight: bold;
         margin-bottom: 10px;
-        transition: all 0.3s ease;
+        align-self: flex-start;
     }
 
-    /* =====================  Поиск  ===================== */
-    .search-container {
-        margin: 20px 0;
-        width: 100%;
-        max-width: 400px;
-        display: inline-block;
-        position: relative;
-    }
+    /* DLC и Реакции */
+    .dlc-toggle { position: absolute !important; top: 14px !important; right: 14px !important; display: flex !important; align-items: center !important; gap: 5px !important; background: var(--bg-body) !important; color: var(--color-logo) !important; border: 1px solid var(--border-hover) !important; border-radius: 20px !important; padding: 5px 11px !important; font-size: 0.72rem !important; font-weight: bold !important; cursor: pointer !important; z-index: 6 !important; box-shadow: 0 0 8px var(--shadow-hover) !important; transition: all 0.3s ease !important; }
+    .dlc-toggle:hover { background: var(--color-logo) !important; color: var(--bg-body) !important; }
+    .dlc-dropdown { position: absolute !important; top: 48px !important; right: 14px !important; min-width: 200px !important; background: var(--bg-card) !important; border: 1px solid var(--border-hover) !important; border-radius: 12px !important; padding: 6px !important; z-index: 10 !important; box-shadow: 0 8px 20px var(--shadow) !important; opacity: 0 !important; transform: translateY(-8px) scale(0.97) !important; visibility: hidden !important; pointer-events: none !important; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s !important; }
+    .dlc-dropdown.open { opacity: 1 !important; transform: translateY(0) scale(1) !important; visibility: visible !important; pointer-events: auto !important; }
+    .dlc-dropdown-item { display: flex !important; align-items: center !important; gap: 8px !important; padding: 8px 10px !important; border-radius: 8px !important; color: var(--color-text) !important; font-size: 0.85rem !important; cursor: pointer !important; transition: background 0.15s ease, color 0.15s ease !important; }
+    .dlc-dropdown-item:hover { background: var(--bg-body) !important; color: var(--color-logo) !important; }
+    .dlc-dropdown-item::before { content: "📦" !important; font-size: 0.9rem !important; }
 
-    #game-search {
-        width: 100%;
-        padding: 12px 20px;
-        background: var(--bg-card);
-        border: 1px solid var(--input-border);
-        border-radius: 25px;
-        color: var(--input-text);
-        font-size: 1rem;
-        outline: none;
-        transition: all 0.3s ease;
-    }
-    #game-search::placeholder { color: var(--color-subtitle); }
+    .reactions-panel { position: absolute !important; top: 50% !important; display: flex !important; flex-direction: column !important; gap: 6px !important; background: var(--bg-card) !important; border: 1px solid var(--border-card) !important; border-radius: 16px !important; padding: 8px 6px !important; box-shadow: 0 4px 10px var(--shadow) !important; opacity: 0 !important; visibility: hidden !important; pointer-events: none !important; transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s !important; z-index: 10 !important; }
+    .reactions-panel.panel-left  { left: -46px !important;  transform: translate(-6px, -50%) !important; }
+    .reactions-panel.panel-right { right: -46px !important; transform: translate(6px, -50%) !important; }
+    .game-card:hover .reactions-panel.panel-left, .game-card:focus-within .reactions-panel.panel-left, .game-card:hover .reactions-panel.panel-right, .game-card:focus-within .reactions-panel.panel-right { opacity: 1 !important; visibility: visible !important; transform: translate(0, -50%) !important; pointer-events: auto !important; }
+    .reaction-btn { background: none !important; border: none !important; cursor: pointer !important; font-size: 1rem !important; color: var(--color-text) !important; display: flex !important; flex-direction: column !important; align-items: center !important; gap: 1px !important; padding: 3px 4px !important; border-radius: 6px !important; transition: transform 0.15s ease, background 0.15s ease, opacity 0.3s ease !important; }
+    .reaction-btn:hover { background: var(--bg-body) !important; transform: scale(1.15) !important; }
+    .reaction-count { font-size: 0.65rem !important; opacity: 0.75 !important; }
+    .reactions-panel.already-reacted .reaction-btn { pointer-events: none !important; opacity: 0.4 !important; filter: grayscale(0.7) !important; }
 
-    .search-row { display: flex; align-items: center; gap: 10px; }
-    .search-row #game-search { flex: 1; }
+    /* Форма предложки */
+    .suggest-section { max-width: 480px !important; margin: 30px auto 0 !important; text-align: left !important; }
+    .suggest-section form { background: var(--bg-card) !important; border: 1px solid var(--border-card) !important; border-radius: 12px !important; padding: 24px !important; box-shadow: 0 4px 10px var(--shadow) !important; }
+    .suggest-section input[type="text"], .suggest-section textarea { width: 100% !important; padding: 12px 16px !important; background: var(--input-bg) !important; border: 1px solid var(--input-border) !important; border-radius: 8px !important; color: var(--input-text) !important; font-size: 1rem !important; margin-bottom: 14px !important; font-family: inherit !important; }
+    .suggest-section textarea { min-height: 90px !important; resize: vertical !important; }
+    .suggest-section button { width: 100% !important; padding: 12px !important; background: var(--color-logo) !important; border: none !important; border-radius: 8px !important; font-weight: bold !important; cursor: pointer !important; font-size: 1rem !important; color: var(--bg-body) !important; }
+    .suggest-section button:hover { opacity: 0.9 !important; }
+    .suggest-status { margin-top: 12px !important; font-size: 0.9rem !important; text-align: center !important; }
+    .suggest-status.ok { color: var(--color-logo) !important; }
+    .suggest-status.err { color: #ff6b6b !important; }
+    .suggest-honeypot { position: absolute !important; left: -9999px !important; width: 1px !important; height: 1px !important; opacity: 0 !important; }
 
-    #filter-btn {
-        flex-shrink: 0;
-        width: 44px;
-        height: 44px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--bg-card);
-        border: 1px solid var(--input-border);
-        border-radius: 50%;
-        color: var(--color-logo);
-        cursor: pointer;
-        transition: all 0.25s ease;
-    }
-    #filter-btn:hover, #filter-btn.has-active {
-        background: var(--color-logo);
-        color: var(--bg-body);
-    }
-
-    .filter-dropdown {
-        position: absolute;
-        top: calc(100% + 10px);
-        left: 0;
-        right: 0;
-        z-index: 20;
-        max-height: 280px;
-        overflow-y: auto;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        border-radius: 14px;
-        box-shadow: 0 8px 20px var(--shadow);
-        text-align: left;
-        padding: 6px;
-        opacity: 0;
-        transform: translateY(-8px);
-        visibility: hidden;
-        pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
-    }
-    .filter-dropdown:not(.hidden) {
-        opacity: 1;
-        transform: translateY(0);
-        visibility: visible;
-        pointer-events: auto;
-    }
-
-    .filter-option {
-        display: flex;
-        align-items: center;
-        gap: 12px;
-        padding: 9px 12px;
-        cursor: pointer;
-        color: var(--color-text);
-        font-size: 0.92rem;
-        border-radius: 8px;
-        transition: background 0.15s ease;
-    }
-    .filter-option:hover { background: rgba(102, 252, 241, 0.1); }
-    .filter-option.active { background: rgba(102, 252, 241, 0.12); color: var(--color-logo); font-weight: bold; }
-    .filter-option span { flex: 1; }
-    .filter-option.active::after { content: "✓"; color: var(--color-logo); }
-
-    .filter-icon-wrap {
-        width: 26px; height: 26px; border-radius: 7px;
-        background: #ffffff; display: flex; align-items: center; justify-content: center;
-        flex-shrink: 0; overflow: hidden;
-    }
-    .filter-icon { width: 100%; height: 100%; object-fit: contain; padding: 2px; }
-
-    /* =====================  DLC-кнопка  ===================== */
-    .dlc-toggle {
-        position: absolute;
-        top: 14px; right: 14px;
-        display: flex; align-items: center; gap: 5px;
-        background: var(--bg-body);
-        color: var(--color-logo);
-        border: 1px solid var(--border-hover);
-        border-radius: 20px;
-        padding: 5px 11px;
-        font-size: 0.72rem; font-weight: bold;
-        cursor: pointer; z-index: 6;
-        box-shadow: 0 0 8px var(--shadow-hover);
-        animation: dlc-pulse 2.4s ease-in-out infinite;
-        transition: all 0.3s ease;
-    }
-    .dlc-toggle:hover { background: var(--color-logo); color: var(--bg-body); animation: none; }
-    .dlc-toggle .dlc-chevron { transition: transform 0.25s ease; font-size: 0.6rem; }
-    .dlc-toggle.open .dlc-chevron { transform: rotate(180deg); }
-
-    @keyframes dlc-pulse {
-        0%, 100% { box-shadow: 0 0 6px var(--shadow-hover); }
-        50%      { box-shadow: 0 0 14px var(--shadow-hover), 0 0 4px var(--border-hover); }
-    }
-
-    .dlc-dropdown {
-        position: absolute;
-        top: 48px; right: 14px;
-        min-width: 200px;
-        background: var(--bg-card);
-        border: 1px solid var(--border-hover);
-        border-radius: 12px;
-        padding: 6px;
-        z-index: 10;
-        box-shadow: 0 8px 20px var(--shadow);
-        opacity: 0;
-        transform: translateY(-8px) scale(0.97);
-        visibility: hidden; pointer-events: none;
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s, background 0.3s ease, border-color 0.3s ease;
-    }
-    .dlc-dropdown.open {
-        opacity: 1; transform: translateY(0) scale(1);
-        visibility: visible; pointer-events: auto;
-    }
-
-    .dlc-dropdown-item {
-        display: flex; align-items: center; gap: 8px;
-        padding: 8px 10px; border-radius: 8px;
-        color: var(--color-text); font-size: 0.85rem;
-        cursor: pointer;
-        transition: background 0.15s ease, color 0.15s ease;
-    }
-    .dlc-dropdown-item:hover { background: rgba(102, 252, 241, 0.12); color: var(--color-logo); }
-    .dlc-dropdown-item::before { content: "📦"; font-size: 0.9rem; }
-
-    /* =====================  Специальные карточки (souls-like)  ===================== */
-    .game-card.ds-special { transition: all 0.5s cubic-bezier(0.25, 0.8, 0.25, 1); }
-    .game-card.ds-special:hover {
-        background: #040405;
-        border-color: #1c1d22;
-        box-shadow: 0 0 30px rgba(0, 0, 0, 1), 0 0 50px rgba(0, 0, 0, 0.9), 0 0 15px rgba(255, 0, 0, 0.15);
-        transform: translateY(-3px) scale(0.99);
-    }
-    .game-card.ds-special:hover h3 { color: #8a0303; text-shadow: 0 0 8px rgba(138, 3, 3, 0.4); }
-    .game-card.ds-special:hover .game-card-text { color: #55565a; }
-    .game-card.ds-special .game-badge {
-        background-color: #1a0505; color: #ff4d4d; border: 1px solid #8a0303;
-    }
-    .game-card.ds-special:hover .game-badge {
-        background-color: #8a0303; color: #ffffff;
-        box-shadow: 0 0 10px rgba(138, 33, 33, 0.6);
-    }
-
-    /* =====================  Панель реакций  ===================== */
-    .reactions-panel {
-        position: absolute;
-        top: 50%;
-        display: flex;
-        flex-direction: column;
-        gap: 6px;
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        border-radius: 16px;
-        padding: 8px 6px;
-        box-shadow: 0 4px 10px var(--shadow);
-        
-        /* ЖЕСТКО ПРЯЧЕМ */
-        opacity: 0;
-        visibility: hidden; 
-        pointer-events: none;
-        
-        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s, 
-                    background-color 0.3s ease, border-color 0.3s ease;
-        z-index: 10;
-    }
-    
-    .reactions-panel.panel-left  { left: -46px;  transform: translate(-6px, -50%); }
-    .reactions-panel.panel-right { right: -46px; transform: translate(6px, -50%); }
-    
-    /* ПОКАЗЫВАЕМ ТОЛЬКО ПРИ НАВЕДЕНИИ */
-    .game-card:hover .reactions-panel.panel-left,
-    .game-card:focus-within .reactions-panel.panel-left,
-    .game-card:hover .reactions-panel.panel-right,
-    .game-card:focus-within .reactions-panel.panel-right {
-        opacity: 1; 
-        visibility: visible;
-        transform: translate(0, -50%); 
-        pointer-events: auto;
-    }
-    
-    .reaction-btn {
-        background: none; border: none; cursor: pointer;
-        font-size: 1rem; color: var(--color-text);
-        display: flex; flex-direction: column; align-items: center; gap: 1px;
-        padding: 3px 4px; border-radius: 6px;
-        transition: transform 0.15s ease, background 0.15s ease, opacity 0.3s ease;
-    }
-    .reaction-btn:hover { background: rgba(102, 252, 241, 0.15); transform: scale(1.15); }
-    .reaction-count { font-size: 0.65rem; opacity: 0.75; }
-    
-    .reactions-panel.already-reacted .reaction-btn {
-        pointer-events: none;
-        opacity: 0.4;
-        filter: grayscale(0.7);
-    }
+    .status { margin-top: 50px !important; display: inline-block !important; padding: 8px 20px !important; background: var(--bg-card) !important; border: 1px solid var(--color-logo) !important; border-radius: 20px !important; font-size: 0.9rem !important; color: var(--color-logo) !important; transition: all 0.2s ease !important; text-decoration: none !important; }
+    .status:hover { background: var(--color-logo) !important; color: var(--bg-body) !important; }
 
     @media (max-width: 700px) {
-        .reactions-panel {
-            top: -16px !important;
-            left: auto !important; right: 14px !important; bottom: auto !important;
-            flex-direction: row !important;
-            transform: translateY(6px) !important;
-        }
-        .game-card:hover .reactions-panel,
-        .game-card:focus-within .reactions-panel { transform: translateY(0) !important; }
-        h1 { font-size: 2.4rem; letter-spacing: 3px; }
-    }
-
-    /* =====================  Вкладки  ===================== */
-    .page-tabs {
-        display: flex; justify-content: center; gap: 10px;
-        margin: 24px 0 10px; flex-wrap: wrap;
-    }
-    .page-tab {
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        color: var(--color-text);
-        padding: 10px 22px;
-        border-radius: 20px;
-        cursor: pointer;
-        font-size: 0.95rem; font-weight: bold;
-        transition: all 0.25s ease;
-    }
-    .page-tab:hover { border-color: var(--border-hover); }
-    .page-tab.active {
-        background: var(--color-logo);
-        color: var(--bg-body);
-        border-color: var(--color-logo);
-    }
-
-    .suggest-section { max-width: 480px; margin: 30px auto 0; text-align: left; }
-    .suggest-section form {
-        background: var(--bg-card);
-        border: 1px solid var(--border-card);
-        border-radius: 12px;
-        padding: 24px;
-        box-shadow: 0 4px 10px var(--shadow);
-    }
-    .suggest-section input[type="text"],
-    .suggest-section textarea {
-        width: 100%;
-        padding: 12px 16px;
-        background: var(--input-bg);
-        border: 1px solid var(--input-border);
-        border-radius: 8px;
-        color: var(--input-text);
-        font-size: 1rem;
-        margin-bottom: 14px;
-        font-family: inherit;
-    }
-    .suggest-section textarea { min-height: 90px; resize: vertical; }
-    .suggest-section button {
-        width: 100%; padding: 12px;
-        background: var(--color-logo);
-        border: none; border-radius: 8px;
-        font-weight: bold; cursor: pointer; font-size: 1rem;
-        color: var(--bg-body);
-    }
-    .suggest-section button:hover { opacity: 0.9; }
-    .suggest-section button:disabled { opacity: 0.6; cursor: default; }
-    .suggest-status { margin-top: 12px; font-size: 0.9rem; text-align: center; }
-    .suggest-status.ok { color: var(--color-logo); }
-    .suggest-status.err { color: #ff6b6b; }
-    .suggest-honeypot {
-        position: absolute; left: -9999px;
-        width: 1px; height: 1px; opacity: 0;
-    }
-
-    /* =====================  Таймер GTA VI  ===================== */
-    .gta6-countdown {
-        max-width: 360px; margin: 20px auto 0;
-        background: var(--bg-card);
-        border: 1px solid var(--border-hover);
-        border-radius: 12px;
-        padding: 20px 16px;
-        box-shadow: 0 0 15px var(--shadow);
-        transition: all 0.3s ease;
-    }
-    .gta6-countdown-title {
-        text-align: center; color: var(--color-logo);
-        font-size: 0.9rem; font-weight: bold;
-        letter-spacing: 0.5px; margin-bottom: 4px;
-    }
-    .gta6-countdown-date {
-        text-align: center; color: var(--color-subtitle);
-        font-size: 0.75rem; margin-bottom: 16px;
-    }
-    .gta6-countdown-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 8px; }
-    .gta6-countdown-box { background: var(--bg-body); border-radius: 8px; padding: 10px 4px; text-align: center; }
-    .gta6-countdown-num { color: var(--color-logo); font-size: clamp(16px, 5vw, 26px); font-weight: bold; }
-    .gta6-countdown-label { color: var(--color-text); font-size: 0.68rem; margin-top: 2px; }
-
-    .status {
-        margin-top: 50px; display: inline-block;
-        padding: 8px 20px;
-        background: var(--bg-card);
-        border: 1px solid var(--color-logo);
-        border-radius: 20px;
-        font-size: 0.9rem; color: var(--color-logo);
-        transition: all 0.2s ease;
-        text-decoration: none;
-    }
-    .status:hover { background: var(--color-logo); color: var(--bg-body); box-shadow: 0 0 15px var(--shadow-hover); }
-
-    /* =====================  ВИЗУАЛЬНЫЕ ФИШКИ ДЛЯ ХЭЛЛОУИНА  ===================== */
-    
-    /* 1. Жуткое свечение карточек */
-    body.halloween-theme .game-card:hover {
-        box-shadow: 0 0 20px rgba(255, 106, 0, 0.4), 0 10px 20px rgba(0, 0, 0, 0.6);
-        border-color: #ff6a00;
-    }
-
-    /* 2. Мерцание заголовка карточки (как сломанная лампа) */
-    body.halloween-theme .game-card:hover h3 {
-        animation: spooky-flicker 2s infinite alternate;
-    }
-    
-    @keyframes spooky-flicker {
-        0%, 100% { text-shadow: 0 0 5px rgba(255, 106, 0, 0.5); color: #ffb347; }
-        50% { text-shadow: 0 0 15px rgba(255, 106, 0, 0.9), 0 0 20px rgba(255, 106, 0, 0.5); color: #ff6a00; }
-    }
-
-    /* 3. Фикс панели реакций */
-    body.halloween-theme .reactions-panel {
-        background: #1a0f05 !important;
-        border-color: #ff6a00 !important;
-        box-shadow: 0 4px 15px rgba(255, 106, 0, 0.3) !important;
-    }
-    body.halloween-theme .reaction-count { color: #ffb347 !important; }
-    body.halloween-theme .reaction-btn:hover { background: rgba(255, 106, 0, 0.2) !important; }
-
-    /* 4. Фиксы для фильтра и DLC */
-    body.halloween-theme .filter-option:hover,
-    body.halloween-theme .filter-option.active,
-    body.halloween-theme .dlc-dropdown-item:hover {
-        background: rgba(255, 106, 0, 0.15) !important;
-    }
-    
-    body.halloween-theme .game-badge {
-        box-shadow: 0 0 8px rgba(255, 106, 0, 0.4);
+        .reactions-panel { top: -16px !important; left: auto !important; right: 14px !important; bottom: auto !important; flex-direction: row !important; transform: translateY(6px) !important; }
+        .game-card:hover .reactions-panel, .game-card:focus-within .reactions-panel { transform: translateY(0) !important; }
+        h1 { font-size: 2.4rem !important; letter-spacing: 3px !important; }
     }
 </style>
 {% endblock %}
@@ -547,17 +317,12 @@
         const cards = document.querySelectorAll('.game-card');
         const publishers = new Set();
         cards.forEach(card => { if (card.dataset.publisher) publishers.add(card.dataset.publisher); });
-
         [...publishers].sort((a, b) => a.localeCompare(b, 'ru')).forEach(pub => {
             const opt = document.createElement('div');
             opt.className = 'filter-option';
             opt.dataset.publisher = pub;
             const iconFile = pub.toLowerCase().replace(/\s+/g, '') + '.jpg';
-            opt.innerHTML = `
-                <div class="filter-icon-wrap">
-                    <img src="/static/icons/${iconFile}" alt="" class="filter-icon" onerror="this.parentElement.style.display='none'">
-                </div>
-                <span>${pub}</span>`;
+            opt.innerHTML = `<div class="filter-icon-wrap"><img src="/static/icons/${iconFile}" alt="" class="filter-icon" onerror="this.parentElement.style.display='none'"></div><span>${pub}</span>`;
             filterDropdown.appendChild(opt);
         });
     }
@@ -570,7 +335,7 @@
             const pub = card.dataset.publisher || '';
             const matchText = title.includes(filter) || text.includes(filter);
             const matchPub = activePublisher === 'all' || pub === activePublisher;
-            card.style.display = (matchText && matchPub) ? 'block' : 'none';
+            card.style.display = (matchText && matchPub) ? 'flex' : 'none'; 
         });
         updateReactionPanelSides();
     }
@@ -590,9 +355,7 @@
             applyFilters();
         });
         document.addEventListener('click', e => {
-            if (!filterDropdown.contains(e.target) && e.target !== filterBtn && !filterBtn.contains(e.target)) {
-                filterDropdown.classList.add('hidden');
-            }
+            if (!filterDropdown.contains(e.target) && e.target !== filterBtn && !filterBtn.contains(e.target)) { filterDropdown.classList.add('hidden'); }
         });
     }
 
@@ -728,13 +491,7 @@
             const d = document.getElementById('gta6-days');
             if (!d) return;
             const diff = target - Date.now();
-            if (diff <= 0) {
-                d.textContent = '0';
-                document.getElementById('gta6-hours').textContent = '00';
-                document.getElementById('gta6-minutes').textContent = '00';
-                document.getElementById('gta6-seconds').textContent = '00';
-                return;
-            }
+            if (diff <= 0) { d.textContent = '0'; document.getElementById('gta6-hours').textContent = '00'; document.getElementById('gta6-minutes').textContent = '00'; document.getElementById('gta6-seconds').textContent = '00'; return; }
             const days = Math.floor(diff / 86400000);
             const hours = Math.floor((diff % 86400000) / 3600000);
             const minutes = Math.floor((diff % 3600000) / 60000);

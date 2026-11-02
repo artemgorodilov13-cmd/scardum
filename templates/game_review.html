@@ -2,10 +2,15 @@
 
 {% block title %}Directive 8020 - Обзор SCARDUM{% endblock %}
 
+{% block extra_head %}
+    <!-- Подключаем стили для страниц игр -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/game.css') }}">
+{% endblock %}
+
 {% block content %}
-<div class="container game-content" style="max-width: 800px; margin: 40px auto; background: var(--bg-card); border: 1px solid var(--border-card); border-radius: 12px; padding: 30px; box-shadow: 0 10px 30px var(--shadow);">
+<div class="container game-content">
     
-    <h1 style="color: var(--color-logo); border-bottom: 2px solid var(--border-hover); padding-bottom: 10px; margin-top: 0;">Directive 8020</h1>
+    <h1>Directive 8020</h1>
 
     <div class="game-info-panel">
         <div class="info-row">
@@ -29,8 +34,9 @@
     <h3>Сюжет</h3>
     <p>Экипаж корабля Cassiopeia летит к далекой планете с гордым названием Тау Кита, чтобы спасти человечество от вымирания. Но вместо спасения они привозят на борт нечто, что умеет отлично притворяться людьми. Это не <strong>Нечто</strong>, но очень старается им быть. Ты играешь за астронавтов, которые вынуждены выживать в замкнутом пространстве, где каждый из твоих коллег может оказаться инопланетной тварью, мечтающей сожрать твои внутренности. Главная фишка игры - система <strong>Turning Points</strong>, которая позволяет откатить любой выбор и посмотреть, что было бы, если бы ты поступил иначе. Жаль только, что сюжет и диалоги настолько пресные, что откатывать их обратно не хочется вообще.</p>
 
-    <div style="width: 100%; margin: 30px 0; border-radius: 8px; border: 1px solid var(--border-hover); box-shadow: 0 0 15px var(--shadow-hover);">
-        <img src="{{ url_for('static', filename='images/directive8020_screen.jpg') }}" style="width: 100%; display: block; border-radius: 7px;">
+    <!-- Скриншот теперь в отдельном div с классом -->
+    <div class="game-screenshot-box">
+        <img src="{{ url_for('static', filename='images/directive8020_screen.jpg') }}" alt="Скриншот Directive 8020">
     </div>
 
     <h3>Системные требования</h3>
@@ -53,8 +59,8 @@
     <h3>Итог</h3>
     <p><strong>Вердикт</strong> - Directive 8020 пытается быть Нечто, но получается у нее это с трудом. Стоит играть только на мощном железе и с огромным запасом терпения. 6 удачных прыжков из 10.</p>
 
-    <div style="text-align: center; margin-top: 40px;">
-        <a href="/" class="back-btn" onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}" style="color: var(--color-logo); text-decoration: none; font-weight: bold; border: 1px solid var(--color-logo); padding: 10px 20px; border-radius: 8px;">
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="/" class="back-btn" onclick="if(document.referrer.includes(window.location.host)){history.back();return false;}">
             ← На главную
         </a>
     </div>

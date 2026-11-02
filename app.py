@@ -158,7 +158,7 @@ def game_page(game_slug):
 
         # 2. Стили светлой темы из game_review.html
         theme_styles = """
-	<link rel="stylesheet" href="/static/game.css">
+	<link rel="stylesheet" href="/static/css/game.css">
         <style>
             /* === СВЕТЛАЯ ТЕМА === */
             body.light-theme { background: #f4f7f6 !important; color: #2d3748 !important; }
